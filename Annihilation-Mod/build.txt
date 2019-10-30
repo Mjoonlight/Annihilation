@@ -1,3 +1,0 @@
-displayName = The Annihilation Mod
-author = Delta Bec Noir
-version = 0.1
