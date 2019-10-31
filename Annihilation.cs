@@ -5,7 +5,7 @@ namespace Annihilation
 	public class Annihilation : Mod
 	{
 		public Annihilation()
-		{
+        {
 		}
 	}
 }
