@@ -65,6 +65,24 @@ namespace Annihilation.NPCs.Megnatar
                 TheUltimateMemeBec = 5;
             }
         }
+
+        // = ---------
+        // Glowmask
+        // = ---------
+		public override void PostDraw(SpriteBatch spriteBatch, Color drawColor)
+		{
+			SpriteEffects spriteEffects = SpriteEffects.None;
+			if (npc.spriteDirection == 1)
+			{
+				spriteEffects = SpriteEffects.FlipHorizontally;
+			}
+			
+			float num71 = 0f;
+			float num72 = 0f;
+			Vector2 vector12 = new Vector2((float)(Main.npcTexture[npc.type].Width / 2), (float)(Main.npcTexture[npc.type].Height / Main.npcFrameCount[npc.type] / 2));
+			Main.spriteBatch.Draw(Annihilation.instance.GetTexture("Glowmasks/Megnatar_Glow"), npc.Bottom - Main.screenPosition + new Vector2((0f - (float)Main.npcTexture[npc.type].Width) * npc.scale / 2f + vector12.X * npc.scale, (0f - (float)Main.npcTexture[npc.type].Height) * npc.scale / (float)Main.npcFrameCount[npc.type] + 4f + vector12.Y * npc.scale + num72 + npc.gfxOffY), npc.frame, new Microsoft.Xna.Framework.Color(255 - npc.alpha, 255 - npc.alpha, 255 - npc.alpha, 255 - npc.alpha), npc.rotation, vector12, npc.scale, spriteEffects, 0f);
+		}
+        
         public override void AI()
         {
             if (Main.netMode != 1 && npc.localAI[0] == 0f)
