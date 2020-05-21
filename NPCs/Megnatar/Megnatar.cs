@@ -44,7 +44,7 @@ namespace Annihilation.NPCs.Megnatar
             npc.buffImmune[BuffID.OnFire] = true;
             npc.buffImmune[BuffID.ShadowFlame] = true;
             npc.buffImmune[BuffID.Confused] = true;
-            music = MusicID.Boss2;
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Megnatar");
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
