@@ -1,10 +1,14 @@
-﻿using Microsoft.Xna.Framework;
-using System;
+﻿using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.Graphics;
+using Terraria.Graphics.Effects;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -23,13 +27,13 @@ namespace Annihilation.NPCs.Megnatar
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Megnatar, Chaos Bringer");
-            Main.npcFrameCount[npc.type] = 7;
+            Main.npcFrameCount[npc.type] = 12;
         }
         public override void SetDefaults()
         {
             npc.width = 142;
             npc.height = 128;
-            npc.aiStyle = -1;
+            npc.aiStyle = -1; // Megnatar has its own AI
             npc.damage = 26;
             npc.defense = 10;
             npc.lifeMax = 3000;
@@ -37,8 +41,8 @@ namespace Annihilation.NPCs.Megnatar
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
+            npc.HitSound = SoundID.NPCHit42;
+            npc.DeathSound = SoundID.NPCDeath14;
             npc.buffImmune[BuffID.Frostburn] = true;
             npc.buffImmune[BuffID.CursedInferno] = true;
             npc.buffImmune[BuffID.OnFire] = true;
@@ -58,7 +62,7 @@ namespace Annihilation.NPCs.Megnatar
             if (TheUltimateMemeBec == 0)
             {
                 npc.frame.Y += 128;
-                if (npc.frame.Y == 896)
+                if (npc.frame.Y == 1536)
                 {
                     npc.frame.Y = 0;
                 }
@@ -69,19 +73,19 @@ namespace Annihilation.NPCs.Megnatar
         // = ---------
         // Glowmask
         // = ---------
-		public override void PostDraw(SpriteBatch spriteBatch, Color drawColor)
+	/* public override void PostDraw(SpriteBatch spriteBatch, Color drawColor)
+	{
+		SpriteEffects spriteEffects = SpriteEffects.None;
+		if (npc.spriteDirection == 1)
 		{
-			SpriteEffects spriteEffects = SpriteEffects.None;
-			if (npc.spriteDirection == 1)
-			{
-				spriteEffects = SpriteEffects.FlipHorizontally;
-			}
-			
-			float num71 = 0f;
-			float num72 = 0f;
-			Vector2 vector12 = new Vector2((float)(Main.npcTexture[npc.type].Width / 2), (float)(Main.npcTexture[npc.type].Height / Main.npcFrameCount[npc.type] / 2));
-			Main.spriteBatch.Draw(Annihilation.instance.GetTexture("Glowmasks/Megnatar_Glow"), npc.Bottom - Main.screenPosition + new Vector2((0f - (float)Main.npcTexture[npc.type].Width) * npc.scale / 2f + vector12.X * npc.scale, (0f - (float)Main.npcTexture[npc.type].Height) * npc.scale / (float)Main.npcFrameCount[npc.type] + 4f + vector12.Y * npc.scale + num72 + npc.gfxOffY), npc.frame, new Microsoft.Xna.Framework.Color(255 - npc.alpha, 255 - npc.alpha, 255 - npc.alpha, 255 - npc.alpha), npc.rotation, vector12, npc.scale, spriteEffects, 0f);
+			spriteEffects = SpriteEffects.FlipHorizontally;
 		}
+			
+		float num71 = 0f;
+		float num72 = 0f;
+		Vector2 vector12 = new Vector2((float)(Main.npcTexture[npc.type].Width / 2), (float)(Main.npcTexture[npc.type].Height / Main.npcFrameCount[npc.type] / 2));
+		Main.spriteBatch.Draw(Annihilation.instance.GetTexture("Glowmasks/Megnatar_Glow"), npc.Bottom - Main.screenPosition + new Vector2((0f - (float)Main.npcTexture[npc.type].Width) * npc.scale / 2f + vector12.X * npc.scale, (0f - (float)Main.npcTexture[npc.type].Height) * npc.scale / (float)Main.npcFrameCount[npc.type] + 4f + vector12.Y * npc.scale + num72 + npc.gfxOffY), npc.frame, new Microsoft.Xna.Framework.Color(255 - npc.alpha, 255 - npc.alpha, 255 - npc.alpha, 255 - npc.alpha), npc.rotation, vector12, npc.scale, spriteEffects, 0f);
+	} */
         
         public override void AI()
         {
