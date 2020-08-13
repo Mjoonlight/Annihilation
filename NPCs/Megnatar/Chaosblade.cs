@@ -38,11 +38,6 @@ namespace Annihilation.NPCs.Megnatar
             npc.buffImmune[BuffID.ShadowFlame] = true;
             npc.buffImmune[BuffID.Confused] = true;
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
-        {
-            npc.lifeMax = (int)(npc.lifeMax * 0.625f * bossLifeScale);
-            npc.damage = (int)(npc.damage * 0.6f);
-        }
         private int TheUltimateMemeBec = 5;
         public override void FindFrame(int frameHeight)
         {
@@ -60,7 +55,7 @@ namespace Annihilation.NPCs.Megnatar
         private int TIMER = 0;
         public override void AI()
         {
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 TIMER++;
                 Player player = Main.player[npc.target];
@@ -124,11 +119,6 @@ namespace Annihilation.NPCs.Megnatar
             npc.buffImmune[BuffID.ShadowFlame] = true;
             npc.buffImmune[BuffID.Confused] = true;
         }
-        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
-        {
-            npc.lifeMax = (int)(npc.lifeMax * 0.625f * bossLifeScale);
-            npc.damage = (int)(npc.damage * 0.6f);
-        }
         private int TheUltimateMemeBec = 5;
         public override void FindFrame(int frameHeight)
         {
@@ -146,7 +136,7 @@ namespace Annihilation.NPCs.Megnatar
         private int TIMER = 0;
         public override void AI()
         {
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 TIMER++;
                 Player player = Main.player[npc.target];

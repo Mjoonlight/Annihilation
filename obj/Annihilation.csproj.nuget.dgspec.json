@@ -37,7 +37,14 @@
         }
       },
       "frameworks": {
-        "net45": {}
+        "net45": {
+          "dependencies": {
+            "tModLoader.CodeAssist": {
+              "target": "Package",
+              "version": "[0.1.*, )"
+            }
+          }
+        }
       }
     }
   }
