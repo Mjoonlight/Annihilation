@@ -17,7 +17,7 @@ namespace Annihilation.NPCs.Megnatar
     [AutoloadBossHead]
     class Megnatar : ModNPC
     {
-        private float moveCool
+        private float MoveCool
         {
             get => npc.ai[0];
             set => npc.ai[0] = value;
@@ -33,9 +33,9 @@ namespace Annihilation.NPCs.Megnatar
         {
             npc.width = 142;
             npc.height = 128;
-            npc.aiStyle = -1; // Megnatar has its own AI
+            npc.aiStyle = -1;
             npc.damage = 26;
-            npc.defense = 10;
+            npc.defense = 15;
             npc.lifeMax = 3000;
             npc.boss = true;
             npc.noGravity = true;
@@ -73,26 +73,25 @@ namespace Annihilation.NPCs.Megnatar
         // = ---------
         // Glowmask
         // = ---------
-	/* public override void PostDraw(SpriteBatch spriteBatch, Color drawColor)
-	{
-		SpriteEffects spriteEffects = SpriteEffects.None;
-		if (npc.spriteDirection == 1)
-		{
-			spriteEffects = SpriteEffects.FlipHorizontally;
-		}
-			
-		float num71 = 0f;
-		float num72 = 0f;
-		Vector2 vector12 = new Vector2((float)(Main.npcTexture[npc.type].Width / 2), (float)(Main.npcTexture[npc.type].Height / Main.npcFrameCount[npc.type] / 2));
-		Main.spriteBatch.Draw(Annihilation.instance.GetTexture("Glowmasks/Megnatar_Glow"), npc.Bottom - Main.screenPosition + new Vector2((0f - (float)Main.npcTexture[npc.type].Width) * npc.scale / 2f + vector12.X * npc.scale, (0f - (float)Main.npcTexture[npc.type].Height) * npc.scale / (float)Main.npcFrameCount[npc.type] + 4f + vector12.Y * npc.scale + num72 + npc.gfxOffY), npc.frame, new Microsoft.Xna.Framework.Color(255 - npc.alpha, 255 - npc.alpha, 255 - npc.alpha, 255 - npc.alpha), npc.rotation, vector12, npc.scale, spriteEffects, 0f);
-	} */
-        
+        public override void PostDraw(SpriteBatch spriteBatch, Color drawColor)
+        {
+            SpriteEffects spriteEffects = SpriteEffects.None;
+            if (npc.spriteDirection == 1)
+            {
+                spriteEffects = SpriteEffects.FlipHorizontally;
+            }
+            Vector2 vector12 = new Vector2((float)(Main.npcTexture[npc.type].Width / 2), (float)(Main.npcTexture[npc.type].Height / Main.npcFrameCount[npc.type] / 2));
+            Main.spriteBatch.Draw(mod.GetTexture("NPCs/Megnatar/Megnatar_Glow"), npc.Bottom - Main.screenPosition + new Vector2((0f - (float)Main.npcTexture[npc.type].Width) * npc.scale / 2f + vector12.X * npc.scale, (0f - (float)Main.npcTexture[npc.type].Height) * npc.scale / (float)Main.npcFrameCount[npc.type] + 4f + vector12.Y * npc.scale + 0f + npc.gfxOffY), npc.frame, new Microsoft.Xna.Framework.Color(255 - npc.alpha, 255 - npc.alpha, 255 - npc.alpha, 255 - npc.alpha), npc.rotation, vector12, npc.scale, spriteEffects, 0f);
+        }
+        private int Firelaser = 0;
+        private int Teleports = 0;
+        private bool DEARLORDFREAKOUTREMOVER = false;
         public override void AI()
         {
-            if (Main.netMode != 1 && npc.localAI[0] == 0f)
+            if (Main.netMode != 1)
             {
                 Player player = Main.player[npc.target];
-                if (!player.active || player.dead)
+                if (!player.active || player.dead || Main.dayTime)
                 {
                     npc.TargetClosest(false);
                     player = Main.player[npc.target];
@@ -106,24 +105,133 @@ namespace Annihilation.NPCs.Megnatar
                         return;
                     }
                 }
-                moveCool -= 1f;
-                if (Main.netMode != 1 && moveCool <= 0f)
+                if (npc.life >= npc.lifeMax / 2)
+                {
+                    npc.localAI[0] = 0f;
+                }
+                else if (npc.life < npc.lifeMax / 2 && !DEARLORDFREAKOUTREMOVER)
+                {
+                    npc.localAI[0] = 1f;
+                    NPC.NewNPC((int)npc.position.X - 100, (int)npc.position.Y, ModContent.NPCType<Chaosblade1>());
+                    NPC.NewNPC((int)npc.position.X + 100, (int)npc.position.Y, ModContent.NPCType<Chaosblade2>());
+                    DEARLORDFREAKOUTREMOVER = true;
+                }
+                if (Firelaser > 0)
+                {
+                    Firelaser--;
+                    if (Firelaser == 18 && npc.localAI[0] == 0f)
+                    {
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X + 50f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - npc.Center.X, player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X - 50f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                    }
+                    if (Firelaser == 12 && npc.localAI[0] == 0f)
+                    {
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X + 50f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - npc.Center.X, player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X - 50f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                    }
+                    if (Firelaser == 6 && npc.localAI[0] == 0f)
+                    {
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X + 50f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - npc.Center.X, player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X - 50f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                    }
+                    if (Firelaser == 24 && npc.localAI[0] == 1f)
+                    {
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X + 100f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X + 50f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - npc.Center.X, player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X - 50f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X - 100f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                    }
+                    if (Firelaser == 18 && npc.localAI[0] == 1f)
+                    {
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X + 100f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X + 50f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - npc.Center.X, player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X - 50f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X - 100f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                    }
+                    if (Firelaser == 12 && npc.localAI[0] == 1f)
+                    {
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X + 100f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X + 50f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - npc.Center.X, player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X - 50f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X - 100f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
+                    }
+                }
+                MoveCool -= 1f;
+                if (Main.netMode != 1 && MoveCool <= 0f)
                 {
                     npc.TargetClosest(false);
                     player = Main.player[npc.target];
-                    moveCool = (float)moveTime + (float)Main.rand.Next(100);
-                    npc.velocity.X = ((player.Center.X - (float)(Main.rand.Next(-100,100)))- npc.Center.X) / moveCool;
-                    npc.velocity.Y = ((player.Center.Y - (float)(Main.rand.Next(200, 400))) - npc.Center.Y) / moveCool;
+                    MoveCool = (float)moveTime + (float)Main.rand.Next(50);
+                    npc.velocity.X = (player.Center.X - (float)(Main.rand.Next(-100,100))- npc.Center.X) / MoveCool;
+                    npc.velocity.Y = (player.Center.Y - (float)(Main.rand.Next(290,310)) - npc.Center.Y) / MoveCool;
+                    if (Main.rand.Next(5) == 0)
+                    {
+                        Projectile.NewProjectile(new Vector2(npc.Center.X + 40f, npc.Center.Y + 40f), new Vector2(10f, 10f), ModContent.ProjectileType<Darkflame>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y + 40f), new Vector2(0, 10f), ModContent.ProjectileType<Darkflame>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(new Vector2(npc.Center.X - 40f, npc.Center.Y + 40f), new Vector2(-10f, 10f), ModContent.ProjectileType<Darkflame>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(new Vector2(npc.Center.X - 40f, npc.Center.Y), new Vector2(-10f, 0), ModContent.ProjectileType<Darkflame>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(new Vector2(npc.Center.X - 40f, npc.Center.Y - 40f), new Vector2(-10f, -10f), ModContent.ProjectileType<Darkflame>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 40f), new Vector2(0, -10f), ModContent.ProjectileType<Darkflame>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(new Vector2(npc.Center.X + 40f, npc.Center.Y - 40f), new Vector2(10f, -10f), ModContent.ProjectileType<Darkflame>(), npc.damage / 3, 1);
+                        Projectile.NewProjectile(new Vector2(npc.Center.X + 40f, npc.Center.Y), new Vector2(10f, 0), ModContent.ProjectileType<Darkflame>(), npc.damage / 3, 1);
+                        npc.position.X = player.Center.X - (float)(Main.rand.Next(-100, 100)) - 64;
+                        npc.position.Y = player.Center.Y - (float)(Main.rand.Next(290, 310)) - 71;
+                        Main.PlaySound(SoundID.Item6, npc.Center);
+                        Firelaser = 24;
+                        if (npc.localAI[0] == 1f)
+                        {
+                            Teleports++;
+                        }
+                    }
+                    if (npc.localAI[0] == 1f)
+                    {
+                        if (Main.rand.Next(5) == 0)
+                        {
+                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 20f), new Vector2((float)(Main.rand.Next(-10, 10)), -10f), ModContent.ProjectileType<Darkflame2>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 20f), new Vector2((float)(Main.rand.Next(-10, 10)), -10f), ModContent.ProjectileType<Darkflame2>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 20f), new Vector2((float)(Main.rand.Next(-10, 10)), -10f), ModContent.ProjectileType<Darkflame2>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 20f), new Vector2((float)(Main.rand.Next(-10, 10)), -10f), ModContent.ProjectileType<Darkflame2>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 20f), new Vector2((float)(Main.rand.Next(-10, 10)), -10f), ModContent.ProjectileType<Darkflame2>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 20f), new Vector2((float)(Main.rand.Next(-10, 10)), -10f), ModContent.ProjectileType<Darkflame2>(), npc.damage / 3, 1);
+                            if (Main.rand.Next(1) == 0)
+                            {
+                                Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 20f), new Vector2((float)(Main.rand.Next(-10, 10)), -10f), ModContent.ProjectileType<Darkflame>(), npc.damage / 3, 1);
+                                if (Main.rand.Next(1) == 0)
+                                {
+                                    Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 20f), new Vector2((float)(Main.rand.Next(-10, 10)), -10f), ModContent.ProjectileType<Darkflame>(), npc.damage / 3, 1);
+                                }
+                            }
+                        }
+                        if (Teleports >= 2)
+                        {
+                            Teleports = 0;
+                            npc.velocity.X = (player.Center.X - npc.Center.X) / 40f;
+                            npc.velocity.Y = (player.Center.Y - npc.Center.Y) / 40f;
+                        }
+                    }
                     npc.netUpdate = true;
                 }
-                if (Vector2.Distance(Main.player[npc.target].position, npc.position) > 300f)
+                if (Vector2.Distance(Main.player[npc.target].position, npc.position) > 150f)
                 {
+                    if (Vector2.Distance(Main.player[npc.target].position, npc.position) > 2400f)
+                    {
+                        if (npc.timeLeft > 10)
+                        {
+                            npc.timeLeft = 10;
+                        }
+                    }
                     moveTimer--;
                 }
                 else
                 {
                     moveTimer += 10;
-                    if (moveTime >= 300 && moveTimer > 60)
+                    if (moveTime >= 150 && moveTimer > 60)
                     {
                         moveTimer = 60;
                     }
@@ -132,9 +240,9 @@ namespace Annihilation.NPCs.Megnatar
                 {
                     moveTimer += 60;
                     moveTime -= 10;
-                    if (moveTime < 100)
+                    if (moveTime < 50)
                     {
-                        moveTime = 100;
+                        moveTime = 50;
                         moveTimer = 0;
                     }
                     npc.netUpdate = true;
