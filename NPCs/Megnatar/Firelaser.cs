@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Annihilation.NPCs.Megnatar
@@ -24,8 +25,11 @@ namespace Annihilation.NPCs.Megnatar
         }
         public override void AI()
         {
-            projectile.direction = projectile.spriteDirection = projectile.velocity.X > 0f ? 1 : -1;
             projectile.rotation = projectile.velocity.ToRotation();
+        }
+        public override void OnHitPlayer(Player target, int damage, bool crit)
+        {
+            target.AddBuff(BuffID.OnFire, 90);
         }
     }
 }
