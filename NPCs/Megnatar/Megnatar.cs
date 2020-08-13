@@ -17,7 +17,7 @@ namespace Annihilation.NPCs.Megnatar
     [AutoloadBossHead]
     class Megnatar : ModNPC
     {
-        private float moveCool
+        private float MoveCool
         {
             get => npc.ai[0];
             set => npc.ai[0] = value;
@@ -33,9 +33,9 @@ namespace Annihilation.NPCs.Megnatar
         {
             npc.width = 142;
             npc.height = 128;
-            npc.aiStyle = -1; // Megnatar has its own AI
+            npc.aiStyle = -1;
             npc.damage = 26;
-            npc.defense = 10;
+            npc.defense = 15;
             npc.lifeMax = 3000;
             npc.boss = true;
             npc.noGravity = true;
@@ -85,12 +85,13 @@ namespace Annihilation.NPCs.Megnatar
         }
         private int Firelaser = 0;
         private int Teleports = 0;
+        private bool DEARLORDFREAKOUTREMOVER = false;
         public override void AI()
         {
             if (Main.netMode != 1)
             {
                 Player player = Main.player[npc.target];
-                if (!player.active || player.dead)
+                if (!player.active || player.dead || Main.dayTime)
                 {
                     npc.TargetClosest(false);
                     player = Main.player[npc.target];
@@ -108,9 +109,12 @@ namespace Annihilation.NPCs.Megnatar
                 {
                     npc.localAI[0] = 0f;
                 }
-                else if (npc.life < npc.lifeMax / 2)
+                else if (npc.life < npc.lifeMax / 2 && !DEARLORDFREAKOUTREMOVER)
                 {
                     npc.localAI[0] = 1f;
+                    NPC.NewNPC((int)npc.position.X - 100, (int)npc.position.Y, ModContent.NPCType<Chaosblade1>());
+                    NPC.NewNPC((int)npc.position.X + 100, (int)npc.position.Y, ModContent.NPCType<Chaosblade2>());
+                    DEARLORDFREAKOUTREMOVER = true;
                 }
                 if (Firelaser > 0)
                 {
@@ -158,14 +162,14 @@ namespace Annihilation.NPCs.Megnatar
                         Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - (npc.Center.X - 100f), player.Center.Y - npc.Center.Y) / 50f, ModContent.ProjectileType<Firelaser>(), npc.damage / 3, 1);
                     }
                 }
-                moveCool -= 1f;
-                if (Main.netMode != 1 && moveCool <= 0f)
+                MoveCool -= 1f;
+                if (Main.netMode != 1 && MoveCool <= 0f)
                 {
                     npc.TargetClosest(false);
                     player = Main.player[npc.target];
-                    moveCool = (float)moveTime + (float)Main.rand.Next(50);
-                    npc.velocity.X = (player.Center.X - (float)(Main.rand.Next(-100,100))- npc.Center.X) / moveCool;
-                    npc.velocity.Y = (player.Center.Y - (float)(Main.rand.Next(290,310)) - npc.Center.Y) / moveCool;
+                    MoveCool = (float)moveTime + (float)Main.rand.Next(50);
+                    npc.velocity.X = (player.Center.X - (float)(Main.rand.Next(-100,100))- npc.Center.X) / MoveCool;
+                    npc.velocity.Y = (player.Center.Y - (float)(Main.rand.Next(290,310)) - npc.Center.Y) / MoveCool;
                     if (Main.rand.Next(5) == 0)
                     {
                         Projectile.NewProjectile(new Vector2(npc.Center.X + 40f, npc.Center.Y + 40f), new Vector2(10f, 10f), ModContent.ProjectileType<Darkflame>(), npc.damage / 3, 1);
