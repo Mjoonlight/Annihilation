@@ -34,8 +34,8 @@ namespace Annihilation.NPCs.Megnatar
             npc.width = 142;
             npc.height = 128;
             npc.aiStyle = -1;
-            npc.damage = 26;
-            npc.defense = 15;
+            npc.damage = 23;
+            npc.defense = 12;
             npc.lifeMax = 3000;
             npc.boss = true;
             npc.noGravity = true;
