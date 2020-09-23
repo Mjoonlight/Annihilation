@@ -17,7 +17,7 @@ namespace Annihilation.NPCs.Megnatar
         {
             projectile.width = 18;
             projectile.height = 8;
-            projectile.damage = 26;
+            projectile.damage = 22;
             projectile.friendly = false;
             projectile.hostile = true;
             projectile.ignoreWater = false;
