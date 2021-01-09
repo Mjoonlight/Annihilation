@@ -69,7 +69,6 @@ namespace Annihilation.NPCs.Ansolar
                 }
                 if (init == false)
                 {
-
                     init = true;
                 }
             }

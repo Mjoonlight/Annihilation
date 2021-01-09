@@ -107,6 +107,10 @@ namespace Annihilation.NPCs.Megnatar
                         return;
                     }
                 }
+                if (npc.life <= npc.lifeMax / 5)
+                {
+                    music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/MegnatarPinch");
+                }
                 if (npc.life >= npc.lifeMax / 2)
                 {
                     npc.localAI[0] = 0f;
