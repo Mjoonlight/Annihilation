@@ -15,8 +15,8 @@ namespace Annihilation.NPCs.Megnatar
     {
         public override void SetDefaults()
         {
-            projectile.width = 18;
-            projectile.height = 8;
+            projectile.width = 8;
+            projectile.height = 18;
             projectile.damage = 22;
             projectile.friendly = false;
             projectile.hostile = true;

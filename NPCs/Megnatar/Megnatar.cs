@@ -69,10 +69,6 @@ namespace Annihilation.NPCs.Megnatar
                 TheUltimateMemeBec = 5;
             }
         }
-
-        // = ---------
-        // Glowmask
-        // = ---------
         public override void PostDraw(SpriteBatch spriteBatch, Color drawColor)
         {
             SpriteEffects spriteEffects = SpriteEffects.None;
@@ -85,9 +81,13 @@ namespace Annihilation.NPCs.Megnatar
         }
         private int Firelaser = 0;
         private int Teleports = 0;
-        private bool DEARLORDFREAKOUTREMOVER = false; //This can break the code... Do not edit.
-        private bool BulletHell = false; //Change to true; for a hard fight.
-        private bool BulletHellHealthSet = false; //Once again... Do not edit.
+        private bool DEARLORDFREAKOUTREMOVER = false;
+        public static bool BulletHell = false; //Change to true; for a hard fight.
+        private int timer1 = 30;
+        private int timer2 = 150;
+        private int timer3 = 40;
+        private int timer4 = 200;
+
         public override void AI()
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -97,7 +97,7 @@ namespace Annihilation.NPCs.Megnatar
                 {
                     npc.TargetClosest(false);
                     player = Main.player[npc.target];
-                    if (!player.active || player.dead)
+                    if (!player.active || player.dead || Main.dayTime)
                     {
                         npc.velocity = new Vector2(0f, 10f);
                         if (npc.timeLeft > 10)
@@ -107,17 +107,6 @@ namespace Annihilation.NPCs.Megnatar
                         return;
                     }
                 }
-                if (BulletHell)
-                {
-                    npc.lifeMax = 65000;
-                    npc.damage = 160;
-                    npc.defense = 32;
-                    if (!BulletHellHealthSet)
-                    {
-                        npc.life = npc.lifeMax;
-                        BulletHellHealthSet = true;
-                    }
-                }
                 if (npc.life >= npc.lifeMax / 2)
                 {
                     npc.localAI[0] = 0f;
@@ -125,8 +114,13 @@ namespace Annihilation.NPCs.Megnatar
                 else if (npc.life < npc.lifeMax / 2 && !DEARLORDFREAKOUTREMOVER)
                 {
                     npc.localAI[0] = 1f;
-                    NPC.NewNPC((int)npc.position.X - 100, (int)npc.position.Y, ModContent.NPCType<Chaosblade1>());
-                    NPC.NewNPC((int)npc.position.X + 100, (int)npc.position.Y, ModContent.NPCType<Chaosblade2>());
+                    NPC.NewNPC((int)npc.position.X - 100, (int)npc.position.Y + 20, ModContent.NPCType<Chaosblade1>());
+                    NPC.NewNPC((int)npc.position.X + 100, (int)npc.position.Y + 20, ModContent.NPCType<Chaosblade2>());
+                    if (BulletHell)
+                    {
+                        NPC.NewNPC((int)npc.position.X - 100, (int)npc.position.Y - 20, ModContent.NPCType<Chaosblade1>());
+                        NPC.NewNPC((int)npc.position.X + 100, (int)npc.position.Y - 20, ModContent.NPCType<Chaosblade2>());
+                    }
                     DEARLORDFREAKOUTREMOVER = true;
                 }
                 if (Firelaser > 0)
@@ -185,7 +179,9 @@ namespace Annihilation.NPCs.Megnatar
                     npc.velocity.Y = (player.Center.Y - (float)(Main.rand.Next(290, 310)) - npc.Center.Y) / MoveCool;
                     npc.netUpdate = true;
                 }
-                if ((!BulletHell && Main.rand.Next(150) == 0) || (BulletHell && Main.rand.Next(15) == 0))
+                timer1--;
+                timer2--;
+                if ((!BulletHell && timer2 == 0) || (BulletHell && timer1 == 0))
                 {
                     Projectile.NewProjectile(new Vector2(npc.Center.X + 40f, npc.Center.Y + 40f), new Vector2(10f, 10f), ModContent.ProjectileType<Darkflame>(), npc.damage / 3, 1);
                     Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y + 40f), new Vector2(0, 10f), ModContent.ProjectileType<Darkflame>(), npc.damage / 3, 1);
@@ -203,10 +199,14 @@ namespace Annihilation.NPCs.Megnatar
                     {
                         Teleports++;
                     }
+                    timer1 = 30;
+                    timer2 = 150;
                 }
                 if (npc.localAI[0] == 1f)
                 {
-                    if ((!BulletHell && Main.rand.Next(150) == 0) || (BulletHell && Main.rand.Next(15) == 0))
+                    timer3--;
+                    timer4--;
+                    if ((!BulletHell && timer4 == 0) || (BulletHell && timer3 == 0))
                     {
                         Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 20f), new Vector2((float)(Main.rand.Next(-10, 10)), -10f), ModContent.ProjectileType<Darkflame2>(), npc.damage / 3, 1);
                         Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 20f), new Vector2((float)(Main.rand.Next(-10, 10)), -10f), ModContent.ProjectileType<Darkflame2>(), npc.damage / 3, 1);
@@ -222,12 +222,16 @@ namespace Annihilation.NPCs.Megnatar
                                 Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 20f), new Vector2((float)(Main.rand.Next(-10, 10)), -10f), ModContent.ProjectileType<Darkflame>(), npc.damage / 3, 1);
                             }
                         }
+                        timer3 = 40;
+                        timer4 = 200;
                     }
                     if (Teleports >= 2)
                     {
                         Teleports = 0;
-                        npc.velocity.X = (player.Center.X - npc.Center.X) / 40f;
-                        npc.velocity.Y = (player.Center.Y - npc.Center.Y) / 40f;
+                        float velocityx = player.Center.X - npc.Center.X;
+                        float velocityy = player.Center.Y - npc.Center.Y;
+                        npc.velocity.X = (velocityx + velocityx) / 80f;
+                        npc.velocity.Y = (velocityy + velocityy) / 80f;
                     }
                 }
                 if (Vector2.Distance(Main.player[npc.target].position, npc.position) > 150f)
