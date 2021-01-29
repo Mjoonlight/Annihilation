@@ -66,7 +66,7 @@ namespace Annihilation.NPCs.Megnatar
             projectile.Name = "Darkflame";
             projectile.width = 22;
             projectile.height = 10;
-            projectile.aiStyle = 68;
+            projectile.aiStyle = -1;
             projectile.damage = 26;
             projectile.friendly = false;
             projectile.hostile = true;
@@ -74,7 +74,6 @@ namespace Annihilation.NPCs.Megnatar
             projectile.tileCollide = true;
             projectile.timeLeft = 600;
             projectile.penetrate = -1;
-            aiType = ProjectileID.MolotovFire;
         }
         public override void AI()
         {

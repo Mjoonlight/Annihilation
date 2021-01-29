@@ -82,7 +82,7 @@ namespace Annihilation.NPCs.Megnatar
         private int Firelaser = 0;
         private int Teleports = 0;
         private bool DEARLORDFREAKOUTREMOVER = false;
-        public static bool BulletHell = false; //Change to true; for a hard fight.
+        public static bool BulletHell = false;
         private int timer1 = 30;
         private int timer2 = 150;
         private int timer3 = 40;
