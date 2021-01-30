@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,10 @@ namespace Annihilation.NPCs.Ansolar
             projectile.tileCollide = true;
             projectile.timeLeft = 600;
             projectile.penetrate = -1;
+        }
+        public override void AI()
+        {
+            projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(-90f);
         }
     }
 }

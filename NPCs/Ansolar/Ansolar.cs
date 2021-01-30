@@ -89,14 +89,14 @@ namespace Annihilation.NPCs.Ansolar
                 {
                     NPC.NewNPC((int)npc.Center.X + 30, (int)npc.Center.Y + 30, ModContent.NPCType<AnsolarClawR>(), 0, 0, npc.whoAmI);
                     NPC.NewNPC((int)npc.Center.X - 30, (int)npc.Center.Y + 30, ModContent.NPCType<AnsolarClawL>(), 0, 0, npc.whoAmI);
-                    NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y - 10, ModContent.NPCType<Shield>(), 0, 1, npc.whoAmI);
-                    NPC.NewNPC((int)npc.Center.X + 10, (int)npc.Center.Y - 10, ModContent.NPCType<Shield>(), 0, 2, npc.whoAmI);
-                    NPC.NewNPC((int)npc.Center.X + 10, (int)npc.Center.Y, ModContent.NPCType<Shield>(), 0, 3, npc.whoAmI);
-                    NPC.NewNPC((int)npc.Center.X + 10, (int)npc.Center.Y + 10, ModContent.NPCType<Shield>(), 0, 4, npc.whoAmI);
-                    NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y + 10, ModContent.NPCType<Shield>(), 0, 5, npc.whoAmI);
-                    NPC.NewNPC((int)npc.Center.X - 10, (int)npc.Center.Y + 10, ModContent.NPCType<Shield>(), 0, 6, npc.whoAmI);
-                    NPC.NewNPC((int)npc.Center.X - 10, (int)npc.Center.Y, ModContent.NPCType<Shield>(), 0, 7, npc.whoAmI);
-                    NPC.NewNPC((int)npc.Center.X - 10, (int)npc.Center.Y - 10, ModContent.NPCType<Shield>(), 0, 8, npc.whoAmI);
+                    NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y - 20, ModContent.NPCType<Shield>(), 0, 1, npc.whoAmI);
+                    NPC.NewNPC((int)npc.Center.X + 20, (int)npc.Center.Y - 20, ModContent.NPCType<Shield>(), 0, 2, npc.whoAmI);
+                    NPC.NewNPC((int)npc.Center.X + 20, (int)npc.Center.Y, ModContent.NPCType<Shield>(), 0, 3, npc.whoAmI);
+                    NPC.NewNPC((int)npc.Center.X + 20, (int)npc.Center.Y + 20, ModContent.NPCType<Shield>(), 0, 4, npc.whoAmI);
+                    NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y + 20, ModContent.NPCType<Shield>(), 0, 5, npc.whoAmI);
+                    NPC.NewNPC((int)npc.Center.X - 20, (int)npc.Center.Y + 20, ModContent.NPCType<Shield>(), 0, 6, npc.whoAmI);
+                    NPC.NewNPC((int)npc.Center.X - 20, (int)npc.Center.Y, ModContent.NPCType<Shield>(), 0, 7, npc.whoAmI);
+                    NPC.NewNPC((int)npc.Center.X - 20, (int)npc.Center.Y - 20, ModContent.NPCType<Shield>(), 0, 8, npc.whoAmI);
                     init = true;
                 }
                 if (npc.ai[0] == 0)
@@ -126,7 +126,7 @@ namespace Annihilation.NPCs.Ansolar
                     timer5--;
                     if (timer5 <= 0)
                     {
-                        NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y - 10, ModContent.NPCType<Shield>(), 0, 1, npc.whoAmI);
+                        NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y - 20, ModContent.NPCType<Shield>(), 0, 1, npc.whoAmI);
                         Piece1 = false;
                         timer5 = 2400;
                     }
@@ -136,7 +136,7 @@ namespace Annihilation.NPCs.Ansolar
                     timer6--;
                     if (timer6 <= 0)
                     {
-                        NPC.NewNPC((int)npc.Center.X + 10, (int)npc.Center.Y - 10, ModContent.NPCType<Shield>(), 0, 2, npc.whoAmI);
+                        NPC.NewNPC((int)npc.Center.X + 20, (int)npc.Center.Y - 20, ModContent.NPCType<Shield>(), 0, 2, npc.whoAmI);
                         Piece2 = false;
                         timer6 = 2400;
                     }
@@ -146,7 +146,7 @@ namespace Annihilation.NPCs.Ansolar
                     timer7--;
                     if (timer7 <= 0)
                     {
-                        NPC.NewNPC((int)npc.Center.X + 10, (int)npc.Center.Y, ModContent.NPCType<Shield>(), 0, 3, npc.whoAmI);
+                        NPC.NewNPC((int)npc.Center.X + 20, (int)npc.Center.Y, ModContent.NPCType<Shield>(), 0, 3, npc.whoAmI);
                         Piece3 = false;
                         timer7 = 2400;
                     }
@@ -156,7 +156,7 @@ namespace Annihilation.NPCs.Ansolar
                     timer8--;
                     if (timer8 <= 0)
                     {
-                        NPC.NewNPC((int)npc.Center.X + 10, (int)npc.Center.Y + 10, ModContent.NPCType<Shield>(), 0, 4, npc.whoAmI);
+                        NPC.NewNPC((int)npc.Center.X + 20, (int)npc.Center.Y + 20, ModContent.NPCType<Shield>(), 0, 4, npc.whoAmI);
                         Piece4 = false;
                         timer8 = 2400;
                     }
@@ -166,7 +166,7 @@ namespace Annihilation.NPCs.Ansolar
                     timer9--;
                     if (timer9 <= 0)
                     {
-                        NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y + 10, ModContent.NPCType<Shield>(), 0, 5, npc.whoAmI);
+                        NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y + 20, ModContent.NPCType<Shield>(), 0, 5, npc.whoAmI);
                         Piece5 = false;
                         timer9 = 2400;
                     }
@@ -176,7 +176,7 @@ namespace Annihilation.NPCs.Ansolar
                     timer10--;
                     if (timer10 <= 0)
                     {
-                        NPC.NewNPC((int)npc.Center.X - 10, (int)npc.Center.Y + 10, ModContent.NPCType<Shield>(), 0, 6, npc.whoAmI);
+                        NPC.NewNPC((int)npc.Center.X - 20, (int)npc.Center.Y + 20, ModContent.NPCType<Shield>(), 0, 6, npc.whoAmI);
                         Piece6 = false;
                         timer10 = 2400;
                     }
@@ -186,7 +186,7 @@ namespace Annihilation.NPCs.Ansolar
                     timer11--;
                     if (timer11 <= 0)
                     {
-                        NPC.NewNPC((int)npc.Center.X - 10, (int)npc.Center.Y, ModContent.NPCType<Shield>(), 0, 7, npc.whoAmI);
+                        NPC.NewNPC((int)npc.Center.X - 20, (int)npc.Center.Y, ModContent.NPCType<Shield>(), 0, 7, npc.whoAmI);
                         Piece7 = false;
                         timer11 = 2400;
                     }
@@ -196,7 +196,7 @@ namespace Annihilation.NPCs.Ansolar
                     timer12--;
                     if (timer12 <= 0)
                     {
-                        NPC.NewNPC((int)npc.Center.X - 10, (int)npc.Center.Y - 10, ModContent.NPCType<Shield>(), 0, 8, npc.whoAmI);
+                        NPC.NewNPC((int)npc.Center.X - 20, (int)npc.Center.Y - 20, ModContent.NPCType<Shield>(), 0, 8, npc.whoAmI);
                         Piece8 = false;
                         timer12 = 2400;
                     }
@@ -413,7 +413,7 @@ namespace Annihilation.NPCs.Ansolar
                 }
                 if (!NPC.AnyNPCs(ModContent.NPCType<Ansolar>()))
                 {
-                    npc.timeLeft = 0;
+                    npc.timeLeft = 1;
                 }
                 if (npc.ai[0] == 0)
                 {
@@ -532,7 +532,7 @@ namespace Annihilation.NPCs.Ansolar
                 }
                 if (!NPC.AnyNPCs(ModContent.NPCType<Ansolar>()))
                 {
-                    npc.timeLeft = 0;
+                    npc.timeLeft = 1;
                 }
                 if (npc.ai[0] == 0)
                 {
@@ -696,6 +696,7 @@ namespace Annihilation.NPCs.Ansolar
             }
             return false;
         }
+        private int DeltaTime = 0;
         public override void AI()
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -715,48 +716,115 @@ namespace Annihilation.NPCs.Ansolar
                         return;
                     }
                 }
-                if (!NPC.AnyNPCs(ModContent.NPCType<Ansolar>()))
+                if (!NPC.AnyNPCs(ModContent.NPCType<Ansolar>()) || npc.ai[0] == 0)
                 {
-                    npc.timeLeft = 0;
-                }
-                if (npc.ai[0] == 1)
-                {
-                    npc.frame.Y = 20;
-                }
-                if (npc.ai[0] == 2)
-                {
-                    npc.frame.Y = 40;
-                }
-                if (npc.ai[0] == 3)
-                {
-                    npc.frame.Y = 60;
-                }
-                if (npc.ai[0] == 4)
-                {
-                    npc.frame.Y = 80;
+                    npc.timeLeft = 1;
                 }
                 if (npc.ai[0] == 5)
                 {
-                    npc.frame.Y = 100;
+                    npc.frame.Y = 20;
                 }
                 if (npc.ai[0] == 6)
                 {
-                    npc.frame.Y = 120;
+                    npc.frame.Y = 40;
                 }
                 if (npc.ai[0] == 7)
                 {
-                    npc.frame.Y = 140;
+                    npc.frame.Y = 60;
                 }
                 if (npc.ai[0] == 8)
+                {
+                    npc.frame.Y = 80;
+                }
+                if (npc.ai[0] == 1)
+                {
+                    npc.frame.Y = 100;
+                }
+                if (npc.ai[0] == 2)
+                {
+                    npc.frame.Y = 120;
+                }
+                if (npc.ai[0] == 3)
+                {
+                    npc.frame.Y = 140;
+                }
+                if (npc.ai[0] == 4)
                 {
                     npc.frame.Y = 160;
                 }
                 NPC npcmain = Main.npc[(int)npc.ai[1]];
                 if (npcmain != null)
                 {
-                    
+                    DeltaTime++;
+                    if (DeltaTime == 18000)
+                    {
+                        DeltaTime = 0;
+                    }
+                    if (npc.ai[0] == 1)
+                    {
+                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * DeltaTime) + (MathHelper.Pi * 0.25)) * 30f;
+                        npc.rotation = DeltaTime * 0.05f;
+                    }
+                    if (npc.ai[0] == 2)
+                    {
+                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * DeltaTime) + (MathHelper.Pi * 0.50)) * 30f;
+                        npc.rotation = DeltaTime * 0.05f;
+                    }
+                    if (npc.ai[0] == 3)
+                    {
+                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * DeltaTime) + (MathHelper.Pi * 0.75)) * 30f;
+                        npc.rotation = DeltaTime * 0.05f;
+                    }
+                    if (npc.ai[0] == 4)
+                    {
+                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * DeltaTime) + (MathHelper.Pi * 1.00)) * 30f;
+                        npc.rotation = DeltaTime * 0.05f;
+                    }
+                    if (npc.ai[0] == 5)
+                    {
+                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * DeltaTime) + (MathHelper.Pi * 1.25)) * 30f;
+                        npc.rotation = DeltaTime * 0.05f;
+                    }
+                    if (npc.ai[0] == 6)
+                    {
+                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * DeltaTime) + (MathHelper.Pi * 1.50)) * 30f;
+                        npc.rotation = DeltaTime * 0.05f;
+                    }
+                    if (npc.ai[0] == 7)
+                    {
+                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * DeltaTime) + (MathHelper.Pi * 1.75)) * 30f;
+                        npc.rotation = DeltaTime * 0.05f;
+                    }
+                    if (npc.ai[0] == 8)
+                    {
+                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * DeltaTime) + (MathHelper.Pi * 2.00)) * 30f;
+                        npc.rotation = DeltaTime * 0.05f;
+                    }
                 }
             }
+        }
+        public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit)
+        {
+            if (Ansolar.ThornsReflector && damage >= 1)
+            {
+                player.Hurt(PlayerDeathReason.ByCustomReason($"{player.name} was killed trying to hurt Ansolar... What does he have? Thorns III?"), npc.damage, 0);
+            }
+        }
+        public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit)
+        {
+            if (Ansolar.ThornsReflector && damage >= 1 && projectile.owner == Main.myPlayer)
+            {
+                projectile.penetrate += 1;
+                projectile.friendly = false;
+                projectile.hostile = true;
+                projectile.damage = npc.damage / 3;
+                projectile.velocity.X -= projectile.velocity.X * 2;
+                projectile.velocity.Y -= projectile.velocity.Y * 2;
+            }
+        }
+        public override bool PreNPCLoot()
+        {
+            return false;
         }
     }
 }
