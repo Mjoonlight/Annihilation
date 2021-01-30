@@ -822,9 +822,5 @@ namespace Annihilation.NPCs.Ansolar
                 projectile.velocity.Y -= projectile.velocity.Y * 2;
             }
         }
-        public override bool PreNPCLoot()
-        {
-            return false;
-        }
     }
 }
