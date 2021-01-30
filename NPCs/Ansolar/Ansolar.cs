@@ -48,16 +48,16 @@ namespace Annihilation.NPCs.Ansolar
         private bool init = false;
         private int timer1 = 300;
         private int timer2 = 30;
-        private int timer3 = 1200;
-        private int timer4 = 1200;
-        private int timer5 = 2400;
-        private int timer6 = 2400;
-        private int timer7 = 2400;
-        private int timer8 = 2400;
-        private int timer9 = 2400;
-        private int timer10 = 2400;
-        private int timer11 = 2400;
-        private int timer12 = 2400;
+        private int timer3 = 2400;
+        private int timer4 = 2400;
+        private int timer5 = 3600;
+        private int timer6 = 3600;
+        private int timer7 = 3600;
+        private int timer8 = 3600;
+        private int timer9 = 3600;
+        private int timer10 = 3600;
+        private int timer11 = 3600;
+        private int timer12 = 3600;
         public bool Piece1 = false;
         public bool Piece2 = false;
         public bool Piece3 = false;
@@ -110,7 +110,7 @@ namespace Annihilation.NPCs.Ansolar
                     if (timer3 <= 0)
                     {
                         NPC.NewNPC((int)npc.Center.X + 30, (int)npc.Center.Y + 30, ModContent.NPCType<AnsolarClawR>(), 0, 0, npc.whoAmI);
-                        timer3 = 1200;
+                        timer3 = 2400;
                     }
                 }
                 if (!NPC.AnyNPCs(ModContent.NPCType<AnsolarClawL>()))
@@ -119,7 +119,7 @@ namespace Annihilation.NPCs.Ansolar
                     if (timer4 <= 0)
                     {
                         NPC.NewNPC((int)npc.Center.X - 30, (int)npc.Center.Y + 30, ModContent.NPCType<AnsolarClawL>(), 0, 0, npc.whoAmI);
-                        timer4 = 1200;
+                        timer4 = 2400;
                     }
                 }
                 DeltaTime++;
@@ -134,7 +134,7 @@ namespace Annihilation.NPCs.Ansolar
                     {
                         NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y - 20, ModContent.NPCType<Shield>(), 0, 1, npc.whoAmI);
                         Piece1 = false;
-                        timer5 = 2400;
+                        timer5 = 3600;
                     }
                 }
                 if (Piece2)
@@ -144,7 +144,7 @@ namespace Annihilation.NPCs.Ansolar
                     {
                         NPC.NewNPC((int)npc.Center.X + 20, (int)npc.Center.Y - 20, ModContent.NPCType<Shield>(), 0, 2, npc.whoAmI);
                         Piece2 = false;
-                        timer6 = 2400;
+                        timer6 = 3600;
                     }
                 }
                 if (Piece3)
@@ -154,7 +154,7 @@ namespace Annihilation.NPCs.Ansolar
                     {
                         NPC.NewNPC((int)npc.Center.X + 20, (int)npc.Center.Y, ModContent.NPCType<Shield>(), 0, 3, npc.whoAmI);
                         Piece3 = false;
-                        timer7 = 2400;
+                        timer7 = 3600;
                     }
                 }
                 if (Piece4)
@@ -164,7 +164,7 @@ namespace Annihilation.NPCs.Ansolar
                     {
                         NPC.NewNPC((int)npc.Center.X + 20, (int)npc.Center.Y + 20, ModContent.NPCType<Shield>(), 0, 4, npc.whoAmI);
                         Piece4 = false;
-                        timer8 = 2400;
+                        timer8 = 3600;
                     }
                 }
                 if (Piece5)
@@ -174,7 +174,7 @@ namespace Annihilation.NPCs.Ansolar
                     {
                         NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y + 20, ModContent.NPCType<Shield>(), 0, 5, npc.whoAmI);
                         Piece5 = false;
-                        timer9 = 2400;
+                        timer9 = 3600;
                     }
                 }
                 if (Piece6)
@@ -184,7 +184,7 @@ namespace Annihilation.NPCs.Ansolar
                     {
                         NPC.NewNPC((int)npc.Center.X - 20, (int)npc.Center.Y + 20, ModContent.NPCType<Shield>(), 0, 6, npc.whoAmI);
                         Piece6 = false;
-                        timer10 = 2400;
+                        timer10 = 3600;
                     }
                 }
                 if (Piece7)
@@ -194,7 +194,7 @@ namespace Annihilation.NPCs.Ansolar
                     {
                         NPC.NewNPC((int)npc.Center.X - 20, (int)npc.Center.Y, ModContent.NPCType<Shield>(), 0, 7, npc.whoAmI);
                         Piece7 = false;
-                        timer11 = 2400;
+                        timer11 = 3600;
                     }
                 }
                 if (Piece8)
@@ -204,7 +204,7 @@ namespace Annihilation.NPCs.Ansolar
                     {
                         NPC.NewNPC((int)npc.Center.X - 20, (int)npc.Center.Y - 20, ModContent.NPCType<Shield>(), 0, 8, npc.whoAmI);
                         Piece8 = false;
-                        timer12 = 2400;
+                        timer12 = 3600;
                     }
                 }
                 if (npc.ai[0] == 1)
@@ -419,7 +419,7 @@ namespace Annihilation.NPCs.Ansolar
                 }
                 if (!NPC.AnyNPCs(ModContent.NPCType<Ansolar>()))
                 {
-                    npc.timeLeft = 1;
+                    npc.life = 0;
                 }
                 if (npc.ai[0] == 0)
                 {
@@ -538,7 +538,7 @@ namespace Annihilation.NPCs.Ansolar
                 }
                 if (!NPC.AnyNPCs(ModContent.NPCType<Ansolar>()))
                 {
-                    npc.timeLeft = 1;
+                    npc.life = 0;
                 }
                 if (npc.ai[0] == 0)
                 {
@@ -723,7 +723,7 @@ namespace Annihilation.NPCs.Ansolar
                 }
                 if (!NPC.AnyNPCs(ModContent.NPCType<Ansolar>()) || npc.ai[0] == 0)
                 {
-                    npc.timeLeft = 1;
+                    npc.life = 0;
                 }
                 if (npc.ai[0] == 5)
                 {
