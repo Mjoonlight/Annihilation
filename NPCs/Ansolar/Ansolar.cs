@@ -821,6 +821,10 @@ namespace Annihilation.NPCs.Ansolar
                 projectile.velocity.X -= projectile.velocity.X * 2;
                 projectile.velocity.Y -= projectile.velocity.Y * 2;
             }
+            if (!Ansolar.ThornsReflector && (projectile.penetrate > 1 || projectile.penetrate == -1))
+            {
+                projectile.penetrate = 0;
+            }
         }
     }
 }
