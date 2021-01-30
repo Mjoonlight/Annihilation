@@ -66,6 +66,7 @@ namespace Annihilation.NPCs.Ansolar
         public bool Piece6 = false;
         public bool Piece7 = false;
         public bool Piece8 = false;
+        public int DeltaTime = 0;
         public override void AI()
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -120,6 +121,11 @@ namespace Annihilation.NPCs.Ansolar
                         NPC.NewNPC((int)npc.Center.X - 30, (int)npc.Center.Y + 30, ModContent.NPCType<AnsolarClawL>(), 0, 0, npc.whoAmI);
                         timer4 = 1200;
                     }
+                }
+                DeltaTime++;
+                if (DeltaTime == 18000)
+                {
+                    DeltaTime = 0;
                 }
                 if (Piece1)
                 {
@@ -203,7 +209,7 @@ namespace Annihilation.NPCs.Ansolar
                 }
                 if (npc.ai[0] == 1)
                 {
-                    npc.velocity.X = 3f;
+                    npc.velocity.X = 5f;
                     if (npc.Center.Y > player.Center.Y - 210f)
                     {
                         npc.velocity.Y = -8f;
@@ -218,13 +224,13 @@ namespace Annihilation.NPCs.Ansolar
                     }
                     if (npc.Center.X >= player.Center.X + 250f)
                     {
-                        npc.velocity.X = -3f;
+                        npc.velocity.X = -5f;
                         npc.ai[0] = 2;
                     }
                 }
                 if (npc.ai[0] == 2)
                 {
-                    npc.velocity.X = -3f;
+                    npc.velocity.X = -5f;
                     if (npc.Center.Y > player.Center.Y - 210f)
                     {
                         npc.velocity.Y = -8f;
@@ -239,7 +245,7 @@ namespace Annihilation.NPCs.Ansolar
                     }
                     if (npc.Center.X <= player.Center.X - 250f)
                     {
-                        npc.velocity.X = 3f;
+                        npc.velocity.X = 5f;
                         npc.ai[0] = 1;
                     }
                 }
@@ -380,7 +386,7 @@ namespace Annihilation.NPCs.Ansolar
             npc.aiStyle = -1;
             npc.damage = 32;
             npc.defense = 12;
-            npc.lifeMax = 2100;
+            npc.lifeMax = 1600;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;
@@ -499,7 +505,7 @@ namespace Annihilation.NPCs.Ansolar
             npc.aiStyle = -1;
             npc.damage = 32;
             npc.defense = 12;
-            npc.lifeMax = 2100;
+            npc.lifeMax = 1600;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;
@@ -618,7 +624,7 @@ namespace Annihilation.NPCs.Ansolar
             npc.height = 20;
             npc.aiStyle = -1;
             npc.damage = 25;
-            npc.defense = 8;
+            npc.defense = 6;
             npc.lifeMax = 1000;
             npc.noGravity = true;
             npc.noTileCollide = true;
@@ -696,7 +702,6 @@ namespace Annihilation.NPCs.Ansolar
             }
             return false;
         }
-        private int DeltaTime = 0;
         public override void AI()
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -755,50 +760,46 @@ namespace Annihilation.NPCs.Ansolar
                 NPC npcmain = Main.npc[(int)npc.ai[1]];
                 if (npcmain != null)
                 {
-                    DeltaTime++;
-                    if (DeltaTime == 18000)
-                    {
-                        DeltaTime = 0;
-                    }
+                    Ansolar ans = (Ansolar)npcmain.modNPC;
                     if (npc.ai[0] == 1)
                     {
-                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * DeltaTime) + (MathHelper.Pi * 0.25)) * 30f;
-                        npc.rotation = DeltaTime * 0.05f;
+                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * ans.DeltaTime) + (MathHelper.Pi * 0.25)) * 30f;
+                        npc.rotation = ans.DeltaTime * 0.05f;
                     }
                     if (npc.ai[0] == 2)
                     {
-                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * DeltaTime) + (MathHelper.Pi * 0.50)) * 30f;
-                        npc.rotation = DeltaTime * 0.05f;
+                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * ans.DeltaTime) + (MathHelper.Pi * 0.50)) * 30f;
+                        npc.rotation = ans.DeltaTime * 0.05f;
                     }
                     if (npc.ai[0] == 3)
                     {
-                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * DeltaTime) + (MathHelper.Pi * 0.75)) * 30f;
-                        npc.rotation = DeltaTime * 0.05f;
+                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * ans.DeltaTime) + (MathHelper.Pi * 0.75)) * 30f;
+                        npc.rotation = ans.DeltaTime * 0.05f;
                     }
                     if (npc.ai[0] == 4)
                     {
-                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * DeltaTime) + (MathHelper.Pi * 1.00)) * 30f;
-                        npc.rotation = DeltaTime * 0.05f;
+                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * ans.DeltaTime) + (MathHelper.Pi * 1.00)) * 30f;
+                        npc.rotation = ans.DeltaTime * 0.05f;
                     }
                     if (npc.ai[0] == 5)
                     {
-                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * DeltaTime) + (MathHelper.Pi * 1.25)) * 30f;
-                        npc.rotation = DeltaTime * 0.05f;
+                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * ans.DeltaTime) + (MathHelper.Pi * 1.25)) * 30f;
+                        npc.rotation = ans.DeltaTime * 0.05f;
                     }
                     if (npc.ai[0] == 6)
                     {
-                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * DeltaTime) + (MathHelper.Pi * 1.50)) * 30f;
-                        npc.rotation = DeltaTime * 0.05f;
+                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * ans.DeltaTime) + (MathHelper.Pi * 1.50)) * 30f;
+                        npc.rotation = ans.DeltaTime * 0.05f;
                     }
                     if (npc.ai[0] == 7)
                     {
-                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * DeltaTime) + (MathHelper.Pi * 1.75)) * 30f;
-                        npc.rotation = DeltaTime * 0.05f;
+                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * ans.DeltaTime) + (MathHelper.Pi * 1.75)) * 30f;
+                        npc.rotation = ans.DeltaTime * 0.05f;
                     }
                     if (npc.ai[0] == 8)
                     {
-                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * DeltaTime) + (MathHelper.Pi * 2.00)) * 30f;
-                        npc.rotation = DeltaTime * 0.05f;
+                        npc.Center = npcmain.Center + Vector2.One.RotatedBy((0.05 * ans.DeltaTime) + (MathHelper.Pi * 2.00)) * 30f;
+                        npc.rotation = ans.DeltaTime * 0.05f;
                     }
                 }
             }
