@@ -227,6 +227,10 @@ namespace Annihilation.NPCs.Ansolar
                         npc.velocity.X = -5f;
                         npc.ai[0] = 2;
                     }
+                    if (npc.Center.X <= player.Center.X - 250f)
+                    {
+                        npc.velocity.X = 8f;
+                    }
                 }
                 if (npc.ai[0] == 2)
                 {
@@ -247,6 +251,10 @@ namespace Annihilation.NPCs.Ansolar
                     {
                         npc.velocity.X = 5f;
                         npc.ai[0] = 1;
+                    }
+                    if (npc.Center.X >= player.Center.X + 250f)
+                    {
+                        npc.velocity.X = -8f;
                     }
                 }
                 timer1--;
@@ -439,8 +447,8 @@ namespace Annihilation.NPCs.Ansolar
                 {
                     float velocityx = player.Center.X - npc.Center.X;
                     float velocityy = player.Center.Y - npc.Center.Y;
-                    npc.velocity.X = (velocityx + velocityx) / 30f;
-                    npc.velocity.Y = (velocityy + velocityy) / 30f;
+                    npc.velocity.X = (velocityx + velocityx) / 60f;
+                    npc.velocity.Y = (velocityy + velocityy) / 60f;
                     timer2--;
                     if (timer2 <= 0)
                     {
@@ -456,8 +464,8 @@ namespace Annihilation.NPCs.Ansolar
                     {
                         float velocityx = npcmain.Center.X - npc.Center.X;
                         float velocityy = npcmain.Center.Y - npc.Center.Y;
-                        npc.velocity.X = ((velocityx + velocityx) + 50) / 30f;
-                        npc.velocity.Y = ((velocityy + velocityy) + 50) / 30f;
+                        npc.velocity.X = ((velocityx + velocityx) + 50) / 60f;
+                        npc.velocity.Y = ((velocityy + velocityy) + 50) / 60f;
                         if (npc.position.Y <= npcmain.Center.Y + 50 - (npc.height / 2))
                         {
                             timer1 = Main.rand.Next(200, 601);
@@ -558,8 +566,8 @@ namespace Annihilation.NPCs.Ansolar
                 {
                     float velocityx = player.Center.X - npc.Center.X;
                     float velocityy = player.Center.Y - npc.Center.Y;
-                    npc.velocity.X = (velocityx + velocityx) / 30f;
-                    npc.velocity.Y = (velocityy + velocityy) / 30f;
+                    npc.velocity.X = (velocityx + velocityx) / 60f;
+                    npc.velocity.Y = (velocityy + velocityy) / 60f;
                     timer2--;
                     if (timer2 <= 0)
                     {
@@ -575,8 +583,8 @@ namespace Annihilation.NPCs.Ansolar
                     {
                         float velocityx = npcmain.Center.X - npc.Center.X;
                         float velocityy = npcmain.Center.Y - npc.Center.Y;
-                        npc.velocity.X = ((velocityx + velocityx) - 50) / 30f;
-                        npc.velocity.Y = ((velocityy + velocityy) + 50) / 30f;
+                        npc.velocity.X = ((velocityx + velocityx) - 50) / 60f;
+                        npc.velocity.Y = ((velocityy + velocityy) + 50) / 60f;
                         if (npc.position.Y <= npcmain.Center.Y + 50 - (npc.height / 2))
                         {
                             timer1 = Main.rand.Next(200, 601);
