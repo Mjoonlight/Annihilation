@@ -66,7 +66,10 @@ namespace Annihilation.NPCs.Ansolar
         public bool Piece6 = false;
         public bool Piece7 = false;
         public bool Piece8 = false;
+        public bool TileSlamingR = false;
+        public bool TileSlamingL = false;
         public int DeltaTime = 0;
+        public int timer14 = 1800;
         public override void AI()
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -207,14 +210,14 @@ namespace Annihilation.NPCs.Ansolar
                         timer12 = 3600;
                     }
                 }
-                if (npc.ai[0] == 1)
+                if (npc.ai[0] == 1 && npc.ai[1] != 1)
                 {
                     npc.velocity.X = 5f;
                     if (npc.Center.Y > player.Center.Y - 210f)
                     {
                         npc.velocity.Y = -8f;
                     }
-                    else if (npc.Center.Y < player.Center.Y - 210f)
+                    else if (npc.Center.Y < player.Center.Y - 230f)
                     {
                         npc.velocity.Y = 8f;
                     }
@@ -232,7 +235,7 @@ namespace Annihilation.NPCs.Ansolar
                         npc.velocity.X = 8f;
                     }
                 }
-                if (npc.ai[0] == 2)
+                if (npc.ai[0] == 2 && npc.ai[1] != 1)
                 {
                     npc.velocity.X = -5f;
                     if (npc.Center.Y > player.Center.Y - 210f)
@@ -358,6 +361,25 @@ namespace Annihilation.NPCs.Ansolar
                         timer2 = 30;
                     }
                 }
+                timer14--;
+                if (timer14 <= 0)
+                {
+                    npc.ai[1] = 1;
+                    npc.noTileCollide = false;
+                }
+                if (npc.ai[1] == 1)
+                {
+                    npc.velocity.X = 0f;
+                    npc.velocity.Y = 5f;
+                }
+                if (TileSlamingR || TileSlamingL)
+                {
+                    npc.ai[1] = 0;
+                    timer14 = 1800;
+                    npc.noTileCollide = true;
+                    TileSlamingR = false;
+                    TileSlamingL = false;
+                }
             }
         }
 
@@ -386,6 +408,7 @@ namespace Annihilation.NPCs.Ansolar
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Ansolar's Right Claw");
+            Main.npcFrameCount[npc.type] = 2;
         }
         public override void SetDefaults()
         {
@@ -429,6 +452,14 @@ namespace Annihilation.NPCs.Ansolar
                 {
                     npc.life = 0;
                 }
+                if (npc.frame.Y != 44)
+                {
+                    npc.rotation = (player.Center - npc.Center).ToRotation() - MathHelper.ToRadians(90f);
+                }
+                else
+                {
+                    npc.rotation = 0;
+                }
                 if (npc.ai[0] == 0)
                 {
                     NPC npcmain = Main.npc[(int)npc.ai[1]];
@@ -436,6 +467,54 @@ namespace Annihilation.NPCs.Ansolar
                     {
                         npc.position.X = npcmain.Center.X + 50 - (npc.width / 2);
                         npc.position.Y = npcmain.Center.Y + 50 - (npc.height / 2);
+                        Ansolar ans = (Ansolar)npcmain.modNPC;
+                        if (ans.timer14 <= 0)
+                        {
+                            npc.frame.Y = 44;
+                            int num180 = (int)(npc.position.X / 16f) - 1;
+                            int num181 = (int)((npc.position.X + (float)npc.width) / 16f) + 2;
+                            int num182 = (int)(npc.position.Y / 16f) - 1;
+                            int num183 = (int)((npc.position.Y + (float)npc.height) / 16f) + 2;
+                            if (num180 < 0)
+                            {
+                                num180 = 0;
+                            }
+                            if (num181 > Main.maxTilesX)
+                            {
+                                num181 = Main.maxTilesX;
+                            }
+                            if (num182 < 0)
+                            {
+                                num182 = 0;
+                            }
+                            if (num183 > Main.maxTilesY)
+                            {
+                                num183 = Main.maxTilesY;
+                            }
+                            for (int num184 = num180; num184 < num181; num184++)
+                            {
+                                for (int num185 = num182; num185 < num183; num185++)
+                                {
+                                    if (Main.tile[num184, num185] != null && (Main.tile[num184, num185].nactive() && (Main.tileSolid[(int)Main.tile[num184, num185].type] || Main.tileSolidTop[(int)Main.tile[num184, num185].type] && Main.tile[num184, num185].frameY == 0) || Main.tile[num184, num185].liquid > 64))
+                                    {
+                                        Vector2 vector17;
+                                        vector17.X = (float)((num184 + 0) * 16);
+                                        vector17.Y = (float)((num185 + 1) * 16);
+                                        if (npc.position.X + (float)npc.width > vector17.X && npc.position.X < vector17.X + 16f && npc.position.Y + (float)npc.height > vector17.Y && npc.position.Y < vector17.Y + 16f)
+                                        {
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 15, npc.Center.Y - 16), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 15), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 15, npc.Center.Y - 16), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            ans.TileSlamingR = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if (ans.TileSlamingR || ans.TileSlamingL)
+                        {
+                            npc.frame.Y = 0;
+                        }
                     }
                 }
                 timer1--;
@@ -456,6 +535,17 @@ namespace Annihilation.NPCs.Ansolar
                         npc.ai[0] = 2;
                         boolvalue = true;
                     }
+                    NPC npcmain = Main.npc[(int)npc.ai[1]];
+                    if (npcmain != null)
+                    {
+                        Ansolar ans = (Ansolar)npcmain.modNPC;
+                        if (ans.timer14 <= 0)
+                        {
+                            timer1 = Main.rand.Next(200, 601);
+                            timer2 = 180;
+                            npc.ai[0] = 0;
+                        }
+                    }
                 }
                 if (npc.ai[0] == 2 || boolvalue)
                 {
@@ -467,6 +557,13 @@ namespace Annihilation.NPCs.Ansolar
                         npc.velocity.X = ((velocityx + velocityx) + 50) / 60f;
                         npc.velocity.Y = ((velocityy + velocityy) + 50) / 60f;
                         if (npc.position.Y <= npcmain.Center.Y + 50 - (npc.height / 2))
+                        {
+                            timer1 = Main.rand.Next(200, 601);
+                            npc.ai[0] = 0;
+                            boolvalue = false;
+                        }
+                        Ansolar ans = (Ansolar)npcmain.modNPC;
+                        if (ans.timer14 <= 0)
                         {
                             timer1 = Main.rand.Next(200, 601);
                             npc.ai[0] = 0;
@@ -505,6 +602,7 @@ namespace Annihilation.NPCs.Ansolar
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Ansolar's Left Claw");
+            Main.npcFrameCount[npc.type] = 2;
         }
         public override void SetDefaults()
         {
@@ -548,6 +646,14 @@ namespace Annihilation.NPCs.Ansolar
                 {
                     npc.life = 0;
                 }
+                if (npc.frame.Y != 44)
+                {
+                    npc.rotation = (player.Center - npc.Center).ToRotation() - MathHelper.ToRadians(90f);
+                }
+                else
+                {
+                    npc.rotation = 0;
+                }
                 if (npc.ai[0] == 0)
                 {
                     NPC npcmain = Main.npc[(int)npc.ai[1]];
@@ -555,6 +661,54 @@ namespace Annihilation.NPCs.Ansolar
                     {
                         npc.position.X = npcmain.Center.X - 50 - (npc.width / 2);
                         npc.position.Y = npcmain.Center.Y + 50 - (npc.height / 2);
+                        Ansolar ans = (Ansolar)npcmain.modNPC;
+                        if (ans.timer14 <= 0)
+                        {
+                            npc.frame.Y = 44;
+                            int num180 = (int)(npc.position.X / 16f) - 1;
+                            int num181 = (int)((npc.position.X + (float)npc.width) / 16f) + 2;
+                            int num182 = (int)(npc.position.Y / 16f) - 1;
+                            int num183 = (int)((npc.position.Y + (float)npc.height) / 16f) + 2;
+                            if (num180 < 0)
+                            {
+                                num180 = 0;
+                            }
+                            if (num181 > Main.maxTilesX)
+                            {
+                                num181 = Main.maxTilesX;
+                            }
+                            if (num182 < 0)
+                            {
+                                num182 = 0;
+                            }
+                            if (num183 > Main.maxTilesY)
+                            {
+                                num183 = Main.maxTilesY;
+                            }
+                            for (int num184 = num180; num184 < num181; num184++)
+                            {
+                                for (int num185 = num182; num185 < num183; num185++)
+                                {
+                                    if (Main.tile[num184, num185] != null && (Main.tile[num184, num185].nactive() && (Main.tileSolid[(int)Main.tile[num184, num185].type] || Main.tileSolidTop[(int)Main.tile[num184, num185].type] && Main.tile[num184, num185].frameY == 0) || Main.tile[num184, num185].liquid > 64))
+                                    {
+                                        Vector2 vector17;
+                                        vector17.X = (float)((num184 + 0) * 16);
+                                        vector17.Y = (float)((num185 + 1) * 16);
+                                        if (npc.position.X + (float)npc.width > vector17.X && npc.position.X < vector17.X + 16f && npc.position.Y + (float)npc.height > vector17.Y && npc.position.Y < vector17.Y + 16f)
+                                        {
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 15, npc.Center.Y - 16), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 15), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 15, npc.Center.Y - 16), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            ans.TileSlamingL = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if (ans.TileSlamingR || ans.TileSlamingL)
+                        {
+                            npc.frame.Y = 0;
+                        }
                     }
                 }
                 timer1--;
@@ -575,6 +729,17 @@ namespace Annihilation.NPCs.Ansolar
                         npc.ai[0] = 2;
                         boolvalue = true;
                     }
+                    NPC npcmain = Main.npc[(int)npc.ai[1]];
+                    if (npcmain != null)
+                    {
+                        Ansolar ans = (Ansolar)npcmain.modNPC;
+                        if (ans.timer14 <= 0)
+                        {
+                            timer1 = Main.rand.Next(200, 601);
+                            timer2 = 180;
+                            npc.ai[0] = 0;
+                        }
+                    }
                 }
                 if (npc.ai[0] == 2 || boolvalue)
                 {
@@ -586,6 +751,13 @@ namespace Annihilation.NPCs.Ansolar
                         npc.velocity.X = ((velocityx + velocityx) - 50) / 60f;
                         npc.velocity.Y = ((velocityy + velocityy) + 50) / 60f;
                         if (npc.position.Y <= npcmain.Center.Y + 50 - (npc.height / 2))
+                        {
+                            timer1 = Main.rand.Next(200, 601);
+                            npc.ai[0] = 0;
+                            boolvalue = false;
+                        }
+                        Ansolar ans = (Ansolar)npcmain.modNPC;
+                        if (ans.timer14 <= 0)
                         {
                             timer1 = Main.rand.Next(200, 601);
                             npc.ai[0] = 0;
@@ -633,7 +805,7 @@ namespace Annihilation.NPCs.Ansolar
             npc.aiStyle = -1;
             npc.damage = 25;
             npc.defense = 6;
-            npc.lifeMax = 1000;
+            npc.lifeMax = 600;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;

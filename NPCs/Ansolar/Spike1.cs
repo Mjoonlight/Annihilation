@@ -19,7 +19,7 @@ namespace Annihilation.NPCs.Ansolar
         {
             projectile.width = 10;
             projectile.height = 24;
-            projectile.damage = 20;
+            projectile.damage = 30;
             projectile.friendly = false;
             projectile.hostile = true;
             projectile.ignoreWater = false;
