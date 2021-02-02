@@ -55,7 +55,7 @@ namespace Annihilation.NPCs.Ansolar
                 }
                 if (!NPC.AnyNPCs(ModContent.NPCType<Ansolar>()))
                 {
-                    npc.timeLeft = 0;
+                    npc.life = 0;
                 }
                 aa--;
                 int type = Main.rand.Next(0, 4);

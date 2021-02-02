@@ -373,7 +373,7 @@ namespace Annihilation.NPCs.Ansolar
                     npc.velocity.X = 0f;
                     npc.velocity.Y = 5f;
                 }
-                if (TileSlaming)
+                if (TileSlaming || (!NPC.AnyNPCs(ModContent.NPCType<AnsolarClawR>()) && !NPC.AnyNPCs(ModContent.NPCType<AnsolarClawL>())))
                 {
                     npc.ai[1] = 0;
                     timer14 = Main.rand.Next(1, 5) * 600;
