@@ -58,6 +58,8 @@ namespace Annihilation.NPCs.Ansolar
         private int timer10 = 3600;
         private int timer11 = 3600;
         private int timer12 = 3600;
+        private int counter1 = 0;
+        private int counter2 = 0;
         public bool Piece1 = false;
         public bool Piece2 = false;
         public bool Piece3 = false;
@@ -66,8 +68,7 @@ namespace Annihilation.NPCs.Ansolar
         public bool Piece6 = false;
         public bool Piece7 = false;
         public bool Piece8 = false;
-        public bool TileSlamingR = false;
-        public bool TileSlamingL = false;
+        public bool TileSlaming = false;
         public int DeltaTime = 0;
         public int timer14 = 1800;
         public override void AI()
@@ -357,6 +358,7 @@ namespace Annihilation.NPCs.Ansolar
                     }
                     if (timer2 <= 0)
                     {
+                        counter1++;
                         timer1 = 300;
                         timer2 = 30;
                     }
@@ -372,13 +374,91 @@ namespace Annihilation.NPCs.Ansolar
                     npc.velocity.X = 0f;
                     npc.velocity.Y = 5f;
                 }
-                if (TileSlamingR || TileSlamingL)
+                if (TileSlaming)
                 {
                     npc.ai[1] = 0;
                     timer14 = 1800;
                     npc.noTileCollide = true;
-                    TileSlamingR = false;
-                    TileSlamingL = false;
+                    TileSlaming = false;
+                }
+                if (counter1 >= 4)
+                {
+                    if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) <= 15)
+                    {
+                        if (counter2 >= 4)
+                        {
+                            counter1 = 0;
+                            counter2 = 0;
+                        }
+                        else
+                        {
+                            if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 0)
+                            {
+                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 1, npc.whoAmI);
+                            }
+                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 1)
+                            {
+                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 2, npc.whoAmI);
+                            }
+                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 2)
+                            {
+                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 3, npc.whoAmI);
+                            }
+                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 3)
+                            {
+                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 4, npc.whoAmI);
+                            }
+                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 4)
+                            {
+                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 5, npc.whoAmI);
+                            }
+                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 5)
+                            {
+                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 6, npc.whoAmI);
+                            }
+                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 6)
+                            {
+                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 7, npc.whoAmI);
+                            }
+                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 7)
+                            {
+                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 8, npc.whoAmI);
+                            }
+                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 8)
+                            {
+                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 9, npc.whoAmI);
+                            }
+                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 9)
+                            {
+                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 10, npc.whoAmI);
+                            }
+                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 10)
+                            {
+                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 11, npc.whoAmI);
+                            }
+                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 11)
+                            {
+                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 12, npc.whoAmI);
+                            }
+                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 12)
+                            {
+                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 13, npc.whoAmI);
+                            }
+                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 13)
+                            {
+                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 14, npc.whoAmI);
+                            }
+                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 14)
+                            {
+                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 15, npc.whoAmI);
+                            }
+                            else
+                            {
+                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 16, npc.whoAmI);
+                            }
+                        }
+                    }
+                    counter2++;
                 }
             }
         }
@@ -502,16 +582,16 @@ namespace Annihilation.NPCs.Ansolar
                                         vector17.Y = (float)((num185 + 1) * 16);
                                         if (npc.position.X + (float)npc.width > vector17.X && npc.position.X < vector17.X + 16f && npc.position.Y + (float)npc.height > vector17.Y && npc.position.Y < vector17.Y + 16f)
                                         {
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 15, npc.Center.Y - 16), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 15), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 15, npc.Center.Y - 16), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                            ans.TileSlamingR = true;
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 16, npc.Center.Y - 14), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 14), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 16, npc.Center.Y - 14), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            ans.TileSlaming = true;
                                         }
                                     }
                                 }
                             }
                         }
-                        if (ans.TileSlamingR || ans.TileSlamingL)
+                        if (ans.TileSlaming)
                         {
                             npc.frame.Y = 0;
                         }
@@ -696,16 +776,16 @@ namespace Annihilation.NPCs.Ansolar
                                         vector17.Y = (float)((num185 + 1) * 16);
                                         if (npc.position.X + (float)npc.width > vector17.X && npc.position.X < vector17.X + 16f && npc.position.Y + (float)npc.height > vector17.Y && npc.position.Y < vector17.Y + 16f)
                                         {
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 15, npc.Center.Y - 16), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 15), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 15, npc.Center.Y - 16), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                            ans.TileSlamingL = true;
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 16, npc.Center.Y - 14), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 14), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 16, npc.Center.Y - 14), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            ans.TileSlaming = true;
                                         }
                                     }
                                 }
                             }
                         }
-                        if (ans.TileSlamingR || ans.TileSlamingL)
+                        if (ans.TileSlaming)
                         {
                             npc.frame.Y = 0;
                         }
