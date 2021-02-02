@@ -24,7 +24,7 @@ namespace Annihilation.NPCs.Ansolar
             npc.aiStyle = -1;
             npc.damage = 29;
             npc.defense = 6;
-            npc.lifeMax = 40;
+            npc.lifeMax = 240;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;
@@ -673,7 +673,7 @@ namespace Annihilation.NPCs.Ansolar
                     Ansolar ans = (Ansolar)npcmain.modNPC;
                     if (ans != null)
                     {
-                        npc.Center = player.Center + Vector2.One.RotatedBy((0.025 * ans.DeltaTime) - (MathHelper.ToRadians(bop))) * 90f;
+                        npc.Center = player.Center + Vector2.One.RotatedBy((0.025 * ans.DeltaTime) - (MathHelper.ToRadians(bop))) * 120f;
                     }
                 }
             }

@@ -59,7 +59,6 @@ namespace Annihilation.NPCs.Ansolar
         private int timer11 = 3600;
         private int timer12 = 3600;
         private int counter1 = 0;
-        private int counter2 = 0;
         public bool Piece1 = false;
         public bool Piece2 = false;
         public bool Piece3 = false;
@@ -381,84 +380,76 @@ namespace Annihilation.NPCs.Ansolar
                     npc.noTileCollide = true;
                     TileSlaming = false;
                 }
-                if (counter1 >= 6)
+                if (counter1 >= 2)
                 {
                     if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) <= 15)
                     {
-                        if (counter2 >= 4)
+                        if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 0)
                         {
-                            counter1 = 0;
-                            counter2 = 0;
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 1, npc.whoAmI);
+                        }
+                        else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 1)
+                        {
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 2, npc.whoAmI);
+                        }
+                        else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 2)
+                        {
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 3, npc.whoAmI);
+                        }
+                        else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 3)
+                        {
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 4, npc.whoAmI);
+                        }
+                        else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 4)
+                        {
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 5, npc.whoAmI);
+                        }
+                        else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 5)
+                        {
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 6, npc.whoAmI);
+                        }
+                        else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 6)
+                        {
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 7, npc.whoAmI);
+                        }
+                        else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 7)
+                        {
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 8, npc.whoAmI);
+                        }
+                        else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 8)
+                        {
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 9, npc.whoAmI);
+                        }
+                        else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 9)
+                        {
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 10, npc.whoAmI);
+                        }
+                        else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 10)
+                        {
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 11, npc.whoAmI);
+                        }
+                        else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 11)
+                        {
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 12, npc.whoAmI);
+                        }
+                        else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 12)
+                        {
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 13, npc.whoAmI);
+                        }
+                        else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 13)
+                        {
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 14, npc.whoAmI);
+                        }
+                        else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 14)
+                        {
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 15, npc.whoAmI);
                         }
                         else
                         {
-                            if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 0)
-                            {
-                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 1, npc.whoAmI);
-                            }
-                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 1)
-                            {
-                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 2, npc.whoAmI);
-                            }
-                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 2)
-                            {
-                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 3, npc.whoAmI);
-                            }
-                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 3)
-                            {
-                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 4, npc.whoAmI);
-                            }
-                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 4)
-                            {
-                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 5, npc.whoAmI);
-                            }
-                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 5)
-                            {
-                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 6, npc.whoAmI);
-                            }
-                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 6)
-                            {
-                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 7, npc.whoAmI);
-                            }
-                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 7)
-                            {
-                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 8, npc.whoAmI);
-                            }
-                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 8)
-                            {
-                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 9, npc.whoAmI);
-                            }
-                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 9)
-                            {
-                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 10, npc.whoAmI);
-                            }
-                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 10)
-                            {
-                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 11, npc.whoAmI);
-                            }
-                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 11)
-                            {
-                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 12, npc.whoAmI);
-                            }
-                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 12)
-                            {
-                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 13, npc.whoAmI);
-                            }
-                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 13)
-                            {
-                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 14, npc.whoAmI);
-                            }
-                            else if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 14)
-                            {
-                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 15, npc.whoAmI);
-                            }
-                            else
-                            {
-                                NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 16, npc.whoAmI);
-                            }
+                            NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<Crystiumite>(), 0, 16, npc.whoAmI);
                         }
                     }
-                    counter2++;
+                    counter1 = 0;
                 }
             }
         }
