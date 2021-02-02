@@ -23,8 +23,8 @@ namespace Annihilation.NPCs.Ansolar
             npc.height = 34;
             npc.aiStyle = -1;
             npc.damage = 29;
-            npc.defense = 7;
-            npc.lifeMax = 465;
+            npc.defense = 6;
+            npc.lifeMax = 40;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;
@@ -33,6 +33,7 @@ namespace Annihilation.NPCs.Ansolar
             npc.buffImmune[BuffID.Confused] = true;
         }
         private int bop = 0;
+        private int aa = 300 + (Main.rand.Next(1, 31) * 10);
         public override void AI()
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -55,6 +56,24 @@ namespace Annihilation.NPCs.Ansolar
                 if (!NPC.AnyNPCs(ModContent.NPCType<Ansolar>()))
                 {
                     npc.timeLeft = 0;
+                }
+                aa--;
+                int type = Main.rand.Next(0, 4);
+                if (aa <= 0)
+                {
+                    if (type == 1)
+                    {
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - npc.Center.X, player.Center.Y - npc.Center.Y) / 60f, ModContent.ProjectileType<Spike1>(), npc.damage / 3, 1);
+                    }
+                    else if (type == 2)
+                    {
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - npc.Center.X, player.Center.Y - npc.Center.Y) / 60f, ModContent.ProjectileType<Spike2>(), npc.damage / 3, 1);
+                    }
+                    else
+                    {
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - npc.Center.X, player.Center.Y - npc.Center.Y) / 60f, ModContent.ProjectileType<Spike3>(), npc.damage / 3, 1);
+                    }
+                    aa = 300 + (Main.rand.Next(1, 31) * 10);
                 }
                 if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) == 1)
                 {
@@ -654,7 +673,7 @@ namespace Annihilation.NPCs.Ansolar
                     Ansolar ans = (Ansolar)npcmain.modNPC;
                     if (ans != null)
                     {
-                        npc.Center = player.Center + Vector2.One.RotatedBy((0.075 * ans.DeltaTime) - (MathHelper.ToRadians(bop))) * 90f;
+                        npc.Center = player.Center + Vector2.One.RotatedBy((0.025 * ans.DeltaTime) - (MathHelper.ToRadians(bop))) * 90f;
                     }
                 }
             }

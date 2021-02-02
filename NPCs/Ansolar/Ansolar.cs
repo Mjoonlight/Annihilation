@@ -70,7 +70,7 @@ namespace Annihilation.NPCs.Ansolar
         public bool Piece8 = false;
         public bool TileSlaming = false;
         public int DeltaTime = 0;
-        public int timer14 = 1800;
+        public int timer14 = Main.rand.Next(1,5) * 600;
         public override void AI()
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
@@ -377,11 +377,11 @@ namespace Annihilation.NPCs.Ansolar
                 if (TileSlaming)
                 {
                     npc.ai[1] = 0;
-                    timer14 = 1800;
+                    timer14 = Main.rand.Next(1, 5) * 600;
                     npc.noTileCollide = true;
                     TileSlaming = false;
                 }
-                if (counter1 >= 4)
+                if (counter1 >= 6)
                 {
                     if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) <= 15)
                     {
