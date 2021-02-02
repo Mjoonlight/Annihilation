@@ -29,6 +29,11 @@ namespace Annihilation.NPCs.Ansolar
         }
         public override void AI()
         {
+            if (projectile.ai[0] == 1)
+            {
+                projectile.damage = 19;
+                projectile.ai[0] = 0;
+            }
             projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(-90f);
         }
     }

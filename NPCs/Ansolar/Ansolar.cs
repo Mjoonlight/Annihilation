@@ -380,7 +380,7 @@ namespace Annihilation.NPCs.Ansolar
                     npc.noTileCollide = true;
                     TileSlaming = false;
                 }
-                if (counter1 >= 2)
+                if (counter1 >= 3)
                 {
                     if (NPC.CountNPCS(ModContent.NPCType<Crystiumite>()) <= 15)
                     {
