@@ -490,6 +490,11 @@ namespace Annihilation.NPCs.Ansolar
             npc.buffImmune[BuffID.Confused] = true;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansolar");
         }
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        {
+            npc.lifeMax = (int)(npc.lifeMax * 0.625f * bossLifeScale);
+            npc.damage = (int)(npc.damage * 0.6f);
+        }
         private int timer1 = Main.rand.Next(200, 601);
         private int timer2 = 180;
         private bool boolvalue = false;
@@ -684,6 +689,11 @@ namespace Annihilation.NPCs.Ansolar
             npc.buffImmune[BuffID.Confused] = true;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansolar");
         }
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        {
+            npc.lifeMax = (int)(npc.lifeMax * 0.625f * bossLifeScale);
+            npc.damage = (int)(npc.damage * 0.6f);
+        }
         private int timer1 = Main.rand.Next(200, 601);
         private int timer2 = 180;
         private bool boolvalue = false;
@@ -877,6 +887,11 @@ namespace Annihilation.NPCs.Ansolar
             npc.DeathSound = SoundID.NPCDeath14;
             npc.buffImmune[BuffID.Confused] = true;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansolar");
+        }
+        public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+        {
+            npc.lifeMax = (int)(npc.lifeMax * 0.625f * bossLifeScale);
+            npc.damage = (int)(npc.damage * 0.6f);
         }
         public override bool PreNPCLoot()
         {
