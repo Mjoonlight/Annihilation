@@ -580,7 +580,7 @@ namespace Annihilation.NPCs.Ansolar
                                 }
                             }
                         }
-                        if (ans.TileSlaming)
+                        if (ans.timer14 > 0)
                         {
                             npc.frame.Y = 0;
                         }
@@ -779,7 +779,7 @@ namespace Annihilation.NPCs.Ansolar
                                 }
                             }
                         }
-                        if (ans.TileSlaming)
+                        if (ans.timer14 > 0) 
                         {
                             npc.frame.Y = 0;
                         }
