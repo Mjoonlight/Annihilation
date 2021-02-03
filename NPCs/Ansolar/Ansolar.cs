@@ -29,7 +29,7 @@ namespace Annihilation.NPCs.Ansolar
             npc.aiStyle = -1;
             npc.damage = 21;
             npc.defense = 14;
-            npc.lifeMax = 4200;
+            npc.lifeMax = 3300;
             npc.boss = true;
             npc.noGravity = true;
             npc.noTileCollide = true;
@@ -50,23 +50,23 @@ namespace Annihilation.NPCs.Ansolar
         private int timer2 = 30;
         private int timer3 = 2400;
         private int timer4 = 2400;
-        private int timer5 = 3600;
-        private int timer6 = 3600;
-        private int timer7 = 3600;
-        private int timer8 = 3600;
-        private int timer9 = 3600;
-        private int timer10 = 3600;
-        private int timer11 = 3600;
-        private int timer12 = 3600;
+        private int timer5 = 10;
+        private int timer6 = 10;
+        private int timer7 = 10;
+        private int timer8 = 10;
+        private int timer9 = 10;
+        private int timer10 = 10;
+        private int timer11 = 10;
+        private int timer12 = 10;
         private int counter1 = 0;
-        public bool Piece1 = false;
-        public bool Piece2 = false;
-        public bool Piece3 = false;
-        public bool Piece4 = false;
-        public bool Piece5 = false;
-        public bool Piece6 = false;
-        public bool Piece7 = false;
-        public bool Piece8 = false;
+        public bool Piece1 = true;
+        public bool Piece2 = true;
+        public bool Piece3 = true;
+        public bool Piece4 = true;
+        public bool Piece5 = true;
+        public bool Piece6 = true;
+        public bool Piece7 = true;
+        public bool Piece8 = true;
         public bool TileSlaming = false;
         public int DeltaTime = 0;
         public int timer14 = Main.rand.Next(1,5) * 600;
@@ -93,14 +93,7 @@ namespace Annihilation.NPCs.Ansolar
                 {
                     NPC.NewNPC((int)npc.Center.X + 30, (int)npc.Center.Y + 30, ModContent.NPCType<AnsolarClawR>(), 0, 0, npc.whoAmI);
                     NPC.NewNPC((int)npc.Center.X - 30, (int)npc.Center.Y + 30, ModContent.NPCType<AnsolarClawL>(), 0, 0, npc.whoAmI);
-                    NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y - 20, ModContent.NPCType<Shield>(), 0, 1, npc.whoAmI);
-                    NPC.NewNPC((int)npc.Center.X + 20, (int)npc.Center.Y - 20, ModContent.NPCType<Shield>(), 0, 2, npc.whoAmI);
-                    NPC.NewNPC((int)npc.Center.X + 20, (int)npc.Center.Y, ModContent.NPCType<Shield>(), 0, 3, npc.whoAmI);
-                    NPC.NewNPC((int)npc.Center.X + 20, (int)npc.Center.Y + 20, ModContent.NPCType<Shield>(), 0, 4, npc.whoAmI);
-                    NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y + 20, ModContent.NPCType<Shield>(), 0, 5, npc.whoAmI);
-                    NPC.NewNPC((int)npc.Center.X - 20, (int)npc.Center.Y + 20, ModContent.NPCType<Shield>(), 0, 6, npc.whoAmI);
-                    NPC.NewNPC((int)npc.Center.X - 20, (int)npc.Center.Y, ModContent.NPCType<Shield>(), 0, 7, npc.whoAmI);
-                    NPC.NewNPC((int)npc.Center.X - 20, (int)npc.Center.Y - 20, ModContent.NPCType<Shield>(), 0, 8, npc.whoAmI);
+
                     init = true;
                 }
                 if (npc.ai[0] == 0)
@@ -573,9 +566,9 @@ namespace Annihilation.NPCs.Ansolar
                                         vector17.Y = (float)((num185 + 1) * 16);
                                         if (npc.position.X + (float)npc.width > vector17.X && npc.position.X < vector17.X + 16f && npc.position.Y + (float)npc.height > vector17.Y && npc.position.Y < vector17.Y + 16f)
                                         {
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 16, npc.Center.Y - 14), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 14), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 16, npc.Center.Y - 14), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
                                             ans.TileSlaming = true;
                                         }
                                     }
@@ -767,9 +760,9 @@ namespace Annihilation.NPCs.Ansolar
                                         vector17.Y = (float)((num185 + 1) * 16);
                                         if (npc.position.X + (float)npc.width > vector17.X && npc.position.X < vector17.X + 16f && npc.position.Y + (float)npc.height > vector17.Y && npc.position.Y < vector17.Y + 16f)
                                         {
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 16, npc.Center.Y - 14), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 14), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 16, npc.Center.Y - 14), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                            Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
                                             ans.TileSlaming = true;
                                         }
                                     }
@@ -876,7 +869,7 @@ namespace Annihilation.NPCs.Ansolar
             npc.aiStyle = -1;
             npc.damage = 25;
             npc.defense = 6;
-            npc.lifeMax = 600;
+            npc.lifeMax = 400;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;

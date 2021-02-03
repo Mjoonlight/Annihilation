@@ -24,7 +24,7 @@ namespace Annihilation.NPCs.Ansolar
             npc.aiStyle = -1;
             npc.damage = 29;
             npc.defense = 6;
-            npc.lifeMax = 240;
+            npc.lifeMax = 120;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;

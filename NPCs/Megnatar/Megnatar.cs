@@ -87,7 +87,6 @@ namespace Annihilation.NPCs.Megnatar
         private int timer2 = 150;
         private int timer3 = 40;
         private int timer4 = 200;
-
         public override void AI()
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)

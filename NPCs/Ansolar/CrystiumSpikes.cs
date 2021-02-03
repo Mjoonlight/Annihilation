@@ -34,6 +34,10 @@ namespace Annihilation.NPCs.Ansolar
             {
                 projectile.hostile = false;
             }
+            else
+            {
+                projectile.hostile = true;
+            }
             projectile.frameCounter++;
             if (projectile.frameCounter >= 10)
             {
