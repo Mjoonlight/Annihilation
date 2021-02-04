@@ -16,7 +16,7 @@ namespace Annihilation.Items.BossSummons
         public override void SetDefaults()
         {
             item.width = 34;
-            item.height = 38;
+            item.height = 36;
             item.maxStack = 30;
             item.rare = ItemRarityID.Blue;
             item.useAnimation = 45;
