@@ -12,7 +12,6 @@ namespace Annihilation.Items.BossSummons
             DisplayName.SetDefault("Crystium Sigil");
             ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13;
         }
-
         public override void SetDefaults()
         {
             item.width = 50;
@@ -29,7 +28,6 @@ namespace Annihilation.Items.BossSummons
         {
             return Main.dayTime && !NPC.AnyNPCs(ModContent.NPCType<Ansolar>());
         }
-
         public override bool UseItem(Player player)
         {
             NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<Ansolar>());
