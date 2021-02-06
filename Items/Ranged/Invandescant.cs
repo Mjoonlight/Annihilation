@@ -8,7 +8,6 @@ namespace Annihilation.Items.Ranged
 		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("Unleash unrelenting devastation.");
 		}
-
 		public override void SetDefaults() {
 			item.damage = 37; // Sets the item's damage. Note that projectiles shot by this weapon will use its and the used ammunition's damage added together.
 			item.ranged = true; // sets the damage type to ranged
@@ -27,8 +26,6 @@ namespace Annihilation.Items.Ranged
 			item.shootSpeed = 19f; // the speed of the projectile (measured in pixels per frame)
 			item.useAmmo = AmmoID.Bullet; // The "ammo Id" of the ammo item that this weapon uses. Note that this is not an item Id, but just a magic value.
 		}
-
-
 		/*
 		 * Feel free to uncomment any of the examples below to see what they do
 		 */
