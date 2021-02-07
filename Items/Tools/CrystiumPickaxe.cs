@@ -1,7 +1,7 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Annihilation.Items.Materials
+namespace Annihilation.Items.Tools
 {
     public class CrystiumPickaxe : ModItem
     {
@@ -16,8 +16,8 @@ namespace Annihilation.Items.Materials
             item.melee = true;
             item.width = 40;
             item.height = 36;
-            item.useTime = 10;
-            item.useAnimation = 10;
+            item.useTime = 14;
+            item.useAnimation = 14;
             item.pick = 80;
             item.useStyle = ItemUseStyleID.SwingThrow;
             item.knockBack = 6;

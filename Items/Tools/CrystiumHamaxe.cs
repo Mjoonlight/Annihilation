@@ -1,7 +1,7 @@
 ﻿using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Annihilation.Items.Materials
+namespace Annihilation.Items.Tools
 {
     public class CrystiumHamaxe : ModItem
     {
@@ -16,8 +16,8 @@ namespace Annihilation.Items.Materials
             item.melee = true;
             item.width = 36;
             item.height = 34;
-            item.useTime = 10;
-            item.useAnimation = 10;
+            item.useTime = 14;
+            item.useAnimation = 14;
             item.axe = 16;
             item.hammer = 80;
             item.useStyle = ItemUseStyleID.SwingThrow;
