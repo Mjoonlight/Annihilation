@@ -9,7 +9,6 @@ namespace Annihilation.Items.Materials
         {
             DisplayName.SetDefault("Chaos Fragment");
         }
-
         public override void SetDefaults()
         {
             item.width = 22;

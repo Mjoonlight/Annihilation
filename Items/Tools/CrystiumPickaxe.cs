@@ -9,7 +9,6 @@ namespace Annihilation.Items.Tools
         {
             DisplayName.SetDefault("Crystium Pickaxe");
         }
-
         public override void SetDefaults()
         {
             item.damage = 20;

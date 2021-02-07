@@ -9,7 +9,6 @@ namespace Annihilation.Items.Materials
         {
             DisplayName.SetDefault("Crystium Bar");
         }
-
         public override void SetDefaults()
         {
             item.width = 42;

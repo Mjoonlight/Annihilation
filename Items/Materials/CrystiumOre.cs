@@ -9,7 +9,6 @@ namespace Annihilation.Items.Materials
         {
             DisplayName.SetDefault("Crystium Ore");
         }
-
         public override void SetDefaults()
         {
             item.width = 34;
