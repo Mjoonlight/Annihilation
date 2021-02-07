@@ -31,6 +31,7 @@ namespace Annihilation.Projectiles
             projectile.timeLeft = 600;
         }
         public int type = -1;
+        private NPC targer = null;
         public override void AI()
         {
             if (type == -1)
@@ -52,9 +53,14 @@ namespace Annihilation.Projectiles
                 projectile.ai[0] = 1;
             }
             projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(-90f);
-            if (killing && projectile.timeLeft <= 1)
+            if (killing && projectile.timeLeft <= 1 && targer != null)
             {
-                Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y), new Vector2(0f, 0f), ModContent.ProjectileType<CrystalBulletStuck>(), 0, 0f, projectile.owner, projectile.whoAmI);
+                Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y), new Vector2(targer.velocity.X, targer.velocity.Y), ModContent.ProjectileType<CrystalBulletStuck>(), 0, 0f, projectile.owner, projectile.whoAmI, targer.whoAmI);
+                projectile.timeLeft = 0;
+            }
+            else if (killing && projectile.timeLeft <= 1)
+            {
+                Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y), new Vector2(0f, 0f), ModContent.ProjectileType<CrystalBulletStuck>(), 0, 0f, projectile.owner, projectile.whoAmI, -1);
                 projectile.timeLeft = 0;
             }
         }
@@ -73,8 +79,8 @@ namespace Annihilation.Projectiles
         {
             if (!killing)
             {
-                Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y), new Vector2(target.velocity.X, target.velocity.Y), ModContent.ProjectileType<CrystalBulletStuck>(), 0, 0f, projectile.owner, projectile.whoAmI, target.whoAmI);
-                projectile.timeLeft = 0;
+                targer = target;
+                projectile.timeLeft = 3;
                 killing = true;
             }
         }
@@ -163,14 +169,14 @@ namespace Annihilation.Projectiles
                     {
                         projectile.frame += 1;
                     }
+                    projectile.rotation = proj.projectile.rotation;
                     init = true;
                 }
-                projectile.rotation = Main.projectile[(int)projectile.ai[0]].rotation;
-                if (projectile.ai[1] != 0)
-                {
-                    NPC nerp = Main.npc[(int)projectile.ai[1]];
-                    projectile.velocity = nerp.velocity;
-                }
+            }
+            if (projectile.ai[1] != -1)
+            {
+                NPC nerp = Main.npc[(int)projectile.ai[1]];
+                projectile.velocity = nerp.velocity;
             }
         }
         public override bool PreKill(int timeLeft)

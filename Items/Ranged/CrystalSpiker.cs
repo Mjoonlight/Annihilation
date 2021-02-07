@@ -13,12 +13,12 @@ namespace Annihilation.Items.Ranged
         }
         public override void SetDefaults()
         {
-            item.damage = 19;
+            item.damage = 23;
             item.ranged = true;
             item.width = 36;
             item.height = 42;
-            item.useTime = 36;
-            item.useAnimation = 36;
+            item.useTime = 14;
+            item.useAnimation = 14;
             item.useStyle = ItemUseStyleID.HoldingOut;
             item.noMelee = true;
             item.knockBack = 4;
