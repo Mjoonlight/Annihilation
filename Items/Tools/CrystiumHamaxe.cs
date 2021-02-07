@@ -15,8 +15,8 @@ namespace Annihilation.Items.Tools
             item.melee = true;
             item.width = 36;
             item.height = 34;
-            item.useTime = 14;
-            item.useAnimation = 14;
+            item.useTime = 20;
+            item.useAnimation = 20;
             item.axe = 16;
             item.hammer = 80;
             item.useStyle = ItemUseStyleID.SwingThrow;
