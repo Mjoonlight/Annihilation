@@ -9,17 +9,17 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Annihilation.NPCs.Megnatar
+namespace Annihilation.Projectiles
 {
-    class Firelaser : ModProjectile
+    class BlackoutShot : ModProjectile
     {
         public override void SetDefaults()
         {
             projectile.width = 8;
             projectile.height = 18;
-            projectile.damage = 22;
-            projectile.friendly = false;
-            projectile.hostile = true;
+            projectile.damage = 13;
+            projectile.friendly = true;
+            projectile.hostile = false;
             projectile.ignoreWater = false;
             projectile.tileCollide = true;
             projectile.timeLeft = 600;
@@ -29,9 +29,12 @@ namespace Annihilation.NPCs.Megnatar
         {
             projectile.rotation = projectile.velocity.ToRotation();
         }
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(BuffID.OnFire, 90);
+            if (Main.rand.Next(3) == 0)
+            {
+                target.AddBuff(BuffID.OnFire, 90);
+            }
         }
         public override void PostDraw(SpriteBatch spriteBatch, Color drawColor)
         {
