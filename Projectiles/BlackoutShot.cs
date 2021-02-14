@@ -17,7 +17,7 @@ namespace Annihilation.Projectiles
         {
             projectile.width = 8;
             projectile.height = 18;
-            projectile.damage = 13;
+            projectile.damage = 16;
             projectile.friendly = true;
             projectile.hostile = false;
             projectile.ignoreWater = false;

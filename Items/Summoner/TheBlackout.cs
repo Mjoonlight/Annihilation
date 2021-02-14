@@ -23,7 +23,7 @@ namespace Annihilation.Items.Summoner
         }
         public override void SetDefaults()
         {
-            item.damage = 13;
+            item.damage = 16;
             item.summon = true;
             item.width = 40;
             item.height = 46;
