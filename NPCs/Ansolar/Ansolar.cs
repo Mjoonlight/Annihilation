@@ -537,52 +537,55 @@ namespace Annihilation.NPCs.Ansolar
                         npc.position.X = npcmain.Center.X + 50 - (npc.width / 2);
                         npc.position.Y = npcmain.Center.Y + 50 - (npc.height / 2);
                         Ansolar ans = (Ansolar)npcmain.modNPC;
-                        if (ans.timer14 <= 0)
+                        if (ans != null)
                         {
-                            npc.frame.Y = 44;
-                            int num180 = (int)(npc.position.X / 16f) - 1;
-                            int num181 = (int)((npc.position.X + (float)npc.width) / 16f) + 2;
-                            int num182 = (int)(npc.position.Y / 16f) - 1;
-                            int num183 = (int)((npc.position.Y + (float)npc.height) / 16f) + 2;
-                            if (num180 < 0)
+                            if (ans.timer14 <= 0)
                             {
-                                num180 = 0;
-                            }
-                            if (num181 > Main.maxTilesX)
-                            {
-                                num181 = Main.maxTilesX;
-                            }
-                            if (num182 < 0)
-                            {
-                                num182 = 0;
-                            }
-                            if (num183 > Main.maxTilesY)
-                            {
-                                num183 = Main.maxTilesY;
-                            }
-                            for (int num184 = num180; num184 < num181; num184++)
-                            {
-                                for (int num185 = num182; num185 < num183; num185++)
+                                npc.frame.Y = 44;
+                                int num180 = (int)(npc.position.X / 16f) - 1;
+                                int num181 = (int)((npc.position.X + (float)npc.width) / 16f) + 2;
+                                int num182 = (int)(npc.position.Y / 16f) - 1;
+                                int num183 = (int)((npc.position.Y + (float)npc.height) / 16f) + 2;
+                                if (num180 < 0)
                                 {
-                                    if (Main.tile[num184, num185] != null && (Main.tile[num184, num185].nactive() && (Main.tileSolid[(int)Main.tile[num184, num185].type] || Main.tileSolidTop[(int)Main.tile[num184, num185].type] && Main.tile[num184, num185].frameY == 0) || Main.tile[num184, num185].liquid > 64))
+                                    num180 = 0;
+                                }
+                                if (num181 > Main.maxTilesX)
+                                {
+                                    num181 = Main.maxTilesX;
+                                }
+                                if (num182 < 0)
+                                {
+                                    num182 = 0;
+                                }
+                                if (num183 > Main.maxTilesY)
+                                {
+                                    num183 = Main.maxTilesY;
+                                }
+                                for (int num184 = num180; num184 < num181; num184++)
+                                {
+                                    for (int num185 = num182; num185 < num183; num185++)
                                     {
-                                        Vector2 vector17;
-                                        vector17.X = (float)((num184 + 0) * 16);
-                                        vector17.Y = (float)((num185 + 1) * 16);
-                                        if (npc.position.X + (float)npc.width > vector17.X && npc.position.X < vector17.X + 16f && npc.position.Y + (float)npc.height > vector17.Y && npc.position.Y < vector17.Y + 16f)
+                                        if (Main.tile[num184, num185] != null && (Main.tile[num184, num185].nactive() && (Main.tileSolid[(int)Main.tile[num184, num185].type] || Main.tileSolidTop[(int)Main.tile[num184, num185].type] && Main.tile[num184, num185].frameY == 0) || Main.tile[num184, num185].liquid > 64))
                                         {
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                            ans.TileSlaming = true;
+                                            Vector2 vector17;
+                                            vector17.X = (float)((num184 + 0) * 16);
+                                            vector17.Y = (float)((num185 + 1) * 16);
+                                            if (npc.position.X + (float)npc.width > vector17.X && npc.position.X < vector17.X + 16f && npc.position.Y + (float)npc.height > vector17.Y && npc.position.Y < vector17.Y + 16f)
+                                            {
+                                                Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                                Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                                Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                                ans.TileSlaming = true;
+                                            }
                                         }
                                     }
                                 }
                             }
-                        }
-                        if (ans.timer14 > 0)
-                        {
-                            npc.frame.Y = 0;
+                            if (ans.timer14 > 0)
+                            {
+                                npc.frame.Y = 0;
+                            }
                         }
                     }
                 }
@@ -736,52 +739,55 @@ namespace Annihilation.NPCs.Ansolar
                         npc.position.X = npcmain.Center.X - 50 - (npc.width / 2);
                         npc.position.Y = npcmain.Center.Y + 50 - (npc.height / 2);
                         Ansolar ans = (Ansolar)npcmain.modNPC;
-                        if (ans.timer14 <= 0)
+                        if (ans != null)
                         {
-                            npc.frame.Y = 44;
-                            int num180 = (int)(npc.position.X / 16f) - 1;
-                            int num181 = (int)((npc.position.X + (float)npc.width) / 16f) + 2;
-                            int num182 = (int)(npc.position.Y / 16f) - 1;
-                            int num183 = (int)((npc.position.Y + (float)npc.height) / 16f) + 2;
-                            if (num180 < 0)
+                            if (ans.timer14 <= 0)
                             {
-                                num180 = 0;
-                            }
-                            if (num181 > Main.maxTilesX)
-                            {
-                                num181 = Main.maxTilesX;
-                            }
-                            if (num182 < 0)
-                            {
-                                num182 = 0;
-                            }
-                            if (num183 > Main.maxTilesY)
-                            {
-                                num183 = Main.maxTilesY;
-                            }
-                            for (int num184 = num180; num184 < num181; num184++)
-                            {
-                                for (int num185 = num182; num185 < num183; num185++)
+                                npc.frame.Y = 44;
+                                int num180 = (int)(npc.position.X / 16f) - 1;
+                                int num181 = (int)((npc.position.X + (float)npc.width) / 16f) + 2;
+                                int num182 = (int)(npc.position.Y / 16f) - 1;
+                                int num183 = (int)((npc.position.Y + (float)npc.height) / 16f) + 2;
+                                if (num180 < 0)
                                 {
-                                    if (Main.tile[num184, num185] != null && (Main.tile[num184, num185].nactive() && (Main.tileSolid[(int)Main.tile[num184, num185].type] || Main.tileSolidTop[(int)Main.tile[num184, num185].type] && Main.tile[num184, num185].frameY == 0) || Main.tile[num184, num185].liquid > 64))
+                                    num180 = 0;
+                                }
+                                if (num181 > Main.maxTilesX)
+                                {
+                                    num181 = Main.maxTilesX;
+                                }
+                                if (num182 < 0)
+                                {
+                                    num182 = 0;
+                                }
+                                if (num183 > Main.maxTilesY)
+                                {
+                                    num183 = Main.maxTilesY;
+                                }
+                                for (int num184 = num180; num184 < num181; num184++)
+                                {
+                                    for (int num185 = num182; num185 < num183; num185++)
                                     {
-                                        Vector2 vector17;
-                                        vector17.X = (float)((num184 + 0) * 16);
-                                        vector17.Y = (float)((num185 + 1) * 16);
-                                        if (npc.position.X + (float)npc.width > vector17.X && npc.position.X < vector17.X + 16f && npc.position.Y + (float)npc.height > vector17.Y && npc.position.Y < vector17.Y + 16f)
+                                        if (Main.tile[num184, num185] != null && (Main.tile[num184, num185].nactive() && (Main.tileSolid[(int)Main.tile[num184, num185].type] || Main.tileSolidTop[(int)Main.tile[num184, num185].type] && Main.tile[num184, num185].frameY == 0) || Main.tile[num184, num185].liquid > 64))
                                         {
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                            Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                            ans.TileSlaming = true;
+                                            Vector2 vector17;
+                                            vector17.X = (float)((num184 + 0) * 16);
+                                            vector17.Y = (float)((num185 + 1) * 16);
+                                            if (npc.position.X + (float)npc.width > vector17.X && npc.position.X < vector17.X + 16f && npc.position.Y + (float)npc.height > vector17.Y && npc.position.Y < vector17.Y + 16f)
+                                            {
+                                                Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                                Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                                Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                                ans.TileSlaming = true;
+                                            }
                                         }
                                     }
                                 }
                             }
-                        }
-                        if (ans.timer14 > 0) 
-                        {
-                            npc.frame.Y = 0;
+                            if (ans.timer14 > 0)
+                            {
+                                npc.frame.Y = 0;
+                            }
                         }
                     }
                 }
