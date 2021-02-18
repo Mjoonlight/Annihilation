@@ -31,7 +31,7 @@ namespace Annihilation.Projectiles
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (Main.rand.Next(3) == 0)
+            if (Main.rand.Next(5) == 0)
             {
                 target.AddBuff(BuffID.OnFire, 90);
             }
