@@ -36,7 +36,6 @@ namespace Annihilation.NPCs
         private int timey2 = 0;
         private float beep = 560f;
         private int deltaTime = 0;
-        private int restart = 0;
         private int finalTouch = 0;
         private float theValue = 0;
         private Vector2 fakePlayer = new Vector2(0, 0);
