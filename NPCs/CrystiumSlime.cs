@@ -23,7 +23,7 @@ namespace Annihilation.NPCs
             npc.height = 26;
             npc.aiStyle = -1;
             npc.damage = 18;
-            npc.defense = 6;
+            npc.defense = 7;
             npc.lifeMax = 90;
             npc.noGravity = false;
             npc.noTileCollide = false;
