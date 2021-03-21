@@ -15,8 +15,8 @@ namespace Annihilation.Items.Magic
         {
             item.damage = 14;
             item.magic = true;
-            item.width = 36;
-            item.height = 42;
+            item.width = 28;
+            item.height = 26;
             item.useTime = 14;
             item.useAnimation = 14;
             item.useStyle = ItemUseStyleID.HoldingOut;
