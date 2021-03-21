@@ -36,7 +36,7 @@ namespace Annihilation.Projectiles
             if (++projectile.frameCounter >= 5)
             {
                 projectile.frameCounter = 0;
-                if (++projectile.frame >= 3)
+                if (++projectile.frame >= 4)
                 {
                     projectile.frame = 0;
                 }

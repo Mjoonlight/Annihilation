@@ -24,6 +24,7 @@ namespace Annihilation.Items.Magic
             item.knockBack = 4;
             item.value = 10000;
             item.rare = ItemRarityID.Green;
+            item.mana = 12;
             item.shoot = ModContent.ProjectileType<UmbraFlameCharge>();
             item.shootSpeed = 10f;
             item.channel = true;
