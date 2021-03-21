@@ -17,14 +17,14 @@ namespace Annihilation.Items.Magic
             item.magic = true;
             item.width = 36;
             item.height = 42;
-            item.useTime = 40;
-            item.useAnimation = 40;
+            item.useTime = 20;
+            item.useAnimation = 20;
             item.useStyle = ItemUseStyleID.HoldingOut;
             item.noMelee = true;
             item.value = 10000;
             item.knockBack = 0;
             item.rare = ItemRarityID.Green;
-            item.mana = 12;
+            item.mana = 20;
             item.consumable = false;
         }
         public override bool UseItem(Player player)
