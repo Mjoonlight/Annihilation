@@ -30,6 +30,7 @@ namespace Annihilation.Projectiles
             projectile.tileCollide = true;
             projectile.timeLeft = 3600;
         }
+        private bool tileColider = false;
         public override void AI()
         {
             if (++projectile.frameCounter >= 5)
@@ -44,10 +45,17 @@ namespace Annihilation.Projectiles
         }
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            Projectile.NewProjectile(new Vector2(projectile.Center.X + (projectile.width / 2) + 16, projectile.Center.Y - 6), new Vector2(0, 0), ModContent.ProjectileType<CrystalSpikes>(), projectile.damage / 3, 2f);
-            Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y - 6), new Vector2(0, 0), ModContent.ProjectileType<CrystalSpikes>(), projectile.damage / 3, 2f);
-            Projectile.NewProjectile(new Vector2(projectile.Center.X - (projectile.width / 2) - 16, projectile.Center.Y - 6), new Vector2(0, 0), ModContent.ProjectileType<CrystalSpikes>(), projectile.damage / 3, 2f);
+            tileColider = true;
             return true;
+        }
+        public override void Kill(int timeLeft)
+        {
+            if (tileColider)
+            {
+                Projectile.NewProjectile(new Vector2(projectile.Center.X + (projectile.width / 2) + 16, projectile.Center.Y - 4), new Vector2(0, 0), ModContent.ProjectileType<CrystalSpikes>(), projectile.damage / 3, 2f);
+                Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y - 4), new Vector2(0, 0), ModContent.ProjectileType<CrystalSpikes>(), projectile.damage / 3, 2f);
+                Projectile.NewProjectile(new Vector2(projectile.Center.X - (projectile.width / 2) - 16, projectile.Center.Y - 4), new Vector2(0, 0), ModContent.ProjectileType<CrystalSpikes>(), projectile.damage / 3, 2f);
+            }
         }
     }
 }
