@@ -31,7 +31,7 @@ namespace Annihilation.Items.Magic
         }
         public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-            Projectile.NewProjectile(new Vector2((Main.MouseScreen.X + Main.screenPosition.X + 5), (Main.MouseScreen.Y + Main.screenPosition.Y + 5)), new Vector2(0, 3), ModContent.ProjectileType<CrystalSpawner>(), damage, knockBack);
+            Projectile.NewProjectile(new Vector2((Main.MouseScreen.X + Main.screenPosition.X + 5), (Main.MouseScreen.Y + Main.screenPosition.Y + 5)), new Vector2(0, 3), ModContent.ProjectileType<CrystalSpawner>(), damage, knockBack, player.whoAmI);
             return false;
         }
     }

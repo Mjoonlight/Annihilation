@@ -27,6 +27,14 @@ namespace Annihilation.Items.Magic
             item.mana = 20;
             item.consumable = false;
         }
+        public override bool CanUseItem(Player player)
+        {
+            if (player.HasBuff(BuffID.ManaSickness))
+            {
+                return false;
+            }
+            return true;
+        }
         public override bool UseItem(Player player)
         {
             NPC.NewNPC((int)(Main.MouseScreen.X + Main.screenPosition.X), (int)(Main.MouseScreen.Y + Main.screenPosition.Y + 32), ModContent.NPCType<CrystiumShield>());

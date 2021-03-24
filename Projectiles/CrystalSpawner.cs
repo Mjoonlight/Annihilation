@@ -52,9 +52,9 @@ namespace Annihilation.Projectiles
         {
             if (tileColider)
             {
-                Projectile.NewProjectile(new Vector2(projectile.Center.X + (projectile.width / 2) + 16, projectile.Center.Y - 4), new Vector2(0, 0), ModContent.ProjectileType<CrystalSpikes>(), projectile.damage / 3, 2f);
-                Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y - 4), new Vector2(0, 0), ModContent.ProjectileType<CrystalSpikes>(), projectile.damage / 3, 2f);
-                Projectile.NewProjectile(new Vector2(projectile.Center.X - (projectile.width / 2) - 16, projectile.Center.Y - 4), new Vector2(0, 0), ModContent.ProjectileType<CrystalSpikes>(), projectile.damage / 3, 2f);
+                Projectile.NewProjectile(new Vector2(projectile.Center.X + (projectile.width / 2) + 16, projectile.Center.Y - 4), new Vector2(0, 0), ModContent.ProjectileType<CrystalSpikes>(), projectile.damage / 3, 2f, projectile.owner);
+                Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y - 4), new Vector2(0, 0), ModContent.ProjectileType<CrystalSpikes>(), projectile.damage / 3, 2f, projectile.owner);
+                Projectile.NewProjectile(new Vector2(projectile.Center.X - (projectile.width / 2) - 16, projectile.Center.Y - 4), new Vector2(0, 0), ModContent.ProjectileType<CrystalSpikes>(), projectile.damage / 3, 2f, projectile.owner);
             }
         }
     }
