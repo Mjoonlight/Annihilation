@@ -14,12 +14,12 @@ namespace Annihilation.NPCs.ProjectileNPCs
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystium Shield");
-            Main.npcFrameCount[npc.type] = 8;
+            Main.npcFrameCount[npc.type] = 16;
         }
         public override void SetDefaults()
         {
-            npc.width = 30;
-            npc.height = 34;
+            npc.width = 52;
+            npc.height = 52;
             npc.aiStyle = -1;
             npc.damage = 0;
             npc.defense = 0;
@@ -35,8 +35,8 @@ namespace Annihilation.NPCs.ProjectileNPCs
             if (++npc.frameCounter >= 5)
             {
                 npc.frameCounter = 0;
-                npc.frame.Y += 64;
-                if (npc.frame.Y >= 512)
+                npc.frame.Y += 52;
+                if (npc.frame.Y >= 832)
                 {
                     npc.immortal = false;
                     npc.life = 0;
