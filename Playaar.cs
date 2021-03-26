@@ -41,7 +41,7 @@ namespace Annihilation
                     Crystiumite1--;
                     if (Crystiumite1 <= 0)
                     {
-                        NPC.NewNPC((int)(player.Center.X), (int)(player.Center.Y), ModContent.NPCType<CrystiumiteArt1>());
+                        NPC.NewNPC((int)(player.Center.X), (int)(player.Center.Y), ModContent.NPCType<CrystiumiteArt1>(), 0, Main.LocalPlayer.whoAmI);
                     }
                 }
                 if (NPC.AnyNPCs(ModContent.NPCType<CrystiumiteArt2>()))
@@ -53,7 +53,7 @@ namespace Annihilation
                     Crystiumite2--;
                     if (Crystiumite2 <= 0)
                     {
-                        NPC.NewNPC((int)(player.Center.X), (int)(player.Center.Y), ModContent.NPCType<CrystiumiteArt2>());
+                        NPC.NewNPC((int)(player.Center.X), (int)(player.Center.Y), ModContent.NPCType<CrystiumiteArt2>(), 0, Main.LocalPlayer.whoAmI);
                     }
                 }
                 if (NPC.AnyNPCs(ModContent.NPCType<CrystiumiteArt3>()))
@@ -65,7 +65,7 @@ namespace Annihilation
                     Crystiumite3--;
                     if (Crystiumite3 <= 0)
                     {
-                        NPC.NewNPC((int)(player.Center.X), (int)(player.Center.Y), ModContent.NPCType<CrystiumiteArt3>());
+                        NPC.NewNPC((int)(player.Center.X), (int)(player.Center.Y), ModContent.NPCType<CrystiumiteArt3>(), 0, Main.LocalPlayer.whoAmI);
                     }
                 }
                 if (NPC.AnyNPCs(ModContent.NPCType<CrystiumiteArt4>()))
@@ -77,7 +77,7 @@ namespace Annihilation
                     Crystiumite4--;
                     if (Crystiumite4 <= 0)
                     {
-                        NPC.NewNPC((int)(player.Center.X), (int)(player.Center.Y), ModContent.NPCType<CrystiumiteArt4>());
+                        NPC.NewNPC((int)(player.Center.X), (int)(player.Center.Y), ModContent.NPCType<CrystiumiteArt4>(), 0, Main.LocalPlayer.whoAmI);
                     }
                 }
             }

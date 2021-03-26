@@ -33,7 +33,7 @@ namespace Annihilation.NPCs
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Player player = Main.player[npc.target];
+                Player player = Main.player[(int)(npc.ai[0])];
                 if (player.dead || !player.active || !player.GetModPlayer<Playaar>().Crystiumites)
                 {
                     npc.life = 0;
@@ -94,7 +94,7 @@ namespace Annihilation.NPCs
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Player player = Main.player[npc.target];
+                Player player = Main.player[(int)(npc.ai[0])];
                 if (player.dead || !player.active || !player.GetModPlayer<Playaar>().Crystiumites)
                 {
                     npc.life = 0;
@@ -155,7 +155,7 @@ namespace Annihilation.NPCs
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Player player = Main.player[npc.target];
+                Player player = Main.player[(int)(npc.ai[0])];
                 if (player.dead || !player.active || !player.GetModPlayer<Playaar>().Crystiumites)
                 {
                     npc.life = 0;
@@ -216,7 +216,7 @@ namespace Annihilation.NPCs
         {
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
-                Player player = Main.player[npc.target];
+                Player player = Main.player[(int)(npc.ai[0])];
                 if (player.dead || !player.active || !player.GetModPlayer<Playaar>().Crystiumites)
                 {
                     npc.life = 0;
