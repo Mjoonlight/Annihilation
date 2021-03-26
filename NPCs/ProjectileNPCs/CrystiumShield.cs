@@ -45,7 +45,7 @@ namespace Annihilation.NPCs.ProjectileNPCs
         }
         public override void OnHitByProjectile(Projectile projectile, int damage, float knockback, bool crit)
         {
-            if (projectile.hostile && damage >= 1)
+            if (projectile.hostile)
             {
                 if (projectile.penetrate != -1)
                 {

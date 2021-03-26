@@ -262,90 +262,90 @@ namespace Annihilation.NPCs.Ansolar
                     {
                         if (type == 1)
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike1>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike1>(), npc.damage / 3, 1, player.whoAmI);
                         }
                         else if (type == 2)
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike2>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike2>(), npc.damage / 3, 1, player.whoAmI);
                         }
                         else
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike3>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike3>(), npc.damage / 3, 1, player.whoAmI);
                         }
                     }
                     if (timer2 == 24)
                     {
                         if (type == 1)
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike1>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike1>(), npc.damage / 3, 1, player.whoAmI);
                         }
                         else if (type == 2)
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike2>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike2>(), npc.damage / 3, 1, player.whoAmI);
                         }
                         else
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike3>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike3>(), npc.damage / 3, 1, player.whoAmI);
                         }
                     }
                     if (timer2 == 19)
                     {
                         if (type == 1)
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike1>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike1>(), npc.damage / 3, 1, player.whoAmI);
                         }
                         else if (type == 2)
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike2>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike2>(), npc.damage / 3, 1, player.whoAmI);
                         }
                         else
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike3>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike3>(), npc.damage / 3, 1, player.whoAmI);
                         }
                     }
                     if (timer2 == 14)
                     {
                         if (type == 1)
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike1>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike1>(), npc.damage / 3, 1, player.whoAmI);
                         }
                         else if (type == 2)
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike2>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike2>(), npc.damage / 3, 1, player.whoAmI);
                         }
                         else
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike3>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike3>(), npc.damage / 3, 1, player.whoAmI);
                         }
                     }
                     if (timer2 == 9)
                     {
                         if (type == 1)
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike1>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike1>(), npc.damage / 3, 1, player.whoAmI);
                         }
                         else if (type == 2)
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike2>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike2>(), npc.damage / 3, 1, player.whoAmI);
                         }
                         else
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike3>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike3>(), npc.damage / 3, 1, player.whoAmI);
                         }
                     }
                     if (timer2 == 4)
                     {
                         if (type == 1)
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike1>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike1>(), npc.damage / 3, 1, player.whoAmI);
                         }
                         else if (type == 2)
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike2>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike2>(), npc.damage / 3, 1, player.whoAmI);
                         }
                         else
                         {
-                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike3>(), npc.damage / 3, 1);
+                            Projectile.NewProjectile(npc.Center, new Vector2((player.Center.X + Main.rand.Next(-30, 31)) - npc.Center.X, player.Center.Y - npc.Center.Y) / 30f, ModContent.ProjectileType<Spike3>(), npc.damage / 3, 1, player.whoAmI);
                         }
                     }
                     if (timer2 <= 0)
@@ -573,9 +573,9 @@ namespace Annihilation.NPCs.Ansolar
                                             vector17.Y = (float)((num185 + 1) * 16);
                                             if (npc.position.X + (float)npc.width > vector17.X && npc.position.X < vector17.X + 16f && npc.position.Y + (float)npc.height > vector17.Y && npc.position.Y < vector17.Y + 16f)
                                             {
-                                                Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                                Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                                Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                                Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1, player.whoAmI);
+                                                Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1, player.whoAmI);
+                                                Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1, player.whoAmI);
                                                 ans.TileSlaming = true;
                                             }
                                         }
@@ -775,9 +775,9 @@ namespace Annihilation.NPCs.Ansolar
                                             vector17.Y = (float)((num185 + 1) * 16);
                                             if (npc.position.X + (float)npc.width > vector17.X && npc.position.X < vector17.X + 16f && npc.position.Y + (float)npc.height > vector17.Y && npc.position.Y < vector17.Y + 16f)
                                             {
-                                                Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                                Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
-                                                Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1);
+                                                Projectile.NewProjectile(new Vector2(npc.Center.X + (npc.width / 2) + 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1, player.whoAmI);
+                                                Projectile.NewProjectile(new Vector2(npc.Center.X, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1, player.whoAmI);
+                                                Projectile.NewProjectile(new Vector2(npc.Center.X - (npc.width / 2) - 16, npc.Center.Y - 12), new Vector2(0, 0), ModContent.ProjectileType<CrystiumSpikes>(), npc.damage / 3, 1, player.whoAmI);
                                                 ans.TileSlaming = true;
                                             }
                                         }

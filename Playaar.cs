@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Terraria.ModLoader;
 using Terraria;
 using Annihilation.NPCs.Ansolar;
+using Annihilation.NPCs;
 using Terraria.DataStructures;
 using Terraria.ID;
 
@@ -16,6 +17,11 @@ namespace Annihilation
     {
         public bool ChaosCoreT = false;
         public bool ChaosCoreF = false;
+        public bool Crystiumites = false;
+        private int Crystiumite1 = 1;
+        private int Crystiumite2 = 1;
+        private int Crystiumite3 = 1;
+        private int Crystiumite4 = 1;
         public override void PostUpdate()
         {
             DateTime now = DateTime.Today;
@@ -24,11 +30,63 @@ namespace Annihilation
                 Megnatar.BulletHell = true;
                 Ansolar.ThornsReflector = true;
             }
+            if (Crystiumites)
+            {
+                if (NPC.AnyNPCs(ModContent.NPCType<CrystiumiteArt1>()))
+                {
+                    Crystiumite1 = 300;
+                }
+                else
+                {
+                    Crystiumite1--;
+                    if (Crystiumite1 <= 0)
+                    {
+                        NPC.NewNPC((int)(player.Center.X), (int)(player.Center.Y), ModContent.NPCType<CrystiumiteArt1>());
+                    }
+                }
+                if (NPC.AnyNPCs(ModContent.NPCType<CrystiumiteArt2>()))
+                {
+                    Crystiumite2 = 300;
+                }
+                else
+                {
+                    Crystiumite2--;
+                    if (Crystiumite2 <= 0)
+                    {
+                        NPC.NewNPC((int)(player.Center.X), (int)(player.Center.Y), ModContent.NPCType<CrystiumiteArt2>());
+                    }
+                }
+                if (NPC.AnyNPCs(ModContent.NPCType<CrystiumiteArt3>()))
+                {
+                    Crystiumite3 = 300;
+                }
+                else
+                {
+                    Crystiumite3--;
+                    if (Crystiumite3 <= 0)
+                    {
+                        NPC.NewNPC((int)(player.Center.X), (int)(player.Center.Y), ModContent.NPCType<CrystiumiteArt3>());
+                    }
+                }
+                if (NPC.AnyNPCs(ModContent.NPCType<CrystiumiteArt4>()))
+                {
+                    Crystiumite4 = 300;
+                }
+                else
+                {
+                    Crystiumite4--;
+                    if (Crystiumite4 <= 0)
+                    {
+                        NPC.NewNPC((int)(player.Center.X), (int)(player.Center.Y), ModContent.NPCType<CrystiumiteArt4>());
+                    }
+                }
+            }
         }
         public override void ResetEffects()
         {
             ChaosCoreT = false;
             ChaosCoreF = false;
+            Crystiumites = false;
         }
         public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
         {

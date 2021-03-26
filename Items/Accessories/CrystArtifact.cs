@@ -8,7 +8,7 @@ namespace Annihilation.Items.Accessories
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Crystium Artifact");
+            DisplayName.SetDefault("Crystal Artifact");
         }
         public override void SetDefaults()
         {
@@ -19,7 +19,7 @@ namespace Annihilation.Items.Accessories
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            
+            player.GetModPlayer<Playaar>().Crystiumites = true;
         }
     }
 }

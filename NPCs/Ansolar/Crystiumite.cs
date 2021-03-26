@@ -63,15 +63,15 @@ namespace Annihilation.NPCs.Ansolar
                 {
                     if (type == 1)
                     {
-                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - npc.Center.X, player.Center.Y - npc.Center.Y) / 60f, ModContent.ProjectileType<Spike1>(), npc.damage / 3, 1, 255, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - npc.Center.X, player.Center.Y - npc.Center.Y) / 60f, ModContent.ProjectileType<Spike1>(), npc.damage / 3, 1, player.whoAmI, 1);
                     }
                     else if (type == 2)
                     {
-                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - npc.Center.X, player.Center.Y - npc.Center.Y) / 60f, ModContent.ProjectileType<Spike2>(), npc.damage / 3, 1, 255, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - npc.Center.X, player.Center.Y - npc.Center.Y) / 60f, ModContent.ProjectileType<Spike2>(), npc.damage / 3, 1, player.whoAmI, 1);
                     }
                     else
                     {
-                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - npc.Center.X, player.Center.Y - npc.Center.Y) / 60f, ModContent.ProjectileType<Spike3>(), npc.damage / 3, 1, 255, 1);
+                        Projectile.NewProjectile(npc.Center, new Vector2(player.Center.X - npc.Center.X, player.Center.Y - npc.Center.Y) / 60f, ModContent.ProjectileType<Spike3>(), npc.damage / 3, 1, player.whoAmI, 1);
                     }
                     aa = 300 + (Main.rand.Next(0, 61) * 10);
                 }
