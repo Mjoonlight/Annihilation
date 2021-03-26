@@ -9,6 +9,7 @@ namespace Annihilation.Items.Accessories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Destroyer Remnant");
+            Tooltip.SetDefault("Provides a buff based on the current held item's damage type");
         }
         public override void SetDefaults()
         {
@@ -26,8 +27,8 @@ namespace Annihilation.Items.Accessories
             }
             if (player.HeldItem.ranged)
             {
-                player.moveSpeed *= 1.15f;
-                player.jumpSpeedBoost *= 1.15f;
+                player.moveSpeed *= 1.25f;
+                player.jumpSpeedBoost *= 1.25f;
             }
             if (player.HeldItem.magic)
             {

@@ -15,7 +15,7 @@ namespace Annihilation.Projectiles.Minions
     {
         public override void SetStaticDefaults()
         {
-            //Main.projFrames[projectile.type] = 3;
+            Main.projFrames[projectile.type] = 3;
             Main.projPet[projectile.type] = true;
             ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
             ProjectileID.Sets.Homing[projectile.type] = true;
@@ -53,6 +53,14 @@ namespace Annihilation.Projectiles.Minions
             if (player.HasBuff(ModContent.BuffType<BlackoutBuff>()))
             {
                 projectile.timeLeft = 2;
+            }
+            if (++projectile.frameCounter >= 5)
+            {
+                projectile.frameCounter = 0;
+                if (++projectile.frame >= 3)
+                {
+                    projectile.frame = 0;
+                }
             }
             float spacing = (float)projectile.width * spacingMult;
             for (int k = 0; k < 1000; k++)

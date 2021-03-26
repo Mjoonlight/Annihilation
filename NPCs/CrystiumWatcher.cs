@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Annihilation.Items.Materials;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -155,6 +156,15 @@ namespace Annihilation.NPCs
                     }
                 }
             }
+        }
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            return SpawnCondition.OverworldDay.Chance * 0.5f;
+        }
+        public override void NPCLoot()
+        {
+            int ammount = Main.rand.Next(0, 3) + 4;
+            Item.NewItem(npc.getRect(), ModContent.ItemType<CrystiumOre>(), ammount);
         }
     }
 }

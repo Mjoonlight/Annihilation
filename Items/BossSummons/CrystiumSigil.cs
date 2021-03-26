@@ -1,3 +1,4 @@
+using Annihilation.Items.Materials;
 using Annihilation.NPCs.Ansolar;
 using Terraria;
 using Terraria.ID;
@@ -10,6 +11,7 @@ namespace Annihilation.Items.BossSummons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystium Sigil");
+            Tooltip.SetDefault("Used to summon Ansolar");
             ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13;
         }
         public override void SetDefaults()
@@ -33,6 +35,23 @@ namespace Annihilation.Items.BossSummons
             NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<Ansolar>());
             Main.PlaySound(SoundID.Roar, player.position, 0);
             return true;
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ModContent.ItemType<CrystiumBar>(), 20);
+            recipe.AddIngredient(ItemID.Bone, 10);
+            recipe.AddIngredient(ItemID.IronBar, 15);
+            recipe.AddTile(TileID.DemonAltar);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+            recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ModContent.ItemType<CrystiumBar>(), 20);
+            recipe.AddIngredient(ItemID.Bone, 10);
+            recipe.AddIngredient(ItemID.LeadBar, 15);
+            recipe.AddTile(TileID.DemonAltar);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

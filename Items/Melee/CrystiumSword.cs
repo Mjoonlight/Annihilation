@@ -1,3 +1,4 @@
+using Annihilation.Items.Materials;
 using Annihilation.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -39,6 +40,14 @@ namespace Annihilation.Items.Melee
                 Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
             }
             return false;
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ModContent.ItemType<CrystiumBar>(), 12);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

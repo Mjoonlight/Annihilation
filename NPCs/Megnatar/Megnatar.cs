@@ -11,6 +11,10 @@ using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Annihilation.Items.Accessories;
+using Annihilation.Items.Materials;
+using Annihilation.Items.Summoner;
+using Annihilation.Items.Magic;
 
 namespace Annihilation.NPCs.Megnatar
 {
@@ -273,6 +277,28 @@ namespace Annihilation.NPCs.Megnatar
                     moveTime += 10;
                     npc.netUpdate = true;
                 }
+            }
+        }
+        public override void NPCLoot()
+        {
+            int ammount = Main.rand.Next(0, 11) + 30;
+            Item.NewItem(npc.getRect(), ModContent.ItemType<ChaosFragment>(), ammount);
+            int drop = Main.rand.Next(3);
+            if (drop == 0)
+            {
+                Item.NewItem(npc.getRect(), ModContent.ItemType<ChaosCore>());
+            }
+            if (drop == 1)
+            {
+                Item.NewItem(npc.getRect(), ModContent.ItemType<TheBlackout>());
+            }
+            if (drop == 2)
+            {
+                Item.NewItem(npc.getRect(), ModContent.ItemType<UmbraBlaster>());
+            }
+            if (Main.expertMode)
+            {
+                Item.NewItem(npc.getRect(), ModContent.ItemType<DestroyerRemnant>());
             }
         }
     }

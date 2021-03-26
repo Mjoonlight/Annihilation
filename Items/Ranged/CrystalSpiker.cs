@@ -10,6 +10,7 @@ namespace Annihilation.Items.Ranged
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystal Spiker");
+            Tooltip.SetDefault("Better then your average Spiker");
         }
         public override void SetDefaults()
         {

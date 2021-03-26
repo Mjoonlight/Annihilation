@@ -10,6 +10,7 @@ namespace Annihilation.Items.BossSummons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Chaos Flame");
+            Tooltip.SetDefault("Light the sky ablaze");
             ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13;
         }
         public override void SetDefaults()
@@ -33,6 +34,37 @@ namespace Annihilation.Items.BossSummons
             NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<Megnatar>());
             Main.PlaySound(SoundID.Roar, player.position, 0);
             return true;
+        }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.Torch, 5);
+            recipe.AddIngredient(ItemID.DemoniteOre, 10);
+            recipe.AddIngredient(ItemID.IronBar, 12);
+            recipe.AddTile(TileID.DemonAltar);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+            recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.Torch, 5);
+            recipe.AddIngredient(ItemID.DemoniteOre, 10);
+            recipe.AddIngredient(ItemID.LeadBar, 12);
+            recipe.AddTile(TileID.DemonAltar);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+            recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.Torch, 5);
+            recipe.AddIngredient(ItemID.CrimtaneOre, 10);
+            recipe.AddIngredient(ItemID.IronBar, 12);
+            recipe.AddTile(TileID.DemonAltar);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+            recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.Torch, 5);
+            recipe.AddIngredient(ItemID.CrimtaneOre, 10);
+            recipe.AddIngredient(ItemID.LeadBar, 12);
+            recipe.AddTile(TileID.DemonAltar);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

@@ -12,6 +12,9 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
+using Annihilation.Items.Ranged;
+using Annihilation.Items.Magic;
+using Annihilation.Items.Accessories;
 
 namespace Annihilation.NPCs.Ansolar
 {
@@ -446,7 +449,6 @@ namespace Annihilation.NPCs.Ansolar
                 }
             }
         }
-
         public override void OnHitByItem(Player player, Item item, int damage, float knockback, bool crit)
         {
             if (ThornsReflector && damage >= 1)
@@ -464,6 +466,26 @@ namespace Annihilation.NPCs.Ansolar
                 projectile.damage = npc.damage / 3;
                 projectile.velocity.X -= projectile.velocity.X * 2;
                 projectile.velocity.Y -= projectile.velocity.Y * 2;
+            }
+        }
+        public override void NPCLoot()
+        {
+            int drop = Main.rand.Next(3);
+            if (drop == 0)
+            {
+                Item.NewItem(npc.getRect(), ModContent.ItemType<CrystalSpiker>());
+            }
+            if (drop == 1)
+            {
+                Item.NewItem(npc.getRect(), ModContent.ItemType<CrystalTome>());
+            }
+            if (drop == 2)
+            {
+                Item.NewItem(npc.getRect(), ModContent.ItemType<Crystiprism>());
+            }
+            if (Main.expertMode)
+            {
+                Item.NewItem(npc.getRect(), ModContent.ItemType<CrystArtifact>());
             }
         }
     }

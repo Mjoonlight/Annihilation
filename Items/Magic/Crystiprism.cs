@@ -10,6 +10,7 @@ namespace Annihilation.Items.Magic
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystium Shield Generator");
+            Tooltip.SetDefault("Summons a shield that reflects projectiles.");
         }
         public override void SetDefaults()
         {

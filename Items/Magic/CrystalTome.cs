@@ -11,6 +11,7 @@ namespace Annihilation.Items.Magic
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystal Tome");
+            Tooltip.SetDefault("MAGIC!");
         }
         public override void SetDefaults()
         {
