@@ -10,7 +10,7 @@ namespace Annihilation.Items.Magic
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Umbra Flame Blaster");
-            Tooltip.SetDefault("Charged with power.");
+            Tooltip.SetDefault("Hold to charge and shoot a powerful fireball that splits into more");
         }
         public override void SetDefaults()
         {

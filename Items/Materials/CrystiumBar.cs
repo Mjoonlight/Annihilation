@@ -8,7 +8,7 @@ namespace Annihilation.Items.Materials
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystium Bar");
-            Tooltip.SetDefault("Crystals seem to grow out from the metallic bar.");
+            Tooltip.SetDefault("Crystals seem to grow out from the metallic bar");
         }
         public override void SetDefaults()
         {

@@ -9,7 +9,7 @@ namespace Annihilation.Items.Accessories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystal Artifact");
-            Tooltip.SetDefault("Summons upto 4 Crystiumites to protect you");
+            Tooltip.SetDefault("Summons up to 4 Crystiumites to protect you");
         }
         public override void SetDefaults()
         {

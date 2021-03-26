@@ -8,7 +8,7 @@ namespace Annihilation.Items.Materials
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystium Ore");
-            Tooltip.SetDefault("A strange metal with crystals in it, Hopefully it will be useful.");
+            Tooltip.SetDefault("A strange metal with crystals forming out of it, Hopefully it will be useful");
         }
         public override void SetDefaults()
         {
