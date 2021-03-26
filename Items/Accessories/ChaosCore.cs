@@ -10,8 +10,8 @@ namespace Annihilation.Items.Accessories
         {
             DisplayName.SetDefault("Core of Chaos");
             Tooltip.SetDefault("A Core that burns brighter then your hand" +
-                "Raises Defense and Health at the cost of lighting you OnFire when hit" +
-                "Toggle Visuals for an opposite effect towards your enemies");
+                "\nRaises Defense and Health at the cost of lighting you OnFire when hit" +
+                "\nToggle Visuals for an opposite effect towards your enemies");
         }
         public override void SetDefaults()
         {

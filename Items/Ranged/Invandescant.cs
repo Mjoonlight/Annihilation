@@ -5,8 +5,11 @@ namespace Annihilation.Items.Ranged
 {
 	public class Invendescant : ModItem
 	{
-		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("A weapon that is unfinished because the Owner can't think of a use for it");
+		public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Invendesent");
+            Tooltip.SetDefault("A Weapon that is Unfinished because the Owner can't think of a use for it" +
+                "\nAlso Known As: The Fuck You Gun");
 		}
 		public override void SetDefaults() {
 			item.damage = 10;
@@ -26,18 +29,5 @@ namespace Annihilation.Items.Ranged
 			item.shootSpeed = 19f;
 			item.useAmmo = AmmoID.Bullet;
 		}
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.IronBar, 6);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-            recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.LeadBar, 6);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }
     }
 }

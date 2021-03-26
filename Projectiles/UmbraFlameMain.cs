@@ -21,7 +21,7 @@ namespace Annihilation.Projectiles
         {
             projectile.width = 48;
             projectile.height = 18;
-            projectile.damage = 17;
+            projectile.damage = 16;
             projectile.aiStyle = -1;
             projectile.friendly = true;
             projectile.hostile = false;
@@ -53,7 +53,7 @@ namespace Annihilation.Projectiles
                 for (int i = 0; i < numberProjectiles; i++)
                 {
                     Vector2 perturbedSpeed = new Vector2(projectile.velocity.X * 3, projectile.velocity.Y * 3).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f; // Watch out for dividing by 0 if there is only 1 projectile.
-                    Projectile.NewProjectile(projectile.position.X, projectile.position.Y, perturbedSpeed.X * 3, perturbedSpeed.Y * 3, ModContent.ProjectileType<UmbraFlameSplit>(), 7, 1f, projectile.owner);
+                    Projectile.NewProjectile(projectile.position.X, projectile.position.Y, perturbedSpeed.X * 3, perturbedSpeed.Y * 3, ModContent.ProjectileType<UmbraFlameSplit>(), projectile.damage / 6, 1f, projectile.owner);
                 }
             }
             return true;

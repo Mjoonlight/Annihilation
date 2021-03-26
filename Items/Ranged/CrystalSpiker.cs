@@ -10,7 +10,7 @@ namespace Annihilation.Items.Ranged
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystal Spiker");
-            Tooltip.SetDefault("Fires a Spike that sticks to tiles and Shatters into smaller crystals");
+            Tooltip.SetDefault("Fires a Spike that sticks to tiles and Shatters into Smaller Crystals");
         }
         public override void SetDefaults()
         {

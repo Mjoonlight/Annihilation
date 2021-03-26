@@ -17,7 +17,7 @@ namespace Annihilation.Items.Summoner
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("The Blackout");
-            Tooltip.SetDefault("Summons a Mini Megnatar to fight for you");
+            Tooltip.SetDefault("Summons a mini megnatar to fight for you");
             ItemID.Sets.GamepadWholeScreenUseRange[item.type] = true;
             ItemID.Sets.LockOnIgnoresCollision[item.type] = true;
         }

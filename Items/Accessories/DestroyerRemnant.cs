@@ -9,7 +9,11 @@ namespace Annihilation.Items.Accessories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Destroyer Remnant");
-            Tooltip.SetDefault("Provides a buff based on the current held item's damage type");
+            Tooltip.SetDefault("Provides a boost based on the current held item's damage type" +
+                "\nMelee gives you Health and Defense" +
+                "\nRanged gives you Movement and Jump Speed" +
+                "\nMMagic gives you Life Regen and Mana Regen" +
+                "\nSummon gives you Extra Minions and Turrets");
         }
         public override void SetDefaults()
         {

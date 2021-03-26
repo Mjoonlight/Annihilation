@@ -14,7 +14,7 @@ namespace Annihilation.Buffs
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Blackout");
-            Description.SetDefault("This Mini Megnatar will fight for you.");
+            Description.SetDefault("This mini megnatar will fight for you.");
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
         }

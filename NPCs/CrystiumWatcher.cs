@@ -78,7 +78,7 @@ namespace Annihilation.NPCs
                 {
                     if (beep > 140f)
                     {
-                        beep -= 10;
+                        beep -= 5f;
                     }
                     if (beep <= 140f && deltaTime == 0)
                     {
@@ -91,7 +91,7 @@ namespace Annihilation.NPCs
                     finalTouch++;
                     if (finalTouch >= 30)
                     {
-                        beep -= 10;
+                        beep -= 5f;
                         if (beep <= -560f)
                         {
                             finalTouch = 0;
@@ -137,13 +137,13 @@ namespace Annihilation.NPCs
                 {
                     npc.rotation = (player.Center - npc.Center).ToRotation();
                     theValue = npc.rotation;
-                    npc.Center = player.Center + Vector2.One.RotatedBy((0.025 * timey) - (MathHelper.ToRadians(timey2))) * beep;
+                    npc.Center = player.Center + Vector2.One.RotatedBy((0.0175 * timey) - (MathHelper.ToRadians(timey2))) * beep;
                     fakePlayer = player.Center;
                 }
                 else
                 {
                     npc.rotation = theValue;
-                    npc.Center = fakePlayer + Vector2.One.RotatedBy((0.025 * timey) - (MathHelper.ToRadians(timey2))) * beep;
+                    npc.Center = fakePlayer + Vector2.One.RotatedBy((0.0175 * timey) - (MathHelper.ToRadians(timey2))) * beep;
                 }
                 npc.frameCounter++;
                 if (npc.frameCounter >= 5)
@@ -159,7 +159,7 @@ namespace Annihilation.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return SpawnCondition.OverworldDay.Chance * 0.5f;
+            return SpawnCondition.Underground.Chance * 0.5f;
         }
         public override void NPCLoot()
         {

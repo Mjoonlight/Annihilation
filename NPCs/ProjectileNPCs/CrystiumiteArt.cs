@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Annihilation.NPCs
+namespace Annihilation.NPCs.ProjectileNPCs
 {
     class CrystiumiteArt1 : ModNPC
     {
@@ -44,11 +44,11 @@ namespace Annihilation.NPCs
         }
         public override bool? CanBeHitByProjectile(Projectile projectile)
         {
-            if (projectile.friendly)
+            if (projectile.hostile)
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
         public override bool? CanBeHitByItem(Player player, Item item)
         {
@@ -105,11 +105,11 @@ namespace Annihilation.NPCs
         }
         public override bool? CanBeHitByProjectile(Projectile projectile)
         {
-            if (projectile.friendly)
+            if (projectile.hostile)
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
         public override bool? CanBeHitByItem(Player player, Item item)
         {
@@ -166,11 +166,11 @@ namespace Annihilation.NPCs
         }
         public override bool? CanBeHitByProjectile(Projectile projectile)
         {
-            if (projectile.friendly)
+            if (projectile.hostile)
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
         public override bool? CanBeHitByItem(Player player, Item item)
         {
@@ -227,11 +227,11 @@ namespace Annihilation.NPCs
         }
         public override bool? CanBeHitByProjectile(Projectile projectile)
         {
-            if (projectile.friendly)
+            if (projectile.hostile)
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
         public override bool? CanBeHitByItem(Player player, Item item)
         {

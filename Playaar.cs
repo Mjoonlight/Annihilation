@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Terraria.ModLoader;
 using Terraria;
 using Annihilation.NPCs.Ansolar;
-using Annihilation.NPCs;
+using Annihilation.NPCs.ProjectileNPCs;
 using Terraria.DataStructures;
 using Terraria.ID;
 

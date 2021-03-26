@@ -20,7 +20,7 @@ namespace Annihilation.Projectiles
         {
             projectile.width = 10;
             projectile.height = 24;
-            projectile.damage = 17;
+            projectile.damage = 16;
             projectile.aiStyle = -1;
             projectile.friendly = false;
             projectile.hostile = false;
@@ -194,11 +194,11 @@ namespace Annihilation.Projectiles
                 {
                     case 1:
                         Main.PlaySound(SoundID.Item, (int)projectile.position.X, (int)projectile.position.Y, 89, 1, -1f);
-                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, ModContent.ProjectileType<UmbraFlameSplit>(), 7, 1f, player.whoAmI);
+                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, ModContent.ProjectileType<UmbraFlameSplit>(), projectile.damage / 6, 1f, player.whoAmI);
                         break;
                     case 2:
                         Main.PlaySound(SoundID.Item, (int)projectile.position.X, (int)projectile.position.Y, 89);
-                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX / 3, SpeedY / 3, ModContent.ProjectileType<UmbraFlameMain>(), 14, 1f, player.whoAmI);
+                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX / 3, SpeedY / 3, ModContent.ProjectileType<UmbraFlameMain>(), projectile.damage / 3, 1f, player.whoAmI);
                         break;
                 }
             }
