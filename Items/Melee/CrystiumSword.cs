@@ -12,7 +12,9 @@ namespace Annihilation.Items.Melee
 		public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystium Sword");
-		}
+            Tooltip.SetDefault("Swings create a blast of crystals");
+
+        }
 		public override void SetDefaults()
         {
 			item.damage = 16;

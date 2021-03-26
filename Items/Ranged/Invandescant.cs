@@ -6,7 +6,7 @@ namespace Annihilation.Items.Ranged
 	public class Invendescant : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Unleash unrelenting devastation");
+			Tooltip.SetDefault("Currently a Test Weapon");
 		}
 		public override void SetDefaults() {
 			item.damage = 10;

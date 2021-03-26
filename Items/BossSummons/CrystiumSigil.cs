@@ -11,7 +11,7 @@ namespace Annihilation.Items.BossSummons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystium Sigil");
-            Tooltip.SetDefault("Used to summon Ansolar");
+            Tooltip.SetDefault("Summons Ansolar, Crystium Guardian at Day");
             ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13;
         }
         public override void SetDefaults()

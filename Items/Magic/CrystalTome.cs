@@ -11,7 +11,8 @@ namespace Annihilation.Items.Magic
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystal Tome");
-            Tooltip.SetDefault("MAGIC!");
+            Tooltip.SetDefault("Creates a Orb at the Cursor's position and " +
+                "creates Rising Spikes upon contact with blocks");
         }
         public override void SetDefaults()
         {

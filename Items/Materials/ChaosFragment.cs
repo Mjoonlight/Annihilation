@@ -8,7 +8,7 @@ namespace Annihilation.Items.Materials
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Chaos Fragment");
-            Tooltip.SetDefault("Feels best with oven mitts");
+            Tooltip.SetDefault("The fragments of a Chaotic Entity");
         }
         public override void SetDefaults()
         {

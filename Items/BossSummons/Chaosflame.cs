@@ -10,7 +10,7 @@ namespace Annihilation.Items.BossSummons
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Chaos Flame");
-            Tooltip.SetDefault("Light the sky ablaze");
+            Tooltip.SetDefault("Summons Megnatar, Chaos Bringer at Night");
             ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13;
         }
         public override void SetDefaults()

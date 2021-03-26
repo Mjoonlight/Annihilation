@@ -16,7 +16,7 @@ namespace Annihilation.Items.Ranged
         }
         public override void SetDefaults()
         {
-			item.damage = 22;
+			item.damage = 21;
 			item.ranged = true;
             item.width = 36;
             item.height = 42;

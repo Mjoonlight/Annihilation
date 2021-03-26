@@ -20,7 +20,7 @@ namespace Annihilation.Projectiles
         {
             projectile.width = 10;
             projectile.height = 24;
-            projectile.damage = 14;
+            projectile.damage = 17;
             projectile.aiStyle = -1;
             projectile.friendly = false;
             projectile.hostile = false;

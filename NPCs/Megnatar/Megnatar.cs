@@ -31,12 +31,12 @@ namespace Annihilation.NPCs.Megnatar
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Megnatar, Chaos Bringer");
-            Main.npcFrameCount[npc.type] = 12;
+            Main.npcFrameCount[npc.type] = 6;
         }
         public override void SetDefaults()
         {
-            npc.width = 142;
-            npc.height = 128;
+            npc.width = 134;
+            npc.height = 136;
             npc.aiStyle = -1;
             npc.damage = 23;
             npc.defense = 12;
@@ -66,7 +66,7 @@ namespace Annihilation.NPCs.Megnatar
             if (TheUltimateMemeBec == 0)
             {
                 npc.frame.Y += 128;
-                if (npc.frame.Y == 1536)
+                if (npc.frame.Y == 816)
                 {
                     npc.frame.Y = 0;
                 }

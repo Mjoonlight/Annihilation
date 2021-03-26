@@ -10,7 +10,7 @@ namespace Annihilation.Items.Ranged
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystal Spiker");
-            Tooltip.SetDefault("Better then your average Spiker");
+            Tooltip.SetDefault("Fires a Spike that sticks to tiles and Shatters into smaller crystals");
         }
         public override void SetDefaults()
         {
@@ -18,8 +18,8 @@ namespace Annihilation.Items.Ranged
             item.ranged = true;
             item.width = 36;
             item.height = 42;
-            item.useTime = 14;
-            item.useAnimation = 14;
+            item.useTime = 15;
+            item.useAnimation = 15;
             item.useStyle = ItemUseStyleID.HoldingOut;
             item.noMelee = true;
             item.knockBack = 4;
