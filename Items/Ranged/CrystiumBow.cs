@@ -20,8 +20,8 @@ namespace Annihilation.Items.Ranged
 			item.ranged = true;
             item.width = 36;
             item.height = 42;
-			item.useTime = 28;
-			item.useAnimation = 28;
+			item.useTime = 32;
+			item.useAnimation = 32;
             item.useStyle = ItemUseStyleID.HoldingOut;
 			item.noMelee = true;
 			item.knockBack = 4;

@@ -9,7 +9,7 @@ namespace Annihilation.Items.Magic
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Crystium Shield Generator");
+            DisplayName.SetDefault("Crystium Reflector");
             Tooltip.SetDefault("Summons a shield that reflects projectiles");
         }
         public override void SetDefaults()
@@ -18,8 +18,8 @@ namespace Annihilation.Items.Magic
             item.magic = true;
             item.width = 26;
             item.height = 34;
-            item.useTime = 20;
-            item.useAnimation = 20;
+            item.useTime = 60;
+            item.useAnimation = 60;
             item.useStyle = ItemUseStyleID.HoldingOut;
             item.noMelee = true;
             item.value = 10000;
