@@ -65,7 +65,7 @@ namespace Annihilation.NPCs.Megnatar
             TheUltimateMemeBec--;
             if (TheUltimateMemeBec == 0)
             {
-                npc.frame.Y += 134;
+                npc.frame.Y += 136;
                 if (npc.frame.Y == 816)
                 {
                     npc.frame.Y = 0;
@@ -81,7 +81,7 @@ namespace Annihilation.NPCs.Megnatar
                 spriteEffects = SpriteEffects.FlipHorizontally;
             }
             Vector2 vector12 = new Vector2((float)(Main.npcTexture[npc.type].Width / 2), (float)(Main.npcTexture[npc.type].Height / Main.npcFrameCount[npc.type] / 2));
-            Main.spriteBatch.Draw(mod.GetTexture("NPCs/Megnatar/Megnatar_Glow"), npc.Bottom - Main.screenPosition + new Vector2((0f - (float)Main.npcTexture[npc.type].Width) * npc.scale / 2f + vector12.X * npc.scale, (0f - (float)Main.npcTexture[npc.type].Height) * npc.scale / (float)Main.npcFrameCount[npc.type] + 4f + vector12.Y * npc.scale + 0f + npc.gfxOffY), npc.frame, new Microsoft.Xna.Framework.Color(255 - npc.alpha, 255 - npc.alpha, 255 - npc.alpha, 255 - npc.alpha), npc.rotation, vector12, npc.scale, spriteEffects, 0f);
+            Main.spriteBatch.Draw(mod.GetTexture("NPCs/Megnatar/Megnatar_Glow"), npc.Bottom - Main.screenPosition + new Vector2((0f - (float)Main.npcTexture[npc.type].Width) * npc.scale / 2f + vector12.X * npc.scale, (0f - (float)Main.npcTexture[npc.type].Height) * npc.scale / (float)Main.npcFrameCount[npc.type] + 4f + vector12.Y * npc.scale + 0f + npc.gfxOffY), npc.frame, new Color(255 - npc.alpha, 255 - npc.alpha, 255 - npc.alpha, 255 - npc.alpha), npc.rotation, vector12, npc.scale, spriteEffects, 0f);
         }
         private int Firelaser = 0;
         private int Teleports = 0;

@@ -55,8 +55,22 @@ namespace Annihilation.Projectiles
                     Vector2 perturbedSpeed = new Vector2(projectile.velocity.X * 3, projectile.velocity.Y * 3).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f; // Watch out for dividing by 0 if there is only 1 projectile.
                     Projectile.NewProjectile(projectile.position.X, projectile.position.Y, perturbedSpeed.X * 3, perturbedSpeed.Y * 3, ModContent.ProjectileType<UmbraFlameSplit>(), projectile.damage / 6, 1f, projectile.owner);
                 }
+                foreach (NPC noop in Main.npc)
+                {
+                    if (noop.Center.X >= projectile.Center.X - (5 * 16) && noop.Center.X <= projectile.Center.X + (5 * 16) && noop.Center.Y >= projectile.Center.Y - (5 * 16) && noop.Center.Y <= projectile.Center.Y + (5 * 16) && !noop.friendly)
+                    {
+                        noop.AddBuff(BuffID.OnFire, 180);
+                    }
+                }
             }
             return true;
+        }
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            if (Main.rand.Next(2) == 0)
+            {
+                target.AddBuff(BuffID.OnFire, 180);
+            }
         }
     }
 }
