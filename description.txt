@@ -1,1 +1,12 @@
-The Annihilation Mod is a pretty cool mod, it does...this. Modify this file with a description of your mod.
+The Annihilation Mod is Work in Progress and things are subject to change
+
+Version 0.14 Includes
+
+2 bosses, Megnatar, Chaos Bringer and Ansolar, Crystium Guardian
+2 enemies, Crystium Slime and Crystium Watcher
+17 items, Crystal Artifiact, Core of Chaos, Destroyer Remnant, Chaos Flame, Crystium Sigil, Crystal Tome, 
+Crystium Barrier Reflector, Umbra Flame Blaster, Chaos Fragment
+Crystium Bar, Crystium Ore, Crystium Sword, Crystal Spiker, Crystium Bow, The Blackout, Crystium Hamaxe
+and the Crystium Pickaxe
+
+This is a Beta Build, and not everything is set in stone
