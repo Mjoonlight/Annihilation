@@ -40,15 +40,15 @@ namespace Annihilation.Items.BossSummons
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ModContent.ItemType<CrystiumBar>(), 20);
-            recipe.AddIngredient(ItemID.Bone, 10);
             recipe.AddIngredient(ItemID.IronBar, 15);
+            recipe.AddIngredient(ItemID.ManaCrystal, 3);
             recipe.AddTile(TileID.DemonAltar);
             recipe.SetResult(this);
             recipe.AddRecipe();
             recipe = new ModRecipe(mod);
             recipe.AddIngredient(ModContent.ItemType<CrystiumBar>(), 20);
-            recipe.AddIngredient(ItemID.Bone, 10);
             recipe.AddIngredient(ItemID.LeadBar, 15);
+            recipe.AddIngredient(ItemID.ManaCrystal, 3);
             recipe.AddTile(TileID.DemonAltar);
             recipe.SetResult(this);
             recipe.AddRecipe();
