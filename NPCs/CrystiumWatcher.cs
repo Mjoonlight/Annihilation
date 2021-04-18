@@ -159,7 +159,7 @@ namespace Annihilation.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return SpawnCondition.Underground.Chance * 0.5f;
+            return SpawnCondition.Underground.Chance * 0.3f;
         }
         public override void NPCLoot()
         {

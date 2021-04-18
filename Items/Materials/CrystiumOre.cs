@@ -1,4 +1,5 @@
-﻿using Terraria.ID;
+﻿using Annihilation.Tiles;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Annihilation.Items.Materials
@@ -8,7 +9,7 @@ namespace Annihilation.Items.Materials
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystium Ore");
-            Tooltip.SetDefault("A strange metal with crystals forming out of it, Hopefully it will be useful");
+            Tooltip.SetDefault("A strange metal with crystals forming out of it");
         }
         public override void SetDefaults()
         {
@@ -24,7 +25,7 @@ namespace Annihilation.Items.Materials
             item.maxStack = 999;
             item.value = 100;
             item.rare = ItemRarityID.Green;
-            item.createTile = ModContent.TileType<Tiles.CrystiumOre>();
+            item.createTile = ModContent.TileType<CrystiumOreTile>();
         }
     }
 }
