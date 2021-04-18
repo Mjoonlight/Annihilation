@@ -17,8 +17,8 @@ namespace Annihilation.NPCs.Ansolar
         }
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 24;
+            projectile.width = 14;
+            projectile.height = 28;
             projectile.damage = 27;
             projectile.friendly = false;
             projectile.hostile = true;

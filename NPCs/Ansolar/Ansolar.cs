@@ -503,14 +503,14 @@ namespace Annihilation.NPCs.Ansolar
             npc.aiStyle = -1;
             npc.damage = 32;
             npc.defense = 12;
-            npc.lifeMax = 1600;
+            npc.lifeMax = 1000;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;
             npc.HitSound = SoundID.NPCHit42;
             npc.DeathSound = SoundID.NPCDeath14;
             npc.buffImmune[BuffID.Confused] = true;
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansolar");
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansigma");
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
@@ -705,14 +705,14 @@ namespace Annihilation.NPCs.Ansolar
             npc.aiStyle = -1;
             npc.damage = 32;
             npc.defense = 12;
-            npc.lifeMax = 1600;
+            npc.lifeMax = 1000;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;
             npc.HitSound = SoundID.NPCHit42;
             npc.DeathSound = SoundID.NPCDeath14;
             npc.buffImmune[BuffID.Confused] = true;
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansolar");
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansigma");
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
@@ -907,14 +907,14 @@ namespace Annihilation.NPCs.Ansolar
             npc.aiStyle = -1;
             npc.damage = 25;
             npc.defense = 6;
-            npc.lifeMax = 400;
+            npc.lifeMax = 300;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;
             npc.HitSound = SoundID.NPCHit42;
             npc.DeathSound = SoundID.NPCDeath14;
             npc.buffImmune[BuffID.Confused] = true;
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansolar");
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansigma");
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {

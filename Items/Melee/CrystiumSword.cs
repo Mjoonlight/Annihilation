@@ -19,7 +19,7 @@ namespace Annihilation.Items.Melee
         {
 			item.damage = 16;
 			item.melee = true;
-			item.width = 46;
+			item.width = 42;
             item.height = 56;
 			item.useTime = 32;
 			item.useAnimation = 32;
