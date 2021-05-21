@@ -27,11 +27,11 @@ namespace Annihilation.NPCs.Ansolar
         }
         public override void SetDefaults()
         {
-            npc.width = 30;
-            npc.height = 58;
+            npc.width = 50;
+            npc.height = 56;
             npc.aiStyle = -1;
             npc.damage = 21;
-            npc.defense = 14;
+            npc.defense = 15;
             npc.lifeMax = 3300;
             npc.boss = true;
             npc.noGravity = true;
@@ -498,12 +498,12 @@ namespace Annihilation.NPCs.Ansolar
         }
         public override void SetDefaults()
         {
-            npc.width = 46;
+            npc.width = 50;
             npc.height = 44;
             npc.aiStyle = -1;
             npc.damage = 32;
             npc.defense = 12;
-            npc.lifeMax = 1000;
+            npc.lifeMax = 800;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;
@@ -700,12 +700,12 @@ namespace Annihilation.NPCs.Ansolar
         }
         public override void SetDefaults()
         {
-            npc.width = 46;
+            npc.width = 50;
             npc.height = 44;
             npc.aiStyle = -1;
             npc.damage = 32;
             npc.defense = 12;
-            npc.lifeMax = 1000;
+            npc.lifeMax = 800;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;
@@ -907,7 +907,7 @@ namespace Annihilation.NPCs.Ansolar
             npc.aiStyle = -1;
             npc.damage = 25;
             npc.defense = 6;
-            npc.lifeMax = 300;
+            npc.lifeMax = 225;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;
