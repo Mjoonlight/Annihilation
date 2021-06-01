@@ -40,7 +40,7 @@ namespace Annihilation.NPCs.Ansolar
             npc.HitSound = SoundID.NPCHit42;
             npc.DeathSound = SoundID.NPCDeath14;
             npc.buffImmune[BuffID.Confused] = true;
-            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansigma");
+            music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansolar");
         }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
