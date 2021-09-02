@@ -75,16 +75,41 @@ namespace Annihilation.NPCs.Megnatar
             projectile.timeLeft = 600;
             projectile.penetrate = -1;
         }
+        private bool init = false;
         public override void AI()
         {
-            projectile.rotation = projectile.velocity.ToRotation();
+            if (init == false)
+            {
+                init = true;
+            }
+            else
+            {
+                projectile.rotation = projectile.velocity.ToRotation();
+            }
+            projectile.timeLeft--;
+            if (projectile.timeLeft <= 0)
+            {
+                projectile.Kill();
+            }
             if (++projectile.frameCounter >= 5)
             {
                 projectile.frameCounter = 0;
-                if (++projectile.frame >= 4)
+                if (++projectile.frame >= 3)
                 {
                     projectile.frame = 0;
                 }
+            }
+            if (projectile.velocity.Y < -5f)
+            {
+                projectile.velocity.Y *= 0.97f;
+            }
+            if (projectile.velocity.Y >= -5f && projectile.velocity.Y < 3f)
+            {
+                projectile.velocity.Y = 3f;
+            }
+            if (projectile.velocity.Y >= 3f)
+            {
+                projectile.velocity.Y *= 1.03f;
             }
         }
         public override void PostDraw(SpriteBatch spriteBatch, Color drawColor)
@@ -98,7 +123,7 @@ namespace Annihilation.NPCs.Megnatar
             int frameHeight = Main.projectileTexture[projectile.type].Height / Main.projFrames[projectile.type];
             int startY = frameHeight * projectile.frame;
             Vector2 vector12 = new Vector2((float)(Main.projectileTexture[projectile.type].Width / 2), (float)(Main.projectileTexture[projectile.type].Height / Main.projFrames[projectile.type] / 2));
-            Main.spriteBatch.Draw(mod.GetTexture("NPCs/Megnatar/Darkflame_Glow"), projectile.Bottom - Main.screenPosition + new Vector2((0f - (float)Main.projectileTexture[projectile.type].Width) * projectile.scale / 2f + vector12.X * projectile.scale, (0f - (float)Main.projectileTexture[projectile.type].Height) * projectile.scale / (float)Main.projFrames[projectile.type] + 4f + vector12.Y * projectile.scale + 0f + projectile.gfxOffY), new Rectangle(0, startY, texture.Width, frameHeight), new Microsoft.Xna.Framework.Color(255 - projectile.alpha, 255 - projectile.alpha, 255 - projectile.alpha, 255 - projectile.alpha), projectile.rotation, vector12, projectile.scale, spriteEffects, 0f);
+            Main.spriteBatch.Draw(mod.GetTexture("NPCs/Megnatar/Darkflame2_Glow"), projectile.Bottom - Main.screenPosition + new Vector2((0f - (float)Main.projectileTexture[projectile.type].Width) * projectile.scale / 2f + vector12.X * projectile.scale, (0f - (float)Main.projectileTexture[projectile.type].Height) * projectile.scale / (float)Main.projFrames[projectile.type] + 4f + vector12.Y * projectile.scale + 0f + projectile.gfxOffY), new Rectangle(0, startY, texture.Width, frameHeight), new Microsoft.Xna.Framework.Color(255 - projectile.alpha, 255 - projectile.alpha, 255 - projectile.alpha, 255 - projectile.alpha), projectile.rotation, vector12, projectile.scale, spriteEffects, 0f);
         }
     }
 }

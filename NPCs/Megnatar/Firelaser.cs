@@ -13,6 +13,10 @@ namespace Annihilation.NPCs.Megnatar
 {
     class Firelaser : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            Main.projFrames[projectile.type] = 3;
+        }
         public override void SetDefaults()
         {
             projectile.width = 8;
@@ -28,6 +32,14 @@ namespace Annihilation.NPCs.Megnatar
         public override void AI()
         {
             projectile.rotation = projectile.velocity.ToRotation();
+            if (++projectile.frameCounter >= 5)
+            {
+                projectile.frameCounter = 0;
+                if (++projectile.frame >= 3)
+                {
+                    projectile.frame = 0;
+                }
+            }
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
