@@ -21,16 +21,24 @@ namespace Annihilation.NPCs
             npc.damage = 25;
             npc.lifeMax = 80;
             npc.defense = 11;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
+            npc.HitSound = SoundID.NPCHit42;
+            npc.DeathSound = SoundID.NPCDeath14;
             npc.value = Item.buyPrice(0, 0, 1, 5);
             npc.knockBackResist = 0f;
             npc.aiStyle = 2;
-            aiType = NPCID.DemonEye;
             animationType = NPCID.DemonEye;
             npc.noGravity = true;
             npc.boss = false;
             npc.netAlways = true;
+            npc.buffImmune[BuffID.Frostburn] = true;
+            npc.buffImmune[BuffID.CursedInferno] = true;
+            npc.buffImmune[BuffID.OnFire] = true;
+            npc.buffImmune[BuffID.ShadowFlame] = true;
+        }
+
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            return SpawnCondition.OverworldNight.Chance * 0.05f;
         }
 
         public override void OnHitPlayer(Player target, int damage, bool crit)

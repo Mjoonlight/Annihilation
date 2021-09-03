@@ -21,7 +21,7 @@ namespace Annihilation.Projectiles
         {
             projectile.width = 48;
             projectile.height = 18;
-            projectile.damage = 16;
+            projectile.damage = 25;
             projectile.aiStyle = -1;
             projectile.friendly = true;
             projectile.hostile = false;
@@ -53,13 +53,13 @@ namespace Annihilation.Projectiles
                 for (int i = 0; i < numberProjectiles; i++)
                 {
                     Vector2 perturbedSpeed = new Vector2(projectile.velocity.X * 3, projectile.velocity.Y * 3).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f; // Watch out for dividing by 0 if there is only 1 projectile.
-                    Projectile.NewProjectile(projectile.position.X, projectile.position.Y, perturbedSpeed.X * 3, perturbedSpeed.Y * 3, ModContent.ProjectileType<UmbraFlameSplit>(), projectile.damage / 6, 1f, projectile.owner);
+                    Projectile.NewProjectile(projectile.position.X, projectile.position.Y, perturbedSpeed.X * 3, perturbedSpeed.Y * 3, ModContent.ProjectileType<UmbraFlameSplit>(), projectile.damage / 1, 1f, projectile.owner);
                 }
                 foreach (NPC noop in Main.npc)
                 {
                     if (noop.Center.X >= projectile.Center.X - (5 * 16) && noop.Center.X <= projectile.Center.X + (5 * 16) && noop.Center.Y >= projectile.Center.Y - (5 * 16) && noop.Center.Y <= projectile.Center.Y + (5 * 16) && !noop.friendly)
                     {
-                        noop.AddBuff(BuffID.OnFire, 180);
+                        noop.AddBuff(BuffID.OnFire, 600);
                     }
                 }
             }
@@ -67,10 +67,11 @@ namespace Annihilation.Projectiles
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            if (Main.rand.Next(2) == 0)
+            if (Main.rand.Next(1) == 0)
             {
-                target.AddBuff(BuffID.OnFire, 180);
+                target.AddBuff(BuffID.OnFire, 300);
             }
         }
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
     }
 }

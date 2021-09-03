@@ -45,15 +45,6 @@ namespace Annihilation.NPCs.Megnatar
         {
             target.AddBuff(BuffID.OnFire, 90);
         }
-        public override void PostDraw(SpriteBatch spriteBatch, Color drawColor)
-        {
-            SpriteEffects spriteEffects = SpriteEffects.None;
-            if (projectile.spriteDirection == 1)
-            {
-                spriteEffects = SpriteEffects.FlipHorizontally;
-            }
-            Vector2 vector12 = new Vector2((float)(Main.projectileTexture[projectile.type].Width / 2), (float)(Main.projectileTexture[projectile.type].Height / Main.projFrames[projectile.type] / 2));
-            Main.spriteBatch.Draw(mod.GetTexture("NPCs/Megnatar/Firelaser_Glow"), projectile.position, null, new Color(255 - projectile.alpha, 255 - projectile.alpha, 255 - projectile.alpha, 255 - projectile.alpha), projectile.rotation, vector12, projectile.scale, spriteEffects, 0f);
-        }
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
     }
 }

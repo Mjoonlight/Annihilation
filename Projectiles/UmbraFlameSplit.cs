@@ -21,7 +21,7 @@ namespace Annihilation.Projectiles
         {
             projectile.width = 28;
             projectile.height = 10;
-            projectile.damage = 8;
+            projectile.damage = 15;
             projectile.aiStyle = -1;
             projectile.friendly = true;
             projectile.hostile = false;
@@ -43,5 +43,6 @@ namespace Annihilation.Projectiles
             }
             projectile.rotation = projectile.velocity.ToRotation();
         }
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
     }
 }
