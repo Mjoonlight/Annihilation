@@ -9,7 +9,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Annihilation.NPCs
+namespace Annihilation.NPCs.Crystium
 {
     class CrystiumSlime : ModNPC
     {
@@ -233,7 +233,7 @@ namespace Annihilation.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return SpawnCondition.Cavern.Chance * 0.3f;
+            return SpawnCondition.Cavern.Chance * 0.2f;
         }
         public override void NPCLoot()
         {

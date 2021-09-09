@@ -47,7 +47,7 @@ namespace Annihilation.NPCs
         }
         public override void NPCLoot()
         {
-            int ammount = Main.rand.Next(0, 3) + 4;
+            int ammount = Main.rand.Next(0, 2) + 3;
             Item.NewItem(npc.getRect(), ModContent.ItemType<ChaosFragment>(), ammount);
         }
     }

@@ -9,7 +9,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Annihilation.NPCs
+namespace Annihilation.NPCs.Crystium
 {
     class CrystiumWatcher : ModNPC
     {
@@ -27,7 +27,7 @@ namespace Annihilation.NPCs
             npc.defense = 8;
             npc.lifeMax = 85;
             npc.noGravity = true;
-            npc.noTileCollide = false;
+            npc.noTileCollide = true;
             npc.knockBackResist = 0f;
             npc.HitSound = SoundID.NPCHit42;
             npc.DeathSound = SoundID.NPCDeath14;
@@ -159,7 +159,7 @@ namespace Annihilation.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return SpawnCondition.Cavern.Chance * 0.3f;
+            return SpawnCondition.Cavern.Chance * 0.2f;
         }
         public override void NPCLoot()
         {

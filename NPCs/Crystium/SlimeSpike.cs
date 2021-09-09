@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace Annihilation.NPCs
+namespace Annihilation.NPCs.Crystium
 {
     class SlimeSpike : ModProjectile
     {
