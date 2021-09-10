@@ -1,5 +1,11 @@
 The Annihilation Mod is Work in Progress and things are subject to change
 
+Version 0.15 Includes
+
+1 New enemy, Chaos Emissary
+2 New items, Crystium Helmet (Unfinished), Crystium Rock (Unobtainable Normally)
+Many resprites
+
 Version 0.14 Includes
 
 2 bosses, Megnatar, Chaos Bringer and Ansolar, Crystium Guardian
