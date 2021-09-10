@@ -9,7 +9,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Annihilation.NPCs.Crystium
+namespace Annihilation.NPCs
 {
     class CrystiumWatcher : ModNPC
     {
@@ -45,13 +45,13 @@ namespace Annihilation.NPCs.Crystium
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Player player = Main.player[npc.target];
-                if (!player.active || player.dead || !Main.dayTime)
+                if (!player.active || player.dead || player.position.Y < Main.rockLayer * 16)
                 {
                     npc.TargetClosest(false);
                     player = Main.player[npc.target];
-                    if (!player.active || player.dead || !Main.dayTime)
+                    if (!player.active || player.dead || player.position.Y < Main.rockLayer * 16)
                     {
-                        npc.velocity = new Vector2(0f, -10f);
+                        npc.velocity = new Vector2(0f, 10f);
                         if (npc.timeLeft > 10)
                         {
                             npc.timeLeft = 10;
@@ -159,7 +159,7 @@ namespace Annihilation.NPCs.Crystium
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return SpawnCondition.Cavern.Chance * 0.2f;
+            return SpawnCondition.Cavern.Chance * 0.3f;
         }
         public override void NPCLoot()
         {
