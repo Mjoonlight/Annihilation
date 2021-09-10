@@ -159,7 +159,11 @@ namespace Annihilation.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return SpawnCondition.Cavern.Chance * 0.3f;
+            if (NPC.downedQueenBee)
+            {
+                return SpawnCondition.Cavern.Chance * 0.3f;
+            }
+            return 0;
         }
         public override void NPCLoot()
         {

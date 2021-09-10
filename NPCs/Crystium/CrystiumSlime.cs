@@ -233,7 +233,11 @@ namespace Annihilation.NPCs.Crystium
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return SpawnCondition.Cavern.Chance * 0.2f;
+            if (NPC.downedQueenBee)
+            {
+                return SpawnCondition.Cavern.Chance * 0.3f;
+            }
+            return 0;
         }
         public override void NPCLoot()
         {

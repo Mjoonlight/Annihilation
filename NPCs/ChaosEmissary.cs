@@ -38,9 +38,12 @@ namespace Annihilation.NPCs
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return SpawnCondition.OverworldNight.Chance * 0.05f;
+            if (NPC.downedBoss1)
+            {
+                return SpawnCondition.Cavern.Chance * 0.05f;
+            }
+            return 0;
         }
-
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
             target.AddBuff(BuffID.OnFire, 150);
