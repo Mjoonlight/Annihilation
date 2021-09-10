@@ -40,7 +40,7 @@ namespace Annihilation.NPCs
         {
             if (NPC.downedBoss1)
             {
-                return SpawnCondition.Cavern.Chance * 0.05f;
+                return SpawnCondition.OverworldNight.Chance * 0.05f;
             }
             return 0;
         }
