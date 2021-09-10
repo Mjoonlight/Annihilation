@@ -9,7 +9,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Annihilation.NPCs
+namespace Annihilation.NPCs.Crystium
 {
     class CrystiumWatcher : ModNPC
     {
