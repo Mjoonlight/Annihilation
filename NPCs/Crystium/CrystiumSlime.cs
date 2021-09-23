@@ -20,7 +20,7 @@ namespace Annihilation.NPCs.Crystium
         }
         public override void SetDefaults()
         {
-            npc.width = 34;
+            npc.width = 32;
             npc.height = 26;
             npc.aiStyle = -1;
             npc.damage = 18;
