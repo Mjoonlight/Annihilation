@@ -19,7 +19,7 @@ namespace Annihilation.Projectiles
         public override void SetDefaults()
         {
             projectile.width = 14;
-            projectile.height = 28;
+            projectile.height = 32;
             projectile.damage = 10;
             projectile.aiStyle = -1;
             projectile.friendly = true;
@@ -104,8 +104,8 @@ namespace Annihilation.Projectiles
         }
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 14;
+            projectile.width = 14;
+            projectile.height = 20;
             projectile.damage = 5;
             projectile.aiStyle = -1;
             projectile.friendly = true;
@@ -144,8 +144,8 @@ namespace Annihilation.Projectiles
         }
         public override void SetDefaults()
         {
-            projectile.width = 10;
-            projectile.height = 24;
+            projectile.width = 14;
+            projectile.height = 26;
             projectile.aiStyle = -1;
             projectile.friendly = true;
             projectile.penetrate = -1;

@@ -14,12 +14,12 @@ namespace Annihilation.Projectiles
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystal Spikes");
-            Main.projFrames[projectile.type] = 13;
+            Main.projFrames[projectile.type] = 15;
         }
         public override void SetDefaults()
         {
-            projectile.width = 40;
-            projectile.height = 32;
+            projectile.width = 48;
+            projectile.height = 42;
             projectile.damage = 26;
             projectile.friendly = false;
             projectile.hostile = false;
@@ -31,7 +31,7 @@ namespace Annihilation.Projectiles
         }
         public override void AI()
         {
-            if (projectile.frame == 0 || projectile.frame == 13)
+            if (projectile.frame == 0 || projectile.frame == 15)
             {
                 projectile.friendly = false;
             }
@@ -44,7 +44,7 @@ namespace Annihilation.Projectiles
             {
                 projectile.frameCounter = 0;
                 projectile.frame++;
-                if (projectile.frame >= 13)
+                if (projectile.frame >= 15)
                 {
                     projectile.penetrate = 0;
                 }

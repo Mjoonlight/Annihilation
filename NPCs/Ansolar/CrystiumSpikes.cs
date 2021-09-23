@@ -14,12 +14,12 @@ namespace Annihilation.NPCs.Ansolar
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystium Spikes");
-            Main.projFrames[projectile.type] = 13;
+            Main.projFrames[projectile.type] = 15;
         }
         public override void SetDefaults()
         {
-            projectile.width = 40;
-            projectile.height = 32;
+            projectile.width = 48;
+            projectile.height = 42;
             projectile.damage = 37;
             projectile.friendly = false;
             projectile.hostile = true;
@@ -30,7 +30,7 @@ namespace Annihilation.NPCs.Ansolar
         }
         public override void AI()
         {
-            if (projectile.frame == 0 || projectile.frame == 13)
+            if (projectile.frame == 0 || projectile.frame == 15)
             {
                 projectile.hostile = false;
             }
@@ -43,7 +43,7 @@ namespace Annihilation.NPCs.Ansolar
             {
                 projectile.frameCounter = 0;
                 projectile.frame++;
-                if (projectile.frame >= 13)
+                if (projectile.frame >= 15)
                 {
                     projectile.penetrate = 0;
                 }
