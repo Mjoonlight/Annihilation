@@ -41,7 +41,7 @@ namespace Annihilation.Projectiles
                     projectile.frame = 0;
                 }
             }
-            projectile.velocity.Y = 3f;
+            projectile.velocity.Y = 16f;
         }
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
