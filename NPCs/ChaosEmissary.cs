@@ -85,7 +85,6 @@ namespace Annihilation.NPCs
         {
             npc.spriteDirection = ToInt(npc.velocity.X > 0);
             npc.rotation = npc.velocity.ToRotation() + MathHelper.Pi/2;
-            Main.NewText(npc.rotation);
         }
         public override void AI()
         {
