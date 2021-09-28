@@ -1,5 +1,5 @@
 displayName = The Annihilation Mod
 author = Delta Bec Noir
-version = 0.15
+version = 0.2
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*
 includePDB = true
