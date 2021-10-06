@@ -18,7 +18,7 @@ namespace Annihilation.Items.Accessories
         public override void SetDefaults()
         {
             item.width = 30;
-            item.height = 26;
+            item.height = 34;
             item.rare = ItemRarityID.Blue;
             item.accessory = true;
         }

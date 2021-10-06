@@ -9,14 +9,14 @@ namespace Annihilation.Items.Accessories
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Core of Chaos");
-            Tooltip.SetDefault("A Core that burns brighter then your hand" +
+            Tooltip.SetDefault("A Core that burns akin to the sun" +
                 "\nRaises Defense and Health at the cost of lighting you OnFire when hit" +
                 "\nToggle Visuals for an opposite effect towards your enemies");
         }
         public override void SetDefaults()
         {
-            item.width = 34;
-            item.height = 28;
+            item.width = 26;
+            item.height = 30;
             item.rare = ItemRarityID.Blue;
             item.accessory = true;
         }

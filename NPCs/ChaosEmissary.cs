@@ -17,8 +17,8 @@ namespace Annihilation.NPCs
 
         public override void SetDefaults()
         {
-            npc.width = 48;
-            npc.height = 50;
+            npc.width = 42;
+            npc.height = 48;
             npc.damage = 25;
             npc.lifeMax = 80;
             npc.defense = 11;

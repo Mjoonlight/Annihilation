@@ -186,11 +186,11 @@ namespace Annihilation.Projectiles
                 {
                     case 1:
                         Main.PlaySound(SoundID.Item, (int)projectile.position.X, (int)projectile.position.Y, 89, 1, -1f);
-                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, ModContent.ProjectileType<UmbraFlameSplit>(), projectile.damage / 6, 1f, player.whoAmI);
+                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, ModContent.ProjectileType<UmbraFlameSplit>(), projectile.damage, 1f, player.whoAmI);
                         break;
                     case 2:
                         Main.PlaySound(SoundID.Item, (int)projectile.position.X, (int)projectile.position.Y, 89);
-                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX / 3, SpeedY / 3, ModContent.ProjectileType<UmbraFlameMain>(), projectile.damage / 3, 1f, player.whoAmI);
+                        Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX / 3, SpeedY / 3, ModContent.ProjectileType<UmbraFlameMain>(), projectile.damage, 1f, player.whoAmI);
                         break;
                 }
             }
