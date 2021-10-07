@@ -1,5 +1,6 @@
 ﻿using Annihilation.Buffs;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,14 @@ namespace Annihilation.Projectiles.Minions
         private int shoot = ModContent.ProjectileType<BlackoutShot>();
         public override void AI()
         {
+            if (Main.rand.Next(10) == 0)
+            {
+                Dust dust;
+                dust = Main.dust[Terraria.Dust.NewDust(projectile.position, projectile.width, projectile.height, 6, 0f, 0f, 0, new Color(255, 255, 255), 2f)];
+                dust.noGravity = true;
+
+            }
+
             Player player = Main.player[projectile.owner];
             if (player.dead || !player.active)
             {
@@ -242,10 +251,31 @@ namespace Annihilation.Projectiles.Minions
                             Main.projectile[proj].timeLeft = 300;
                             Main.projectile[proj].netUpdate = true;
                             projectile.netUpdate = true;
+                            for (int i = 0; i < 5; i++)
+                            {
+                                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6, 0f, 0f, 200, new Color(255, 255, 255), 2f);
+                                Main.dust[dust].velocity = Main.rand.NextVector2Unit();
+                            }
                         }
                     }
                 }
             }
+        }
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            //3hi31mg
+            var clr = new Color(255, 255, 255, 255); // full white
+            var drawPos = projectile.Center - Main.screenPosition;
+            var off = new Vector2(projectile.width / 2f, projectile.height / 2f);
+            var origTexture = Main.projectileTexture[projectile.type];
+            var texture = mod.GetTexture("Projectiles/Minions/TheBlackoutPro_Glow");
+            int frameHeight = texture.Height / Main.projFrames[projectile.type];
+            var frame = new Rectangle(0, frameHeight * projectile.frame, texture.Width, frameHeight - 2);
+            var orig = frame.Size() / 2f;
+
+            Main.spriteBatch.Draw(origTexture, drawPos, frame, lightColor, projectile.rotation, orig, projectile.scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, drawPos, frame, clr, projectile.rotation, orig, projectile.scale, SpriteEffects.None, 0f);
+            return false;
         }
     }
 }

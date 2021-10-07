@@ -42,26 +42,33 @@ namespace Annihilation.Projectiles
                 }
             }
             projectile.rotation = projectile.velocity.ToRotation();
+            projectile.velocity = projectile.velocity / 1.009f;
         }
         public override bool PreKill(int timeLeft)
         {
             if (timeLeft == 0)
             {
-                float numberProjectiles = 5;
-                float rotation = MathHelper.ToRadians(45);
-                projectile.position += Vector2.Normalize(new Vector2(projectile.velocity.X * 3, projectile.velocity.Y * 3)) * 45f;
+                float numberProjectiles = 8;
+                float rotation = MathHelper.ToRadians(160);
+                projectile.position += (new Vector2(projectile.velocity.X, projectile.velocity.Y));
                 for (int i = 0; i < numberProjectiles; i++)
                 {
-                    Vector2 perturbedSpeed = new Vector2(projectile.velocity.X * 3, projectile.velocity.Y * 3).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f; // Watch out for dividing by 0 if there is only 1 projectile.
+                    Vector2 perturbedSpeed = new Vector2(projectile.velocity.X * 8, projectile.velocity.Y * 8).RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f; // Watch out for dividing by 0 if there is only 1 projectile.
                     Projectile.NewProjectile(projectile.position.X, projectile.position.Y, perturbedSpeed.X * 3, perturbedSpeed.Y * 3, ModContent.ProjectileType<UmbraFlameSplit>(), projectile.damage / 1, 1f, projectile.owner);
                 }
                 foreach (NPC noop in Main.npc)
                 {
-                    if (noop.Center.X >= projectile.Center.X - (5 * 16) && noop.Center.X <= projectile.Center.X + (5 * 16) && noop.Center.Y >= projectile.Center.Y - (5 * 16) && noop.Center.Y <= projectile.Center.Y + (5 * 16) && !noop.friendly)
+                    if (noop.Center.X >= projectile.Center.X - (5 * 16) && noop.Center.X <= projectile.Center.X + (5 * 16) && noop. Center.Y >= projectile.Center.Y - (5 * 16) && noop.Center.Y <= projectile.Center.Y + (5 * 16) && !noop.friendly)
                     {
                         noop.AddBuff(BuffID.OnFire, 600);
                     }
                 }
+                for (int i = 0; i < 17; i++)
+                {   
+                    int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6, 0f, 0f, 200, new Color(255,255,255), 2f);
+                    Main.dust[dust].velocity = Main.rand.NextVector2Unit() * 2f;
+                }
+                var gore = Terraria.Main.gore[Gore.NewGore(projectile.Center, Vector2.Zero, 61, 1)];
             }
             return true;
         }

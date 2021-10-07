@@ -135,19 +135,19 @@ namespace Annihilation.Projectiles
 
             counter++;
 
-            if (counter >= 90)
+            if (counter >= 50)
             {
                 Main.PlaySound(SoundID.Item, (int)projectile.position.X, (int)projectile.position.Y, 93, 1, 1f);
                 chargeLevel = 2;
             }
 
-            else if (counter >= 10)
+            else if (counter >= 1)
             {
                 Main.PlaySound(SoundID.Item, (int)projectile.position.X, (int)projectile.position.Y, 13);
                 chargeLevel = 1;
             }
 
-            else if (counter >= 0)
+            else if (counter >= 0   )
             {
                 Main.PlaySound(SoundID.Item, (int)projectile.position.X, (int)projectile.position.Y, 13, 1, -1f);
                 chargeLevel = 0;
@@ -187,10 +187,23 @@ namespace Annihilation.Projectiles
                     case 1:
                         Main.PlaySound(SoundID.Item, (int)projectile.position.X, (int)projectile.position.Y, 89, 1, -1f);
                         Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX, SpeedY, ModContent.ProjectileType<UmbraFlameSplit>(), projectile.damage, 1f, player.whoAmI);
+                        for (int i = 0; i < 5; i++)
+                        {
+                            int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6, 0f, 0f, 200, new Color(255, 255, 255), 2f);
+                            Main.dust[dust].velocity = Main.rand.NextVector2Unit();
+                        }
                         break;
+                
+                
+
                     case 2:
                         Main.PlaySound(SoundID.Item, (int)projectile.position.X, (int)projectile.position.Y, 89);
                         Projectile.NewProjectile(vector2.X, vector2.Y, SpeedX / 3, SpeedY / 3, ModContent.ProjectileType<UmbraFlameMain>(), projectile.damage, 1f, player.whoAmI);
+                        for (int i = 0; i < 10; i++)
+                        {
+                            int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6, 0f, 0f, 200, new Color(255, 255, 255), 2f);
+                            Main.dust[dust].velocity = Main.rand.NextVector2Unit() * 1.5f;
+                        }
                         break;
                 }
             }
