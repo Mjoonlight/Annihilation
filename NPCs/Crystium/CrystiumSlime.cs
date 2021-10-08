@@ -1,5 +1,6 @@
 ﻿using Annihilation.Items.Materials;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,19 @@ namespace Annihilation.NPCs.Crystium
             npc.HitSound = SoundID.NPCHit42;
             npc.DeathSound = SoundID.NPCDeath14;
             npc.buffImmune[BuffID.Confused] = true;
+        }
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            //3hi31mg
+            var clr = new Color(255, 255, 255, 255); // full white
+            var drawPos = npc.Center - Main.screenPosition;
+            var origTexture = Main.npcTexture[npc.type];
+            var texture = mod.GetTexture("NPCs/Crystium/CrystiumSlime_Glow");
+            var orig = npc.frame.Size() / 2f;
+
+            Main.spriteBatch.Draw(origTexture, drawPos, npc.frame, lightColor, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, drawPos, npc.frame, clr, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            return false;
         }
         public override void AI()
         {

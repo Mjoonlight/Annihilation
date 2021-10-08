@@ -49,5 +49,6 @@ namespace Annihilation.NPCs.Ansolar
                 }
             }
         }
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
     }
 }

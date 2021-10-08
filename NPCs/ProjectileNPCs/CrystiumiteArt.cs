@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -41,6 +42,19 @@ namespace Annihilation.NPCs.ProjectileNPCs
                 deltaTime++;
                 npc.Center = player.Center + Vector2.One.RotatedBy((0.025 * deltaTime) - (MathHelper.ToRadians(0))) * 90f;
             }
+        }
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            //3hi31mg
+            var clr = new Color(255, 255, 255, 255); // full white
+            var drawPos = npc.Center - Main.screenPosition;
+            var origTexture = Main.npcTexture[npc.type];
+            var texture = mod.GetTexture("NPCs/Ansolar/Crystiumite_Glow");
+            var orig = npc.frame.Size() / 2f;
+
+            Main.spriteBatch.Draw(origTexture, drawPos, npc.frame, lightColor, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, drawPos, npc.frame, clr, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            return false;
         }
         public override bool? CanBeHitByProjectile(Projectile projectile)
         {
@@ -88,6 +102,19 @@ namespace Annihilation.NPCs.ProjectileNPCs
             npc.HitSound = SoundID.NPCHit42;
             npc.DeathSound = SoundID.NPCDeath14;
             npc.buffImmune[BuffID.Confused] = true;
+        }
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            //3hi31mg
+            var clr = new Color(255, 255, 255, 255); // full white
+            var drawPos = npc.Center - Main.screenPosition;
+            var origTexture = Main.npcTexture[npc.type];
+            var texture = mod.GetTexture("NPCs/Ansolar/Crystiumite_Glow");
+            var orig = npc.frame.Size() / 2f;
+
+            Main.spriteBatch.Draw(origTexture, drawPos, npc.frame, lightColor, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, drawPos, npc.frame, clr, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            return false;
         }
         private int deltaTime = 0;
         public override void AI()
@@ -149,6 +176,19 @@ namespace Annihilation.NPCs.ProjectileNPCs
             npc.HitSound = SoundID.NPCHit42;
             npc.DeathSound = SoundID.NPCDeath14;
             npc.buffImmune[BuffID.Confused] = true;
+        }
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            //3hi31mg
+            var clr = new Color(255, 255, 255, 255); // full white
+            var drawPos = npc.Center - Main.screenPosition;
+            var origTexture = Main.npcTexture[npc.type];
+            var texture = mod.GetTexture("NPCs/Ansolar/Crystiumite_Glow");
+            var orig = npc.frame.Size() / 2f;
+
+            Main.spriteBatch.Draw(origTexture, drawPos, npc.frame, lightColor, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, drawPos, npc.frame, clr, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            return false;
         }
         private int deltaTime = 0;
         public override void AI()
@@ -224,6 +264,19 @@ namespace Annihilation.NPCs.ProjectileNPCs
                 deltaTime++;
                 npc.Center = player.Center + Vector2.One.RotatedBy((0.025 * deltaTime) - (MathHelper.ToRadians(270))) * 90f;
             }
+        }
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            //3hi31mg
+            var clr = new Color(255, 255, 255, 255); // full white
+            var drawPos = npc.Center - Main.screenPosition;
+            var origTexture = Main.npcTexture[npc.type];
+            var texture = mod.GetTexture("NPCs/Ansolar/Crystiumite_Glow");
+            var orig = npc.frame.Size() / 2f;
+
+            Main.spriteBatch.Draw(origTexture, drawPos, npc.frame, lightColor, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, drawPos, npc.frame, clr, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            return false;
         }
         public override bool? CanBeHitByProjectile(Projectile projectile)
         {

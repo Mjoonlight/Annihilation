@@ -36,5 +36,6 @@ namespace Annihilation.NPCs.Ansolar
             }
             projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(-90f);
         }
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
     }
 }

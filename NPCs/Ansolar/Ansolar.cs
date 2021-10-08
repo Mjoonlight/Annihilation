@@ -42,6 +42,19 @@ namespace Annihilation.NPCs.Ansolar
             npc.buffImmune[BuffID.Confused] = true;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansolar");
         }
+             public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            //3hi31mg
+            var clr = new Color(255, 255, 255, 255); // full white
+            var drawPos = npc.Center - Main.screenPosition;
+            var origTexture = Main.npcTexture[npc.type];
+            var texture = mod.GetTexture("NPCs/Ansolar/Ansolar_Glow");
+            var orig = npc.frame.Size() / 2f;
+
+            Main.spriteBatch.Draw(origTexture, drawPos, npc.frame, lightColor, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, drawPos, npc.frame, clr, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            return false;
+        }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
             npc.lifeMax = (int)(npc.lifeMax * 0.625f * bossLifeScale);
@@ -78,11 +91,11 @@ namespace Annihilation.NPCs.Ansolar
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Player player = Main.player[npc.target];
-                if (!player.active || player.dead || !Main.dayTime)
+                if (!player.active || player.dead)
                 {
                     npc.TargetClosest(false);
                     player = Main.player[npc.target];
-                    if (!player.active || player.dead || !Main.dayTime)
+                    if (!player.active || player.dead)
                     {
                         npc.velocity = new Vector2(0f, 10f);
                         if (npc.timeLeft > 10)
@@ -512,6 +525,19 @@ namespace Annihilation.NPCs.Ansolar
             npc.buffImmune[BuffID.Confused] = true;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansolar");
         }
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            //3hi31mg
+            var clr = new Color(255, 255, 255, 255); // full white
+            var drawPos = npc.Center - Main.screenPosition;
+            var origTexture = Main.npcTexture[npc.type];
+            var texture = mod.GetTexture("NPCs/Ansolar/AnsolarClawR_Glow");
+            var orig = npc.frame.Size() / 2f;
+
+            Main.spriteBatch.Draw(origTexture, drawPos, npc.frame, lightColor, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, drawPos, npc.frame, clr, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            return false;
+        }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
             npc.lifeMax = (int)(npc.lifeMax * 0.625f * bossLifeScale);
@@ -525,11 +551,11 @@ namespace Annihilation.NPCs.Ansolar
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Player player = Main.player[npc.target];
-                if (!player.active || player.dead || !Main.dayTime)
+                if (!player.active || player.dead)
                 {
                     npc.TargetClosest(false);
                     player = Main.player[npc.target];
-                    if (!player.active || player.dead || !Main.dayTime)
+                    if (!player.active || player.dead)
                     {
                         npc.velocity = new Vector2(0f, 10f);
                         if (npc.timeLeft > 10)
@@ -714,6 +740,19 @@ namespace Annihilation.NPCs.Ansolar
             npc.buffImmune[BuffID.Confused] = true;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansolar");
         }
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            //3hi31mg
+            var clr = new Color(255, 255, 255, 255); // full white
+            var drawPos = npc.Center - Main.screenPosition;
+            var origTexture = Main.npcTexture[npc.type];
+            var texture = mod.GetTexture("NPCs/Ansolar/AnsolarClawL_Glow");
+            var orig = npc.frame.Size() / 2f;
+
+            Main.spriteBatch.Draw(origTexture, drawPos, npc.frame, lightColor, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, drawPos, npc.frame, clr, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            return false;
+        }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
             npc.lifeMax = (int)(npc.lifeMax * 0.625f * bossLifeScale);
@@ -727,11 +766,11 @@ namespace Annihilation.NPCs.Ansolar
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Player player = Main.player[npc.target];
-                if (!player.active || player.dead || !Main.dayTime)
+                if (!player.active || player.dead)
                 {
                     npc.TargetClosest(false);
                     player = Main.player[npc.target];
-                    if (!player.active || player.dead || !Main.dayTime)
+                    if (!player.active || player.dead)
                     {
                         npc.velocity = new Vector2(0f, 10f);
                         if (npc.timeLeft > 10)
@@ -916,6 +955,19 @@ namespace Annihilation.NPCs.Ansolar
             npc.buffImmune[BuffID.Confused] = true;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansolar");
         }
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        {
+            //3hi31mg
+            var clr = new Color(255, 255, 255, 255); // full white
+            var drawPos = npc.Center - Main.screenPosition;
+            var origTexture = Main.npcTexture[npc.type];
+            var texture = mod.GetTexture("NPCs/Ansolar/Shield_Glow");
+            var orig = npc.frame.Size() / 2f;
+
+            Main.spriteBatch.Draw(origTexture, drawPos, npc.frame, lightColor, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, drawPos, npc.frame, clr, npc.rotation, orig, npc.scale, SpriteEffects.None, 0f);
+            return false;
+        }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
             npc.lifeMax = (int)(npc.lifeMax * 0.625f * bossLifeScale);
@@ -994,11 +1046,11 @@ namespace Annihilation.NPCs.Ansolar
             if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Player player = Main.player[npc.target];
-                if (!player.active || player.dead || !Main.dayTime)
+                if (!player.active || player.dead)
                 {
                     npc.TargetClosest(false);
                     player = Main.player[npc.target];
-                    if (!player.active || player.dead || !Main.dayTime)
+                    if (!player.active || player.dead)
                     {
                         npc.velocity = new Vector2(0f, 10f);
                         if (npc.timeLeft > 10)
