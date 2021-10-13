@@ -30,6 +30,7 @@ namespace Annihilation.Projectiles
             projectile.ignoreWater = false;
             projectile.tileCollide = true;
             projectile.timeLeft = 3600;
+            projectile.penetrate = 3;
         }
         public override void AI()
         {
