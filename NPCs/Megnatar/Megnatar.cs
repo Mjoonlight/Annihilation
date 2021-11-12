@@ -65,8 +65,8 @@ namespace Annihilation.NPCs.Megnatar
             TheUltimateMemeBec--;
             if (TheUltimateMemeBec == 0)
             {
-                npc.frame.Y += 134;
-                if (npc.frame.Y == 670)
+                npc.frame.Y += 170;
+                if (npc.frame.Y == 890)
                 {
                     npc.frame.Y = 0;
                 }
