@@ -22,8 +22,8 @@ namespace Annihilation.Projectiles
             projectile.hostile = false;
             projectile.ignoreWater = false;
             projectile.tileCollide = true;
-            projectile.timeLeft = 600;
-            projectile.penetrate = -1;
+            projectile.timeLeft = 200;
+            projectile.penetrate = 4;
         }
         public override void AI()
         {

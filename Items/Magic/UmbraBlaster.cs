@@ -14,7 +14,7 @@ namespace Annihilation.Items.Magic
         }
         public override void SetDefaults()
         {
-            item.damage = 16;
+            item.damage = 26;
             item.magic = true;
             item.width = 28;
             item.height = 26;

@@ -35,8 +35,8 @@ namespace Annihilation.NPCs.Megnatar
         }
         public override void SetDefaults()
         {
-            npc.width = 134;
-            npc.height = 134;
+            npc.width = 170;
+            npc.height = 178;
             npc.aiStyle = -1;
             npc.damage = 23;
             npc.defense = 12;
@@ -65,8 +65,8 @@ namespace Annihilation.NPCs.Megnatar
             TheUltimateMemeBec--;
             if (TheUltimateMemeBec == 0)
             {
-                npc.frame.Y += 134;
-                if (npc.frame.Y == 670)
+                npc.frame.Y += 178;
+                if (npc.frame.Y == 890)
                 {
                     npc.frame.Y = 0;
                 }

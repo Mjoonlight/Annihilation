@@ -94,6 +94,7 @@ namespace Annihilation.Projectiles
             }
             return true;
         }
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
     }
     class CrystalBulletShard : ModProjectile
     {
@@ -135,6 +136,7 @@ namespace Annihilation.Projectiles
             }
             projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(-90f);
         }
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
     }
     class CrystalBulletStuck : ModProjectile
     {
@@ -192,5 +194,6 @@ namespace Annihilation.Projectiles
             }
             return true;
         }
+        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
     }
 }
