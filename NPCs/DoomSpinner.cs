@@ -75,19 +75,76 @@ namespace Annihilation.NPCs
                 }
             }
         }
+
         public void Aim()
         {
             npc.rotation += npc.velocity.Length() * 0.11f;
         }
+
+        public enum State
+        {
+            Default,
+            Dash,
+            Return,
+            Bounce
+        };
+        State pstate = State.Default, lastState = State.Default;
+        State state
+        {
+            get => pstate;
+            set
+            {
+                lastState = pstate;
+                pstate = value;
+            }
+        }
+
         public override void AI()
         {
             Aim();
+            npc.TargetClosest();
+            var target = Main.player[npc.target];
+
+            switch (state)
+            {
+                case State.Default:
+                    npc.velocity = Vector2.Lerp(npc.velocity, -(npc.Center - target.Center).SafeNormalize(Vector2.UnitX) * 2, 0.05f);
+                    if (Vector2.Distance(npc.Center, target.Center) < 128)
+                    {
+                        npc.velocity = -(npc.Center - target.Center).SafeNormalize(Vector2.UnitX) * 6;
+                        npc.oldVelocity = -(npc.Center - target.Center).SafeNormalize(Vector2.UnitX) * 6;
+                        state = State.Dash;
+                    }
+                    break;
+                case State.Dash:
+                    npc.velocity = npc.oldVelocity;
+                    if (Vector2.Distance(npc.Center, target.Center) > 128)
+                    {
+                        state = State.Return;
+                    }
+                    break;
+                case State.Return:
+                    npc.velocity = Vector2.Lerp(npc.velocity, (npc.Center - target.Center).SafeNormalize(Vector2.UnitX) * 2, 0.05f);
+                    if (Vector2.Distance(npc.Center, target.Center) > 256)
+                    {
+                        state = State.Default;
+                    }
+                    break;
+                case State.Bounce:
+                    npc.velocity = -npc.velocity;
+                    if (npc.frameCounter++ >= 30)
+                    {
+                        npc.frameCounter = 0;
+                        state = lastState;
+                    }
+                    break;
+            }
 
             Dust dust;
             dust = Main.dust[Terraria.Dust.NewDust(npc.position, npc.width, npc.height, 6, 0f, 0f, 0, new Color(255, 255, 255), 3f)];
             dust.noGravity = true;
-
         }
+
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
             target.AddBuff(BuffID.OnFire, 150);
