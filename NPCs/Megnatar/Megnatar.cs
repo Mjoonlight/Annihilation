@@ -54,6 +54,22 @@ namespace Annihilation.NPCs.Megnatar
             npc.buffImmune[BuffID.Confused] = true;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Megnatar");
         }
+        public override void HitEffect(int hitDirection, double damage)
+        {
+            base.HitEffect(hitDirection, damage);
+            if (npc.life <= 0)
+            {
+                for (int i = 0; i < Main.rand.Next(12, 16); i++)
+                {
+                    var gore = Terraria.Main.gore[Gore.NewGore(npc.Center, Vector2.Zero, 61, 1)];
+                }
+
+                for (int i = 0; i < Main.rand.Next(25, 30); i++)
+                {
+                    var dust = Main.dust[Terraria.Dust.NewDust(npc.position, npc.width, npc.height, 6, 0f, 0f, 0, new Color(255, 255, 255), 3f)];
+                }
+            }
+        }
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
             npc.lifeMax = (int)(npc.lifeMax * 0.625f * bossLifeScale);
