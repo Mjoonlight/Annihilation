@@ -26,7 +26,7 @@ namespace Annihilation.NPCs
             npc.DeathSound = SoundID.NPCDeath14;
             npc.value = Item.buyPrice(0, 0, 1, 5);
             npc.knockBackResist = 0f;
-            npc.aiStyle = -1;
+            npc.aiStyle = 2;
             npc.noGravity = true;
             npc.boss = false;
             npc.netAlways = true;
@@ -34,7 +34,6 @@ namespace Annihilation.NPCs
             npc.buffImmune[BuffID.CursedInferno] = true;
             npc.buffImmune[BuffID.OnFire] = true;
             npc.buffImmune[BuffID.ShadowFlame] = true;
-            npc.noTileCollide = true;
         }
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
@@ -76,46 +75,76 @@ namespace Annihilation.NPCs
                 }
             }
         }
+
         public void Aim()
         {
             npc.rotation += npc.velocity.Length() * 0.11f;
         }
-        int state = 0;
+
+        public enum State
+        {
+            Default,
+            Dash,
+            Return,
+            Bounce
+        };
+        State pstate = State.Default, lastState = State.Default;
+        State state
+        {
+            get => pstate;
+            set
+            {
+                lastState = pstate;
+                pstate = value;
+            }
+        }
+
         public override void AI()
         {
             Aim();
             npc.TargetClosest();
             var target = Main.player[npc.target];
-           switch (state)
-           {
-                case 0:
-                    npc.velocity = -(npc.Center - target.Center).SafeNormalize(Vector2.UnitX) * 2;
-                    if (Vector2.Distance(npc.Center, target.Center) < 16)
-                    {
-                        state = 1;
-                    }
-                    break;
-                case 1:
-                    npc.velocity = -(npc.Center - target.Center).SafeNormalize(Vector2.UnitX) * 6;
-                    if (Vector2.Distance(npc.Center, target.Center) > 16)
-                    {
-                        state = 2;
-                    }
-                    break;
-                case 2:
-                    npc.velocity = (npc.Center - target.Center).SafeNormalize(Vector2.UnitX) * 2;
-                    if (Vector2.Distance(npc.Center, target.Center) > 64)
-                    {
-                        state = 0;
-                    }
-                    break;
-           }
 
+            switch (state)
+            {
+                case State.Default:
+                    npc.velocity = Vector2.Lerp(npc.velocity, -(npc.Center - target.Center).SafeNormalize(Vector2.UnitX) * 2, 0.05f);
+                    if (Vector2.Distance(npc.Center, target.Center) < 128)
+                    {
+                        npc.velocity = -(npc.Center - target.Center).SafeNormalize(Vector2.UnitX) * 6;
+                        npc.oldVelocity = -(npc.Center - target.Center).SafeNormalize(Vector2.UnitX) * 6;
+                        state = State.Dash;
+                    }
+                    break;
+                case State.Dash:
+                    npc.velocity = npc.oldVelocity;
+                    if (Vector2.Distance(npc.Center, target.Center) > 128)
+                    {
+                        state = State.Return;
+                    }
+                    break;
+                case State.Return:
+                    npc.velocity = Vector2.Lerp(npc.velocity, (npc.Center - target.Center).SafeNormalize(Vector2.UnitX) * 2, 0.05f);
+                    if (Vector2.Distance(npc.Center, target.Center) > 256)
+                    {
+                        state = State.Default;
+                    }
+                    break;
+                case State.Bounce:
+                    npc.velocity = -npc.velocity;
+                    if (npc.frameCounter++ >= 30)
+                    {
+                        npc.frameCounter = 0;
+                        state = lastState;
+                    }
+                    break;
+            }
 
             Dust dust;
             dust = Main.dust[Terraria.Dust.NewDust(npc.position, npc.width, npc.height, 6, 0f, 0f, 0, new Color(255, 255, 255), 3f)];
             dust.noGravity = true;
         }
+
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
             target.AddBuff(BuffID.OnFire, 150);
