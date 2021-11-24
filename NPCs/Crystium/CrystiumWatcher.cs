@@ -175,7 +175,7 @@ namespace Annihilation.NPCs.Crystium
         {
             if (NPC.downedQueenBee)
             {
-                return SpawnCondition.Cavern.Chance * 0.3f;
+                return SpawnCondition.Cavern.Chance * 0.07f;
             }
             return 0;
         }
