@@ -252,6 +252,12 @@ namespace Annihilation.Projectiles.Minions
                             Main.projectile[proj].netUpdate = true;
                             projectile.netUpdate = true;
                             for (int i = 0; i < 5; i++)
+                            Main.PlaySound(SoundID.Item20);
+                            for (int i = 0; i < 5; i++)
+                            {
+                                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, DustID.Fire, 0f, 0f, 200, new Color(255, 255, 255), 2f);   
+                            }
+
                             {
                                 int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6, 0f, 0f, 200, new Color(255, 255, 255), 2f);
                                 Main.dust[dust].velocity = Main.rand.NextVector2Unit();

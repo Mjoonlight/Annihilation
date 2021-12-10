@@ -40,14 +40,14 @@ namespace Annihilation.Items.BossSummons
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Torch, 5);
-            recipe.AddIngredient(ItemID.DemoniteOre, 10);
+            recipe.AddIngredient(ItemID.DemoniteBar, 10);
             recipe.AddIngredient(ModContent.ItemType<ChaosFragment>(), 10);
             recipe.AddTile(TileID.DemonAltar);
             recipe.SetResult(this);
             recipe.AddRecipe();
             recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Torch, 5);
-            recipe.AddIngredient(ItemID.CrimtaneOre, 10);
+            recipe.AddIngredient(ItemID.CrimtaneBar, 10);
             recipe.AddIngredient(ModContent.ItemType<ChaosFragment>(), 10);
             recipe.AddTile(TileID.DemonAltar);
             recipe.SetResult(this);

@@ -65,9 +65,10 @@ namespace Annihilation.Projectiles
             for (int i = 0; i < 17; i++)
             {   
                 int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6, 0f, 0f, 200, new Color(255,255,255), 2f);
-                Main.dust[dust].velocity = Main.rand.NextVector2Unit() * 2f;
+                Main.dust[dust].velocity = Main.rand.NextVector2Unit() + projectile.velocity * 1f;
             }
             var gore = Terraria.Main.gore[Gore.NewGore(projectile.Center, Vector2.Zero, 61, 1)];
+            Main.PlaySound(SoundID.Item14);
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {

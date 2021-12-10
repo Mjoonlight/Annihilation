@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Annihilation.NPCs.Ansolar
@@ -35,6 +36,10 @@ namespace Annihilation.NPCs.Ansolar
                 projectile.ai[0] = 0;
             }
             projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(-90f);
+        }
+        public override void Kill(int timeLeft)
+        {
+            Main.PlaySound(SoundID.Item27);
         }
         public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
     }

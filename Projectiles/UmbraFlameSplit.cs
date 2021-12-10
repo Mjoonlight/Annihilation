@@ -44,6 +44,15 @@ namespace Annihilation.Projectiles
             }
             projectile.rotation = projectile.velocity.ToRotation();
         }
+        public override void Kill(int timeLeft)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, DustID.Fire, 0f, 0f, 200, new Color(255, 255, 255), 2f);
+                Main.dust[dust].velocity = Main.rand.NextVector2Unit() + projectile.velocity * 0.3f;
+            }
+        }
+
         public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
     }
 }

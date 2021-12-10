@@ -17,6 +17,7 @@ namespace Annihilation.Items.Vanity
 			item.height = 30;
 			item.value = 10000;
 			item.rare = ItemRarityID.Green;
+			item.vanity = true;
 		}
 	}
 }

@@ -23,7 +23,8 @@ namespace Annihilation.Projectiles
             projectile.ignoreWater = false;
             projectile.tileCollide = true;
             projectile.timeLeft = 200;
-            projectile.penetrate = 4;
+            projectile.penetrate = 2;
+            projectile.knockBack = 1;
         }
         public override void AI()
         {
@@ -39,11 +40,13 @@ namespace Annihilation.Projectiles
         }
         public override void Kill(int timeLeft)
         {
-            for (int i = 0; i < 17; i++)
+            for (int i = 0; i < 5; i++)
             {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6, 0f, 0f, 200, new Color(255, 255, 255), 2f);
-                Main.dust[dust].velocity = Main.rand.NextVector2Unit() * 2f;
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, DustID.Fire, 0f, 0f, 200, new Color(255, 255, 255), 2f);
+                Main.dust[dust].velocity = Main.rand.NextVector2Unit() * 0.5f;
+                Main.dust[dust].noGravity = true;
             }
+            Main.PlaySound(SoundID.Item20);
         }
 
         public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);

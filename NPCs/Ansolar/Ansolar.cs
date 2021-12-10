@@ -37,7 +37,7 @@ namespace Annihilation.NPCs.Ansolar
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;
-            npc.HitSound = SoundID.NPCHit42;
+            npc.HitSound = SoundID.Item10;
             npc.DeathSound = SoundID.NPCDeath14;
             npc.buffImmune[BuffID.Confused] = true;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansolar");
@@ -520,7 +520,7 @@ namespace Annihilation.NPCs.Ansolar
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;
-            npc.HitSound = SoundID.NPCHit42;
+            npc.HitSound = SoundID.Item10;
             npc.DeathSound = SoundID.NPCDeath14;
             npc.buffImmune[BuffID.Confused] = true;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansolar");
@@ -735,7 +735,7 @@ namespace Annihilation.NPCs.Ansolar
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;
-            npc.HitSound = SoundID.NPCHit42;
+            npc.HitSound = SoundID.Item10;
             npc.DeathSound = SoundID.NPCDeath14;
             npc.buffImmune[BuffID.Confused] = true;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansolar");
@@ -950,7 +950,7 @@ namespace Annihilation.NPCs.Ansolar
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.knockBackResist = 0f;
-            npc.HitSound = SoundID.NPCHit42;
+            npc.HitSound = SoundID.Item10;
             npc.DeathSound = SoundID.NPCDeath14;
             npc.buffImmune[BuffID.Confused] = true;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Ansolar");

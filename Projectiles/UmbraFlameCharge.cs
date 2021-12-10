@@ -190,7 +190,7 @@ namespace Annihilation.Projectiles
                         for (int i = 0; i < 5; i++)
                         {
                             int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6, 0f, 0f, 200, new Color(255, 255, 255), 2f);
-                            Main.dust[dust].velocity = Main.rand.NextVector2Unit();
+                            Main.dust[dust].velocity = Main.rand.NextVector2Unit() + projectile.velocity * 0.2f;
                         }
                         break;
                 
@@ -202,7 +202,7 @@ namespace Annihilation.Projectiles
                         for (int i = 0; i < 10; i++)
                         {
                             int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6, 0f, 0f, 200, new Color(255, 255, 255), 2f);
-                            Main.dust[dust].velocity = Main.rand.NextVector2Unit() * 1.5f;
+                            Main.dust[dust].velocity = Main.rand.NextVector2Unit() + projectile.velocity * 0.4f;
                         }
                         break;
                 }

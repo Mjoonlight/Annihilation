@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Annihilation.Projectiles
@@ -57,11 +58,13 @@ namespace Annihilation.Projectiles
             {
                 Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y), new Vector2(targer.velocity.X, targer.velocity.Y), ModContent.ProjectileType<CrystalBulletStuck>(), 0, 0f, projectile.owner, projectile.whoAmI, targer.whoAmI);
                 projectile.timeLeft = 0;
+                Main.PlaySound(SoundID.Item27);
             }
             else if (killing && projectile.timeLeft <= 1)
             {
                 Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y), new Vector2(0f, 0f), ModContent.ProjectileType<CrystalBulletStuck>(), 0, 0f, projectile.owner, projectile.whoAmI, -1);
                 projectile.timeLeft = 0;
+                Main.PlaySound(SoundID.Item27);
             }
         }
         private bool killing = false;

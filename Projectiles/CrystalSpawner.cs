@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Annihilation.Projectiles
@@ -50,6 +51,7 @@ namespace Annihilation.Projectiles
         }
         public override void Kill(int timeLeft)
         {
+            Main.PlaySound(SoundID.Item27);
             if (tileColider)
             {
                 Projectile.NewProjectile(new Vector2(projectile.Center.X + (projectile.width / 2) + 16, projectile.Center.Y - 4), new Vector2(0, 0), ModContent.ProjectileType<CrystalSpikes>(), (int)(projectile.ai[0]) / 3, 2f, projectile.owner);

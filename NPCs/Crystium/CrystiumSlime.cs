@@ -30,7 +30,7 @@ namespace Annihilation.NPCs.Crystium
             npc.noGravity = false;
             npc.noTileCollide = false;
             npc.knockBackResist = 0f;
-            npc.HitSound = SoundID.NPCHit42;
+            npc.HitSound = SoundID.Item10;
             npc.DeathSound = SoundID.NPCDeath14;
             npc.buffImmune[BuffID.Confused] = true;
         }

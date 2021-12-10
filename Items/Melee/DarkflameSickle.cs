@@ -22,12 +22,12 @@ namespace Annihilation.Items.Melee
 			item.melee = true;
 			item.width = 40;
 			item.height = 34;
-			item.useTime = 15;
-			item.useAnimation = 15;
-			item.useStyle = 1;
+			item.useTime = 25;
+			item.useAnimation = 25;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.knockBack = 6;
 			item.value = 11000;
-			item.rare = 6;
+			item.rare = ItemRarityID.Green;
 			item.UseSound = SoundID.Item71;
 			item.autoReuse = true;
 			item.shoot = ModContent.ProjectileType<DarkflameWave>();
@@ -39,7 +39,7 @@ namespace Annihilation.Items.Melee
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ModContent.ItemType<ChaosFragment>(), 8);
-			recipe.AddTile(16);
+			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
