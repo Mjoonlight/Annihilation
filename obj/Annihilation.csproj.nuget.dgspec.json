@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\migue\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Annihilation\\Annihilation.csproj": {}
+    "C:\\Users\\miner\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Annihilation\\Annihilation.csproj": {}
   },
   "projects": {
-    "C:\\Users\\migue\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Annihilation\\Annihilation.csproj": {
+    "C:\\Users\\miner\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Annihilation\\Annihilation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\migue\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Annihilation\\Annihilation.csproj",
+        "projectUniqueName": "C:\\Users\\miner\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Annihilation\\Annihilation.csproj",
         "projectName": "Annihilation",
-        "projectPath": "C:\\Users\\migue\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Annihilation\\Annihilation.csproj",
-        "packagesPath": "C:\\Users\\migue\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\migue\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Annihilation\\obj\\",
+        "projectPath": "C:\\Users\\miner\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Annihilation\\Annihilation.csproj",
+        "packagesPath": "C:\\Users\\miner\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\miner\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Annihilation\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\migue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\miner\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,7 +45,7 @@
               "version": "[0.1.*, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

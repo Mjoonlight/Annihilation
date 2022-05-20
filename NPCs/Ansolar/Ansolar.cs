@@ -30,7 +30,7 @@ namespace Annihilation.NPCs.Ansolar
             npc.width = 50;
             npc.height = 56;
             npc.aiStyle = -1;
-            npc.damage = 21;
+            npc.damage = 29;
             npc.defense = 15;
             npc.lifeMax = 3300;
             npc.boss = true;

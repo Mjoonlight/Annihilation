@@ -15,6 +15,7 @@ using Annihilation.Items.Accessories;
 using Annihilation.Items.Materials;
 using Annihilation.Items.Summoner;
 using Annihilation.Items.Magic;
+using Annihilation.Items.Expert;
 
 namespace Annihilation.NPCs.Megnatar
 {
@@ -38,8 +39,8 @@ namespace Annihilation.NPCs.Megnatar
             npc.width = 170;
             npc.height = 178;
             npc.aiStyle = -1;
-            npc.damage = 23;
-            npc.defense = 12;
+            npc.damage = 29;
+            npc.defense = 13;
             npc.lifeMax = 3000;
             npc.boss = true;
             npc.noGravity = true;
@@ -53,6 +54,7 @@ namespace Annihilation.NPCs.Megnatar
             npc.buffImmune[BuffID.ShadowFlame] = true;
             npc.buffImmune[BuffID.Confused] = true;
             music = mod.GetSoundSlot(SoundType.Music, "Sounds/Music/Megnatar");
+            bossBag = ModContent.ItemType<MegnatarBag>();
         }
         public override void HitEffect(int hitDirection, double damage)
         {
@@ -302,6 +304,11 @@ namespace Annihilation.NPCs.Megnatar
         }
         public override void NPCLoot()
         {
+            if (Main.expertMode)
+            {
+                npc.DropBossBags();
+                return;
+            }
             int ammount = Main.rand.Next(0, 11) + 30;
             Item.NewItem(npc.getRect(), ModContent.ItemType<ChaosFragment>(), ammount);
             int drop = Main.rand.Next(3);
