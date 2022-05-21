@@ -1,12 +1,10 @@
-﻿using Annihilation.NPCs.Megnatar;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria.ModLoader;
 using Terraria;
-using Annihilation.NPCs.Ansolar;
 using Annihilation.NPCs.ProjectileNPCs;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -27,8 +25,6 @@ namespace Annihilation
             DateTime now = DateTime.Today;
             if (now.Day == 1 && now.Month == 4)
             {
-                Megnatar.BulletHell = true;
-                Ansolar.ThornsReflector = true;
             }
             if (Crystiumites)
             {
