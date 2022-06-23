@@ -23,7 +23,7 @@ namespace Annihilation.Items.Ranged
 			Item.height = 42;
 			Item.useTime = 15;
 			Item.useAnimation = 15;
-			Item.useStyle = ItemUseStyleID.HoldingOut;
+			Item.useStyle = 5;
 			Item.noMelee = true;
 			Item.knockBack = 4;
 			Item.value = 10000;

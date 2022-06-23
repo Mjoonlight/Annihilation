@@ -1,4 +1,3 @@
-using Annihilation.Items.Materials;
 using Annihilation.Projectiles;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -26,7 +25,7 @@ namespace Annihilation.Items.Melee
 			Item.height = 34;
 			Item.useTime = 25;
 			Item.useAnimation = 25;
-			Item.useStyle = ItemUseStyleID.SwingThrow;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 6;
 			Item.value = 11000;
 			Item.rare = ItemRarityID.Green;

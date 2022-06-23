@@ -1,5 +1,4 @@
-﻿using Annihilation.Items.Materials;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.Creative;
 
@@ -22,7 +21,7 @@ namespace Annihilation.Items.Tools
 			Item.useTime = 20;
 			Item.useAnimation = 20;
 			Item.pick = 50;
-			Item.useStyle = ItemUseStyleID.SwingThrow;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.knockBack = 6;
 			Item.value = 10000;
 			Item.rare = ItemRarityID.Green;

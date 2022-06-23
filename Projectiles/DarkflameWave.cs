@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
 
 namespace Annihilation.Projectiles
 {
@@ -42,7 +43,7 @@ namespace Annihilation.Projectiles
         {
             for (int i = 0; i < 5; i++)
             {
-                int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Fire, 0f, 0f, 200, new Color(255, 255, 255), 2f);
+                int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0f, 0f, 200, new Color(255, 255, 255), 2f);
                 Main.dust[dust].velocity = Main.rand.NextVector2Unit() * 0.5f;
                 Main.dust[dust].noGravity = true;
             }

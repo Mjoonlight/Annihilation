@@ -1,10 +1,11 @@
-using Annihilation.Items.Materials;
 using Annihilation.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.GameContent;
 using Terraria.GameContent.Creative;
+using Terraria.DataStructures;
 
 namespace Annihilation.Items.Melee
 {
@@ -24,7 +25,7 @@ namespace Annihilation.Items.Melee
 			Item.height = 56;
 			Item.useTime = 32;
 			Item.useAnimation = 32;
-			Item.useStyle = ItemUseStyleID.SwingThrow;
+			Item.useStyle = ItemUseStyleID.Swing;
 			Item.noMelee = false;
 			Item.knockBack = 6f;
 			Item.value = 10000;
@@ -34,13 +35,14 @@ namespace Annihilation.Items.Melee
 			Item.shoot = ModContent.ProjectileType<SwordCrystal>();
 			Item.shootSpeed = 8f;
 		}
-		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 		{
 			int numberProjectiles = 3;
 			for (int i = 0; i < numberProjectiles; i++)
 			{
-				Vector2 perturbedSpeed = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(80));
-				Projectile.NewProjectile(source, position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
+				Vector2 perturbedSpeed = new Vector2(velocity.X, velocity.Y).RotatedByRandom(MathHelper.ToRadians(80));
+				Projectile.NewProjectile(source, position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockback, player.whoAmI);
 			}
 			return false;
 		}

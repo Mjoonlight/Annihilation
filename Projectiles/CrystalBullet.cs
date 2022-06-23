@@ -171,7 +171,7 @@ namespace Annihilation.Projectiles
 		private bool init = false;
 		public override void AI()
 		{
-			if (Main.projectile[(int)Projectile.ai[0]].modProjectile is CrystalBullet proj)
+			if (Main.projectile[(int)Projectile.ai[0]].ModProjectile is CrystalBullet proj)
 			{
 				if (!init && proj != null)
 				{
@@ -196,7 +196,7 @@ namespace Annihilation.Projectiles
 
 		public override bool PreKill(int timeLeft)
 		{
-			if (Main.projectile[(int)Projectile.ai[0]].modProjectile is CrystalBullet proj)
+			if (Main.projectile[(int)Projectile.ai[0]].ModProjectile is CrystalBullet proj)
 			{
 				if (proj != null)
 				{
