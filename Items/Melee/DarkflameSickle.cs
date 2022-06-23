@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent.Creative;
 
 namespace Annihilation.Items.Melee
 {
@@ -14,36 +15,26 @@ namespace Annihilation.Items.Melee
 		{
 			DisplayName.SetDefault("Darkflame Sickle");
 			Tooltip.SetDefault("Cut enemies with flaming waves");
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 		}
 
 		public override void SetDefaults()
 		{
-			item.damage = 17;
-			item.melee = true;
-			item.width = 40;
-			item.height = 34;
-			item.useTime = 25;
-			item.useAnimation = 25;
-			item.useStyle = ItemUseStyleID.SwingThrow;
-			item.knockBack = 6;
-			item.value = 11000;
-			item.rare = ItemRarityID.Green;
-			item.UseSound = SoundID.Item71;
-			item.autoReuse = true;
-			item.shoot = ModContent.ProjectileType<DarkflameWave>();
-			item.shootSpeed = 30f;
+			Item.damage = 17;
+			Item.DamageType = DamageClass.Melee;
+			Item.width = 40;
+			Item.height = 34;
+			Item.useTime = 25;
+			Item.useAnimation = 25;
+			Item.useStyle = ItemUseStyleID.SwingThrow;
+			Item.knockBack = 6;
+			Item.value = 11000;
+			Item.rare = ItemRarityID.Green;
+			Item.UseSound = SoundID.Item71;
+			Item.autoReuse = true;
+			Item.shoot = ModContent.ProjectileType<DarkflameWave>();
+			Item.shootSpeed = 30f;
 		}
-
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ModContent.ItemType<ChaosFragment>(), 8);
-			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-		}
-		
 	}
 }
 	

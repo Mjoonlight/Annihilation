@@ -7,196 +7,206 @@ using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Audio;
+using Annihilation.Projectiles;
 
 namespace Annihilation.Projectiles
 {
-    class CrystalBullet : ModProjectile
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Crystal Spike");
-            Main.projFrames[projectile.type] = 3;
-        }
-        public override void SetDefaults()
-        {
-            projectile.width = 14;
-            projectile.height = 32;
-            projectile.damage = 10;
-            projectile.aiStyle = -1;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.ranged = true;
-            projectile.penetrate = -1;
-            projectile.ignoreWater = false;
-            projectile.tileCollide = true;
-            projectile.timeLeft = 600;
-        }
-        public int type = -1;
-        private NPC targer = null;
-        public override void AI()
-        {
-            if (type == -1)
-            {
-                type = Main.rand.Next(3);
-            }
-            if (projectile.ai[0] == 0)
-            {
-                if (type == 0)
-                {
-                    projectile.damage -= 3;
-                    projectile.frame += 2;
-                }
-                else if (type == 1)
-                {
-                    projectile.damage += 4;
-                    projectile.frame += 1;
-                }
-                projectile.ai[0] = 1;
-            }
-            projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(-90f);
-            if (killing && projectile.timeLeft <= 1 && targer != null)
-            {
-                Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y), new Vector2(targer.velocity.X, targer.velocity.Y), ModContent.ProjectileType<CrystalBulletStuck>(), 0, 0f, projectile.owner, projectile.whoAmI, targer.whoAmI);
-                projectile.timeLeft = 0;
-                Main.PlaySound(SoundID.Item27);
-            }
-            else if (killing && projectile.timeLeft <= 1)
-            {
-                Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y), new Vector2(0f, 0f), ModContent.ProjectileType<CrystalBulletStuck>(), 0, 0f, projectile.owner, projectile.whoAmI, -1);
-                projectile.timeLeft = 0;
-                Main.PlaySound(SoundID.Item27);
-            }
-        }
-        private bool killing = false;
-        public override bool OnTileCollide(Vector2 oldVelocity)
-        {
-            if (!killing)
-            {
-                projectile.tileCollide = false;
-                projectile.timeLeft = 3;
-                killing = true;
-            }
-            return false;
-        }
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            if (!killing)
-            {
-                targer = target;
-                projectile.timeLeft = 3;
-                killing = true;
-            }
-        }
-        public override bool PreKill(int timeLeft)
-        {
-            if (!killing)
-            {
-                Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y), new Vector2(Main.rand.Next(-90, 91), Main.rand.Next(-90, 91)) / 10f, ModContent.ProjectileType<CrystalBulletShard>(), 5, 4f, projectile.owner, type);
-                Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y), new Vector2(Main.rand.Next(-90, 91), Main.rand.Next(-90, 91)) / 10f, ModContent.ProjectileType<CrystalBulletShard>(), 5, 4f, projectile.owner, type);
-                Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y), new Vector2(Main.rand.Next(-90, 91), Main.rand.Next(-90, 91)) / 10f, ModContent.ProjectileType<CrystalBulletShard>(), 5, 4f, projectile.owner, type);
-            }
-            return true;
-        }
-        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
-    }
-    class CrystalBulletShard : ModProjectile
-    {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.SetDefault("Crystal Shard");
-            Main.projFrames[projectile.type] = 3;
-        }
-        public override void SetDefaults()
-        {
-            projectile.width = 14;
-            projectile.height = 20;
-            projectile.damage = 5;
-            projectile.aiStyle = -1;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.ranged = true;
-            projectile.penetrate = 1;
-            projectile.ignoreWater = false;
-            projectile.tileCollide = true;
-            projectile.timeLeft = 600;
-        }
-        private bool init = false;
-        public override void AI()
-        {
-            if (!init)
-            {
-                if (projectile.ai[0] == 0)
-                {
-                    projectile.frame += 2;
-                    projectile.damage -= 1;
-                }
-                else if (projectile.ai[0] == 1)
-                {
-                    projectile.frame += 1;
-                    projectile.damage += 1;
-                }
-                init = true;
-            }
-            projectile.rotation = projectile.velocity.ToRotation() + MathHelper.ToRadians(-90f);
-        }
-        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
-    }
-    class CrystalBulletStuck : ModProjectile
-    {
-        public override void SetStaticDefaults()
-        {
-            Main.projFrames[projectile.type] = 3;
-        }
-        public override void SetDefaults()
-        {
-            projectile.width = 14;
-            projectile.height = 26;
-            projectile.aiStyle = -1;
-            projectile.friendly = true;
-            projectile.penetrate = -1;
-            projectile.ranged = true;
-            projectile.tileCollide = false;
-            projectile.timeLeft = 120;
-            projectile.ignoreWater = true;
-        }
-        private bool init = false;
-        public override void AI()
-        {
-            if (Main.projectile[(int)projectile.ai[0]].modProjectile is CrystalBullet proj)
-            {
-                if (!init && proj != null)
-                {
-                    if (proj.type == 0)
-                    {
-                        projectile.frame += 2;
-                    }
-                    else if (proj.type == 1)
-                    {
-                        projectile.frame += 1;
-                    }
-                    projectile.rotation = proj.projectile.rotation;
-                    init = true;
-                }
-            }
-            if (projectile.ai[1] != -1)
-            {
-                NPC nerp = Main.npc[(int)projectile.ai[1]];
-                projectile.velocity = nerp.velocity;
-            }
-        }
-        public override bool PreKill(int timeLeft)
-        {
-            if (Main.projectile[(int)projectile.ai[0]].modProjectile is CrystalBullet proj)
-            {
-                if (proj != null)
-                {
-                    Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y), new Vector2(Main.rand.Next(-90, 91), Main.rand.Next(-90, 91)) / 10f, ModContent.ProjectileType<CrystalBulletShard>(), 5, 4f, projectile.owner, proj.type);
-                    Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y), new Vector2(Main.rand.Next(-90, 91), Main.rand.Next(-90, 91)) / 10f, ModContent.ProjectileType<CrystalBulletShard>(), 5, 4f, projectile.owner, proj.type);
-                    Projectile.NewProjectile(new Vector2(projectile.Center.X, projectile.Center.Y), new Vector2(Main.rand.Next(-90, 91), Main.rand.Next(-90, 91)) / 10f, ModContent.ProjectileType<CrystalBulletShard>(), 5, 4f, projectile.owner, proj.type);
-                }
-            }
-            return true;
-        }
-        public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
-    }
+	class CrystalBullet : ModProjectile
+	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Spike");
+			Main.projFrames[Projectile.type] = 3;
+		}
+		public override void SetDefaults()
+		{
+			Projectile.width = 14;
+			Projectile.height = 32;
+			Projectile.damage = 10;
+			Projectile.aiStyle = -1;
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+			Projectile.DamageType = DamageClass.Ranged;
+			Projectile.penetrate = -1;
+			Projectile.ignoreWater = false;
+			Projectile.tileCollide = true;
+			Projectile.timeLeft = 600;
+		}
+
+		public int type = -1;
+		private NPC targer = null;
+		public override void AI()
+		{
+			if (type == -1)
+			{
+				type = Main.rand.Next(3);
+			}
+			if (Projectile.ai[0] == 0)
+			{
+				if (type == 0)
+				{
+					Projectile.damage -= 3;
+					Projectile.frame += 2;
+				}
+				else if (type == 1)
+				{
+					Projectile.damage += 4;
+					Projectile.frame += 1;
+				}
+				Projectile.ai[0] = 1;
+			}
+			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(-90f);
+			if (killing && Projectile.timeLeft <= 1 && targer != null)
+			{
+				Projectile.NewProjectile(Projectile.GetSource_FromAI(), new Vector2(Projectile.Center.X, Projectile.Center.Y), new Vector2(targer.velocity.X, targer.velocity.Y), ModContent.ProjectileType<CrystalBulletStuck>(), 0, 0f, Projectile.owner, Projectile.whoAmI, targer.whoAmI);
+				Projectile.timeLeft = 0;
+				SoundEngine.PlaySound(SoundID.Item27, Projectile.Center);
+			}
+			else if (killing && Projectile.timeLeft <= 1)
+			{
+				Projectile.NewProjectile(Projectile.GetSource_FromAI(), new Vector2(Projectile.Center.X, Projectile.Center.Y), new Vector2(0f, 0f), ModContent.ProjectileType<CrystalBulletStuck>(), 0, 0f, Projectile.owner, Projectile.whoAmI, -1);
+				Projectile.timeLeft = 0;
+				SoundEngine.PlaySound(SoundID.Item27, Projectile.Center);
+			}
+		}
+
+		private bool killing = false;
+		public override bool OnTileCollide(Vector2 oldVelocity)
+		{
+			if (!killing)
+			{
+				Projectile.tileCollide = false;
+				Projectile.timeLeft = 3;
+				killing = true;
+			}
+			return false;
+		}
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		{
+			if (!killing)
+			{
+				targer = target;
+				Projectile.timeLeft = 3;
+				killing = true;
+			}
+		}
+		public override bool PreKill(int timeLeft)
+		{
+			if (!killing)
+			{
+				Projectile.NewProjectile(Projectile.GetSource_FromAI(), new Vector2(Projectile.Center.X, Projectile.Center.Y), new Vector2(Main.rand.Next(-90, 91), Main.rand.Next(-90, 91)) / 10f, ModContent.ProjectileType<CrystalBulletShard>(), 5, 4f, Projectile.owner, type);
+				Projectile.NewProjectile(Projectile.GetSource_FromAI(), new Vector2(Projectile.Center.X, Projectile.Center.Y), new Vector2(Main.rand.Next(-90, 91), Main.rand.Next(-90, 91)) / 10f, ModContent.ProjectileType<CrystalBulletShard>(), 5, 4f, Projectile.owner, type);
+				Projectile.NewProjectile(Projectile.GetSource_FromAI(), new Vector2(Projectile.Center.X, Projectile.Center.Y), new Vector2(Main.rand.Next(-90, 91), Main.rand.Next(-90, 91)) / 10f, ModContent.ProjectileType<CrystalBulletShard>(), 5, 4f, Projectile.owner, type);
+			}
+			return true;
+		}
+		public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
+	}
+
+	class CrystalBulletShard : ModProjectile
+	{
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Crystal Shard");
+			Main.projFrames[Projectile.type] = 3;
+		}
+
+		public override void SetDefaults()
+		{
+			Projectile.width = 14;
+			Projectile.height = 20;
+			Projectile.damage = 5;
+			Projectile.aiStyle = -1;
+			Projectile.friendly = true;
+			Projectile.hostile = false;
+			Projectile.DamageType = DamageClass.Ranged;
+			Projectile.penetrate = 1;
+			Projectile.ignoreWater = false;
+			Projectile.tileCollide = true;
+			Projectile.timeLeft = 600;
+		}
+
+		private bool init = false;
+		public override void AI()
+		{
+			if (!init)
+			{
+				if (Projectile.ai[0] == 0)
+				{
+					Projectile.frame += 2;
+					Projectile.damage -= 1;
+				}
+				else if (Projectile.ai[0] == 1)
+				{
+					Projectile.frame += 1;
+					Projectile.damage += 1;
+				}
+				init = true;
+			}
+			Projectile.rotation = Projectile.velocity.ToRotation() + MathHelper.ToRadians(-90f);
+		}
+		public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
+	}
+
+	class CrystalBulletStuck : ModProjectile
+	{
+		public override void SetStaticDefaults()
+		{
+			Main.projFrames[Projectile.type] = 3;
+		}
+		public override void SetDefaults()
+		{
+			Projectile.width = 14;
+			Projectile.height = 26;
+			Projectile.aiStyle = -1;
+			Projectile.friendly = true;
+			Projectile.penetrate = -1;
+			Projectile.DamageType = DamageClass.Ranged;
+			Projectile.tileCollide = false;
+			Projectile.timeLeft = 120;
+			Projectile.ignoreWater = true;
+		}
+
+		private bool init = false;
+		public override void AI()
+		{
+			if (Main.projectile[(int)Projectile.ai[0]].modProjectile is CrystalBullet proj)
+			{
+				if (!init && proj != null)
+				{
+					if (proj.type == 0)
+					{
+						Projectile.frame += 2;
+					}
+					else if (proj.type == 1)
+					{
+						Projectile.frame += 1;
+					}
+					Projectile.rotation = proj.Projectile.rotation;
+					init = true;
+				}
+			}
+			if (Projectile.ai[1] != -1)
+			{
+				NPC nerp = Main.npc[(int)Projectile.ai[1]];
+				Projectile.velocity = nerp.velocity;
+			}
+		}
+
+		public override bool PreKill(int timeLeft)
+		{
+			if (Main.projectile[(int)Projectile.ai[0]].modProjectile is CrystalBullet proj)
+			{
+				if (proj != null)
+				{
+					Projectile.NewProjectile(Projectile.GetSource_FromAI(), new Vector2(Projectile.Center.X, Projectile.Center.Y), new Vector2(Main.rand.Next(-90, 91), Main.rand.Next(-90, 91)) / 10f, ModContent.ProjectileType<CrystalBulletShard>(), 5, 4f, Projectile.owner, proj.type);
+					Projectile.NewProjectile(Projectile.GetSource_FromAI(), new Vector2(Projectile.Center.X, Projectile.Center.Y), new Vector2(Main.rand.Next(-90, 91), Main.rand.Next(-90, 91)) / 10f, ModContent.ProjectileType<CrystalBulletShard>(), 5, 4f, Projectile.owner, proj.type);
+					Projectile.NewProjectile(Projectile.GetSource_FromAI(), new Vector2(Projectile.Center.X, Projectile.Center.Y), new Vector2(Main.rand.Next(-90, 91), Main.rand.Next(-90, 91)) / 10f, ModContent.ProjectileType<CrystalBulletShard>(), 5, 4f, Projectile.owner, proj.type);
+				}
+			}
+			return true;
+		}
+		public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
+	}
 }

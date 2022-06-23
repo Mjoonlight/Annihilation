@@ -15,21 +15,21 @@ namespace Annihilation.Projectiles
     {
         public override void SetDefaults()
         {
-            projectile.width = 8;
-            projectile.height = 18;
-            projectile.damage = 16;
-            projectile.friendly = true;
-            projectile.hostile = false;
-            projectile.ignoreWater = false;
-            projectile.tileCollide = true;
-            projectile.timeLeft = 200;
-            projectile.penetrate = 2;
-            projectile.knockBack = 1;
+            Projectile.width = 8;
+            Projectile.height = 18;
+            Projectile.damage = 16;
+            Projectile.friendly = true;
+            Projectile.hostile = false;
+            Projectile.ignoreWater = false;
+            Projectile.tileCollide = true;
+            Projectile.timeLeft = 200;
+            Projectile.penetrate = 2;
+            Projectile.knockBack = 1;
         }
         public override void AI()
         {
-            projectile.rotation += 0.9f * (float)projectile.direction;
-            projectile.velocity = projectile.velocity * 0.9f;
+            Projectile.rotation += 0.9f * (float)Projectile.direction;
+            Projectile.velocity = Projectile.velocity * 0.9f;
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
@@ -42,11 +42,11 @@ namespace Annihilation.Projectiles
         {
             for (int i = 0; i < 5; i++)
             {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, DustID.Fire, 0f, 0f, 200, new Color(255, 255, 255), 2f);
+                int dust = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Fire, 0f, 0f, 200, new Color(255, 255, 255), 2f);
                 Main.dust[dust].velocity = Main.rand.NextVector2Unit() * 0.5f;
                 Main.dust[dust].noGravity = true;
             }
-            Main.PlaySound(SoundID.Item20);
+	SoundEngine.PlaySound(SoundID.Item20, Projectile.Center);
         }
 
         public override Color? GetAlpha(Color lightColor) => new Color(255, 255, 255, 255);
