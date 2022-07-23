@@ -1,20 +1,10 @@
 The Annihilation Mod is Work in Progress and things are subject to change
 
-Version 0.2 Includes
+Version 0.1 Includes
 
-1 New enemy, Chaos Emissary
-2 New items, Crystium Helmet (Unfinished), Crystium Rock (Unobtainable Normally)
-Crystium Ore is now placeable
-Many resprites
-And Several Fixes {MULTIPLAYER IS STILL BUGGED}
+2 Bosses: Megnatar, Chaos Herald and Kulvectus the Seer
+New Enemies: Chaos Emissary, Occulta Lurker, Doom Spinner
+New items: Darkflame Sickle, Core of Chaos, Destroyer Remnant, Chaos Flame, 
+Umbra Flame Blaster, The Blackout, Chaos Fragment
 
-Version 0.14 Includes
-
-2 bosses, Megnatar, Chaos Bringer and Ansolar, Crystium Guardian
-2 enemies, Crystium Slime and Crystium Watcher
-17 items, Crystal Artifiact, Core of Chaos, Destroyer Remnant, Chaos Flame, Crystium Sigil, Crystal Tome, 
-Crystium Barrier Reflector, Umbra Flame Blaster, Chaos Fragment
-Crystium Bar, Crystium Ore, Crystium Sword, Crystal Spiker, Crystium Bow, The Blackout, Crystium Hamaxe
-and the Crystium Pickaxe
-
-This is a Beta Build, and not everything is set in stone
+[This is a beta build and somethings might not be finished or fully set in stone]
